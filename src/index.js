@@ -6,7 +6,7 @@ import Header from './components/Header';
 export default class App extends Component {
   state = {
     questions: [],
-    questionId: parseInt(window.location.hash.split('#')[1]),
+    questionId: location.hash ? parseInt(location.hash.split('#')[1]) : null,
     revealAnswer: false
   }
 
@@ -24,7 +24,7 @@ export default class App extends Component {
 
   locationHashChanged() {
     this.setState({
-      questionId: parseInt(window.location.hash.split('#')[1])
+      questionId: parseInt(location.hash.split('#')[1])
     })
   }
 
@@ -40,7 +40,7 @@ export default class App extends Component {
     const question = this.getQuestion(nextId);
     if (question) {
       this.setState({ questionId: nextId, revealAnswer: false });
-      window.location.hash = nextId;
+      location.hash = nextId;
     }
     return question;
   }
@@ -73,7 +73,7 @@ export default class App extends Component {
           <pre className="Box-header">{question.code}</pre>
           <ul>
             {question.choices.map(choice => (
-              <li className="Box-row" onClick={this.revealAnswer}>{choice}</li>
+              <li className="Box-row" onClick={this.revealAnswer} role="button">{choice}</li>
             ))}
           </ul>
           {revealAnswer && <div className="Box-row">{question.answer}</div>}

@@ -1,9 +1,9 @@
 import { h } from 'preact';
 
-const Header = ({ question }) => (
+const Header = ({ question, totalQuestions }) => (
 	<header className="header">
-    <i>1 of 43</i>
-    <h2>{question}</h2>
+    <i>{question.id} of {totalQuestions}</i>
+    <h2>{question.title}</h2>
 	</header>
 );
 

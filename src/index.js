@@ -5,38 +5,82 @@ import Header from './components/Header';
 
 export default class App extends Component {
   state = {
-    pending: true,
-    questions: []
+    questions: [],
+    questionId: parseInt(window.location.hash.split('#')[1]),
+    revealAnswer: false
   }
 
   loadQuestions() {
     fetch('./assets/data/questions.json')
       .then(res => res.json())
-      .then(questions => this.setState({
-        pending: false,
-        questions
-      }));
+      .then(questions => this.setState({ questions }));
 	}
 
   componentDidMount() {
     this.loadQuestions();
+
+    window.addEventListener('hashchange', () => this.locationHashChanged(), false);
   }
 
-	render({}, { pending, questions }) {
-    if (pending) return 'Loading activity...';
+  locationHashChanged() {
+    this.setState({
+      questionId: parseInt(window.location.hash.split('#')[1])
+    })
+  }
 
-    const question = questions[0];
+  getQuestion(id) {
+    const { questions } = this.state;
+    const question = questions.find(question => question.id === id);
+    return question;
+  }
+
+  getNextQuestion = () => {
+    const { questionId } = this.state;
+    const nextId = questionId + 1;
+    const question = this.getQuestion(nextId);
+    if (question) {
+      this.setState({ questionId: nextId, revealAnswer: false });
+      window.location.hash = nextId;
+    }
+    return question;
+  }
+
+  getPrevQuestion = () => {
+    const { questionId } = this.state;
+    const prevId = questionId - 1;
+    const question = this.getQuestion(prevId);
+    if (question) {
+      this.setState({ questionId: prevId, revealAnswer: false });
+      window.location.hash = prevId;
+    }
+    return question;
+  }
+
+  revealAnswer = () => {
+    this.setState({ revealAnswer: true });
+  }
+
+	render({}, { questions, questionId, revealAnswer }) {
+    const question = this.getQuestion(questionId);
+
+    if (!questionId) return <Intro />;
+    if (!question) return 'Loading activity...';
 
 		return (
       <div>
-        <Intro />
-        <Header question={question.title} />
-        <pre>{question.code}</pre>
-        <ul>
-          {question.choices.map(choice => (
-            <li>{choice}</li>
-          ))}
-        </ul>
+        <Header question={question} totalQuestions={questions.length} />
+        <main className="Box">
+          <pre className="Box-header">{question.code}</pre>
+          <ul>
+            {question.choices.map(choice => (
+              <li className="Box-row" onClick={this.revealAnswer}>{choice}</li>
+            ))}
+          </ul>
+          {revealAnswer && <div className="Box-row">{question.answer}</div>}
+        </main>
+
+        <button onClick={this.getPrevQuestion}>Prev</button>
+        <button onClick={this.getNextQuestion}>Next</button>
       </div>
 		);
 	}

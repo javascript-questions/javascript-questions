@@ -8,7 +8,7 @@ const Intro = ({ question }) => (
     <h1>Questions</h1>
     <p>From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview.</p>
 
-    <a href="" className="button">Start</a>
+    <a href="/#1" className="button">Start</a>
 	</div>
 );
 

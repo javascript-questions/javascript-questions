@@ -73,7 +73,7 @@ function saveQuestions(data) {
     return data;
   });
 
-  fs.writeFile('src/questions.json', JSON.stringify(questions, null, 2), err => {
+  fs.writeFile('src/assets/questions.json', JSON.stringify(questions, null, 2), err => {
     if (err) throw err;
     console.log('The file has been saved!');
   });

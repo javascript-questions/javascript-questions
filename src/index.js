@@ -13,7 +13,7 @@ export default class App extends Component {
   }
 
   loadQuestions() {
-    fetch('./questions.json')
+    fetch('./assets/questions.json')
       .then(res => res.json())
       .then(questions => this.setState({ questions }));
 	}

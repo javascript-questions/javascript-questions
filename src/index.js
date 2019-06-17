@@ -3,6 +3,7 @@ import { Component, Fragment } from 'preact';
 import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
 import Header from './components/Header';
+import LoadingActiviy from './components/LoadingActiviy';
 
 export default class App extends Component {
   state = {
@@ -49,7 +50,6 @@ export default class App extends Component {
     const newAnswer = { questionId, choiceId };
     const index = userAnswers.findIndex(({ questionId }) => questionId === questionId);
 
-    console.log({ userAnswers, newAnswer, index });
     if (index === -1) {
       userAnswers.push(newAnswer);
     } else {
@@ -69,9 +69,8 @@ export default class App extends Component {
     const question = this.getQuestion(questionId);
     const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
 
-
-
-    if (!question) return <Intro />;
+    if (!questionId) return <Intro />;
+    if (!question) return <LoadingActiviy />;
 
 		return (
       <Fragment>
@@ -102,16 +101,4 @@ export default class App extends Component {
       </Fragment>
 		);
 	}
-}
-
-function updateAnswer(arr, obj) {
-  const index = arr.findIndex((e) => e.id === obj.id);
-
-  if (index === -1) {
-    arr.push(obj);
-  } else {
-    arr[index] = obj;
-  }
-
-  return arr;
 }

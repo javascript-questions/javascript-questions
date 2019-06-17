@@ -1,7 +1,7 @@
 import { h } from 'preact';
 
 const QuestionHeader = ({ question }) => (
-	<header className="header">
+	<header className="QuestionHeader">
     <h2>{question.title}</h2>
 	</header>
 );

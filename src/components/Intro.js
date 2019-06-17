@@ -2,7 +2,7 @@ import { h } from 'preact';
 import Logo from './Logo';
 
 const Intro = () => (
-	<div className="intro">
+	<div className="Intro">
     <Logo size={150} />
     <h1>Questions</h1>
     <p>From basic to advanced: test how well you know JavaScript, refresh your knowledge a bit, or prepare for your coding interview.</p>

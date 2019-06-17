@@ -2,6 +2,7 @@ import './style';
 import { Component } from 'preact';
 import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
+import Drawer from './components/Drawer';
 import QuestionHeader from './components/QuestionHeader';
 import LoadingActivity from './components/LoadingActivity';
 
@@ -69,11 +70,12 @@ export default class App extends Component {
     const question = this.getQuestion(questionId);
     const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
 
-    if (!questionId) return <Intro />;
-    if (!question) return <LoadingActivity />;
+    if (!questionId) return <div><Intro /><Drawer /></div>;
+    if (!question) return <div className="app-shell"><LoadingActivity /></div>;
 
 		return (
-      <div class="app-shell">
+      <div className="app-shell">
+        <Drawer />
         <main>
           <QuestionHeader question={question} />
           <div className="Box">

@@ -98,7 +98,7 @@ export default class App extends Component {
 
           <div class="Pagination">
             <a href={`/#${questionId - 1}`} className="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
-            <i>{questionId} of {totalQuestions}</i>
+            <small><i>{questionId} of {totalQuestions}</i></small>
             <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
           </div>
         </main>

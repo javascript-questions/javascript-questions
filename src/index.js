@@ -1,5 +1,5 @@
 import './style';
-import { Component, Fragment } from 'preact';
+import { Component } from 'preact';
 import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
 import Header from './components/Header';
@@ -73,7 +73,7 @@ export default class App extends Component {
     if (!question) return <LoadingActiviy />;
 
 		return (
-      <Fragment>
+      <>
         <Header question={question} totalQuestions={totalQuestions} />
         <main className="Box">
           <pre className="Box-header">{question.code}</pre>
@@ -98,7 +98,7 @@ export default class App extends Component {
           <i>{questionId} of {totalQuestions}</i>
           <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
         </div>
-      </Fragment>
+      </>
 		);
 	}
 }

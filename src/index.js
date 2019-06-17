@@ -3,7 +3,7 @@ import { Component } from 'preact';
 import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
 import Header from './components/Header';
-import LoadingActiviy from './components/LoadingActiviy';
+import LoadingActivity from './components/LoadingActivity';
 
 export default class App extends Component {
   state = {
@@ -70,7 +70,7 @@ export default class App extends Component {
     const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
 
     if (!questionId) return <Intro />;
-    if (!question) return <LoadingActiviy />;
+    if (!question) return <LoadingActivity />;
 
 		return (
       <>

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
+const TurndownService = require('turndown');
 
 const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
 
@@ -15,7 +16,6 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
         const rootElement = document.querySelector('.markdown-body');
         const questionNodes = Array.from(rootElement.querySelectorAll(selector))
             .filter(({ innerText }) => /^[0-9].+$/.test(innerText));
-
         const questions = questionNodes.map((node, index) => ({
             id: index + 1,
             title: node.innerText,
@@ -39,11 +39,11 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
       return choices;
     }
     function getAnswer(node) {
-      return getNextSibling(node, 'details').innerHTML;
-      // return {
-      //   answer: null,
-      //   description: null
-      // }
+      const rootNode = getNextSibling(node, 'details');
+      const answerNodes = Array.from(rootNode.querySelectorAll(':not(summary)'));
+      const answer = answerNodes.map(node => node.innerHTML).join('');
+      return rootNode.innerHTML;
+      return answer;
     }
     function getNextSibling(element, selector) {
     	let sibling = element.nextElementSibling;
@@ -60,10 +60,19 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
     }
   });
 
-  fs.writeFile('src/assets/data/questions.json', JSON.stringify(questions), err => {
+  saveQuestions(questions);
+  await browser.close();
+})();
+
+function saveQuestions(data) {
+  const turndownService = new TurndownService();
+  const questions = data.map(data => {
+    data.answer = turndownService.turndown(data.answer);
+    return data;
+  });
+
+  fs.writeFile('src/questions.json', JSON.stringify(questions, null, 2), err => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
-
-  await browser.close();
-})();
+}

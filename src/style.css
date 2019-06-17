@@ -10,12 +10,27 @@ html, body {
 body {
   margin: 0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 ul, ol {
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+code,
+pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+
+code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
 }
 
 pre {
@@ -29,6 +44,10 @@ pre {
   padding: 16px;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.width-full {
+  width: 100%;
 }
 
 .Box {
@@ -47,6 +66,9 @@ pre {
   padding: 16px;
   list-style-type: none;
   border-top: 1px solid #e1e4e8;
+}
+.Box-row--hover-gray:hover {
+  background-color: #f6f8fa;
 }
 
 .intro,
@@ -94,15 +116,29 @@ pre {
   margin: 16px;
 }
 
-.button {
+.Button {
 	background-color: white;
 	border: 0;
 	border-radius: 3px;
 	color: #1e0121;
   font-weight: 500;
   padding: 12px 40px;
-  display: block;
-  width: 100%;
+  display: inline-block;
   text-align: center;
   text-decoration: none;
+}
+
+.Button--purple {
+  color: #fff;
+  background-color: #68153e;
+}
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 100%;
+  padding: 16px;
+
 }

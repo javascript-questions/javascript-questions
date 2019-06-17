@@ -1,5 +1,6 @@
 import './style';
-import { Component } from 'preact';
+import { Component, Fragment } from 'preact';
+import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
 import Header from './components/Header';
 
@@ -11,77 +12,67 @@ export default class App extends Component {
   }
 
   loadQuestions() {
-    fetch('./assets/data/questions.json')
+    fetch('./questions.json')
       .then(res => res.json())
       .then(questions => this.setState({ questions }));
 	}
 
   componentDidMount() {
     this.loadQuestions();
-
     window.addEventListener('hashchange', () => this.locationHashChanged(), false);
   }
 
   locationHashChanged() {
-    this.setState({
-      questionId: parseInt(location.hash.split('#')[1])
-    })
+    const { questionId } = this.state;
+    const newQuestionId = parseInt(location.hash.split('#')[1]);
+    if (newQuestionId === questionId) return;
+    this.showQuestion(newQuestionId);
+    window.scrollTo({ top: 0 });
   }
 
   getQuestion(id) {
     const { questions } = this.state;
-    const question = questions.find(question => question.id === id);
-    return question;
+    return questions.find(question => question.id === id);
   }
 
-  getNextQuestion = () => {
-    const { questionId } = this.state;
-    const nextId = questionId + 1;
-    const question = this.getQuestion(nextId);
+  showQuestion(id) {
+    const question = this.getQuestion(id);
     if (question) {
-      this.setState({ questionId: nextId, revealAnswer: false });
-      location.hash = nextId;
+      this.setState({ questionId: id, revealAnswer: false });
+      location.hash = id;
     }
-    return question;
-  }
-
-  getPrevQuestion = () => {
-    const { questionId } = this.state;
-    const prevId = questionId - 1;
-    const question = this.getQuestion(prevId);
-    if (question) {
-      this.setState({ questionId: prevId, revealAnswer: false });
-      window.location.hash = prevId;
-    }
-    return question;
   }
 
   revealAnswer = () => {
+    if (this.state.revealAnswer) return;
     this.setState({ revealAnswer: true });
   }
 
 	render({}, { questions, questionId, revealAnswer }) {
+    const totalQuestions = questions.length;
     const question = this.getQuestion(questionId);
 
-    if (!questionId) return <Intro />;
-    if (!question) return 'Loading activity...';
+    if (!question) return <Intro />;
 
 		return (
-      <div>
-        <Header question={question} totalQuestions={questions.length} />
+      <Fragment>
+        <Header question={question} totalQuestions={totalQuestions} />
         <main className="Box">
           <pre className="Box-header">{question.code}</pre>
           <ul>
             {question.choices.map(choice => (
-              <li className="Box-row" onClick={this.revealAnswer} role="button">{choice}</li>
+              <li className="Box-row Box-row--hover-gray" onClick={this.revealAnswer} role="button">{choice}</li>
             ))}
           </ul>
-          {revealAnswer && <div className="Box-row">{question.answer}</div>}
+          {revealAnswer && <div className="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
         </main>
 
-        <button onClick={this.getPrevQuestion}>Prev</button>
-        <button onClick={this.getNextQuestion}>Next</button>
-      </div>
+        <div class="Pagination">
+          <a href={`/#${questionId - 1}`} className="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
+          <i>{questionId} of {totalQuestions}</i>
+          <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
+        </div>
+      </Fragment>
 		);
 	}
 }

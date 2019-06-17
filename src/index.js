@@ -2,7 +2,7 @@ import './style';
 import { Component } from 'preact';
 import snarkdown from 'snarkdown';
 import Intro from './components/Intro';
-import Header from './components/Header';
+import QuestionHeader from './components/QuestionHeader';
 import LoadingActivity from './components/LoadingActivity';
 
 export default class App extends Component {
@@ -74,30 +74,32 @@ export default class App extends Component {
 
 		return (
       <div class="app-shell">
-        <Header question={question} totalQuestions={totalQuestions} />
-        <main className="Box">
-          <pre className="Box-header">{question.code}</pre>
-          <ul>
-            {question.choices.map((choice, choiceId) => (
-              <li
-                className="Box-row Box-row--hover-gray"
-                dangerouslySetInnerHTML={{__html: snarkdown(choice)}}
-                data-selected={userAnswer && userAnswer.choiceId === choiceId}
-                onClick={() => {
-                  this.updateUserChoice({questionId, choiceId});
-                  this.revealAnswer();
-                }}
-              />
-            ))}
-          </ul>
-          {revealAnswer && <div className="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
-        </main>
+        <main>
+          <QuestionHeader question={question} />
+          <div className="Box">
+            <pre className="Box-header">{question.code}</pre>
+            <ul>
+              {question.choices.map((choice, choiceId) => (
+                <li
+                  className="Box-row Box-row--hover-gray"
+                  dangerouslySetInnerHTML={{__html: snarkdown(choice)}}
+                  data-selected={userAnswer && userAnswer.choiceId === choiceId}
+                  onClick={() => {
+                    this.updateUserChoice({questionId, choiceId});
+                    this.revealAnswer();
+                  }}
+                />
+              ))}
+            </ul>
+            {revealAnswer && <div className="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
+          </div>
 
-        <div class="Pagination">
-          <a href={`/#${questionId - 1}`} className="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
-          <i>{questionId} of {totalQuestions}</i>
-          <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
-        </div>
+          <div class="Pagination">
+            <a href={`/#${questionId - 1}`} className="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
+            <i>{questionId} of {totalQuestions}</i>
+            <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
+          </div>
+        </main>
       </div>
 		);
 	}

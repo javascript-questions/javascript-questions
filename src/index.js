@@ -8,7 +8,8 @@ export default class App extends Component {
   state = {
     questions: [],
     questionId: location.hash ? parseInt(location.hash.split('#')[1]) : null,
-    revealAnswer: false
+    revealAnswer: false,
+    userAnswers: []
   }
 
   loadQuestions() {
@@ -43,14 +44,32 @@ export default class App extends Component {
     }
   }
 
-  revealAnswer = () => {
+  updateUserChoice = ({ questionId, choiceId }) => {
+    const { userAnswers } = this.state;
+    const newAnswer = { questionId, choiceId };
+    const index = userAnswers.findIndex(({ questionId }) => questionId === questionId);
+
+    console.log({ userAnswers, newAnswer, index });
+    if (index === -1) {
+      userAnswers.push(newAnswer);
+    } else {
+      userAnswers[index] = newAnswer;
+    }
+
+    this.setState({ userAnswers });
+  }
+
+  revealAnswer = choiceId => {
     if (this.state.revealAnswer) return;
     this.setState({ revealAnswer: true });
   }
 
-	render({}, { questions, questionId, revealAnswer }) {
+	render({}, { questions, questionId, userAnswers, revealAnswer }) {
     const totalQuestions = questions.length;
     const question = this.getQuestion(questionId);
+    const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
+
+
 
     if (!question) return <Intro />;
 
@@ -60,8 +79,16 @@ export default class App extends Component {
         <main className="Box">
           <pre className="Box-header">{question.code}</pre>
           <ul>
-            {question.choices.map(choice => (
-              <li className="Box-row Box-row--hover-gray" onClick={this.revealAnswer} role="button">{choice}</li>
+            {question.choices.map((choice, choiceId) => (
+              <li
+                className="Box-row Box-row--hover-gray"
+                dangerouslySetInnerHTML={{__html: snarkdown(choice)}}
+                data-selected={userAnswer && userAnswer.choiceId === choiceId}
+                onClick={() => {
+                  this.updateUserChoice({questionId, choiceId});
+                  this.revealAnswer();
+                }}
+              />
             ))}
           </ul>
           {revealAnswer && <div className="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
@@ -75,4 +102,16 @@ export default class App extends Component {
       </Fragment>
 		);
 	}
+}
+
+function updateAnswer(arr, obj) {
+  const index = arr.findIndex((e) => e.id === obj.id);
+
+  if (index === -1) {
+    arr.push(obj);
+  } else {
+    arr[index] = obj;
+  }
+
+  return arr;
 }

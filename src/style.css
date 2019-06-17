@@ -63,12 +63,17 @@ pre {
   border-top-right-radius: 3px;
 }
 .Box-row {
+  background-color: #fff;
   padding: 16px;
   list-style-type: none;
   border-top: 1px solid #e1e4e8;
 }
 .Box-row--hover-gray:hover {
   background-color: #f6f8fa;
+}
+.Box-row[data-selected="true"] {
+  background-color: #f6f8fa;
+  box-shadow: 2px 0 0 #68153e inset;
 }
 
 .intro,

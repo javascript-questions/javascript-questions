@@ -5,10 +5,10 @@
     "text": null,
     "code": "function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = \"Lydia\";\n  let age = 21;\n}\n\nsayHi();",
     "choices": [
-      "A: Lydia and undefined",
-      "B: Lydia and ReferenceError",
-      "C: ReferenceError and 21",
-      "D: undefined and ReferenceError"
+      "A: `Lydia` and `undefined`",
+      "B: `Lydia` and `ReferenceError`",
+      "C: `ReferenceError` and `21`",
+      "D: `undefined` and `ReferenceError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-d)Answer: D\n\nWithin the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.\n\nVariables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get _initialized_. They are not accessible before the line we declare (initialize) them. This is called the \"temporal dead zone\". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`."
   },
@@ -18,9 +18,9 @@
     "text": null,
     "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
     "choices": [
-      "A: 0 1 2 and 0 1 2",
-      "B: 0 1 2 and 3 3 3",
-      "C: 3 3 3 and 0 1 2"
+      "A: `0 1 2` and `0 1 2`",
+      "B: `0 1 2` and `3 3 3`",
+      "C: `3 3 3` and `0 1 2`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c)Answer: C\n\nBecause of the event queue in JavaScript, the `setTimeout` function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` function was invoked, `i` was equal to `3` in the first example.\n\nIn the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop."
   },
@@ -30,10 +30,10 @@
     "text": null,
     "code": "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
     "choices": [
-      "A: 20 and 62.83185307179586",
-      "B: 20 and NaN",
-      "C: 20 and 63",
-      "D: NaN and 63"
+      "A: `20` and `62.83185307179586`",
+      "B: `20` and `NaN`",
+      "C: `20` and `63`",
+      "D: `NaN` and `63`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b)Answer: B\n\nNote that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.\n\nWith arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).\n\nThere is no value `radius` on that object, which returns `undefined`."
   },
@@ -43,9 +43,9 @@
     "text": null,
     "code": "+true;\n!\"Lydia\";",
     "choices": [
-      "A: 1 and false",
-      "B: false and NaN",
-      "C: false and false"
+      "A: `1` and `false`",
+      "B: `false` and `NaN`",
+      "C: `false` and `false`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a)Answer: A\n\nThe unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.\n\nThe string `'Lydia'` is a truthy value. What we're actually asking, is \"is this truthy value falsy?\". This returns `false`."
   },
@@ -55,9 +55,9 @@
     "text": null,
     "code": "const bird = {\n  size: \"small\"\n};\n\nconst mouse = {\n  name: \"Mickey\",\n  small: true\n};",
     "choices": [
-      "A: mouse.bird.size",
-      "B: mouse[bird.size]",
-      "C: mouse[bird[\"size\"]]",
+      "A: `mouse.bird.size`",
+      "B: `mouse[bird.size]`",
+      "C: `mouse[bird[\"size\"]]`",
       "D: All of them are valid"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-1)Answer: A\n\nIn JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.\n\n`mouse[bird.size]`: First it evaluates `bird.size`, which is `\"small\"`. `mouse[\"small\"]` returns `true`\n\nHowever, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property \"size\" of undefined`."
@@ -68,10 +68,10 @@
     "text": null,
     "code": "let c = { greeting: \"Hey!\" };\nlet d;\n\nd = c;\nc.greeting = \"Hello\";\nconsole.log(d.greeting);",
     "choices": [
-      "A: Hello",
-      "B: undefined",
-      "C: ReferenceError",
-      "D: TypeError"
+      "A: `Hello`",
+      "B: `undefined`",
+      "C: `ReferenceError`",
+      "D: `TypeError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-2)Answer: A\n\nIn JavaScript, all objects interact by _reference_ when setting them equal to each other.\n\nFirst, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.\n\n[![](https://camo.githubusercontent.com/bd30403debc9a753512d0097f47958808974525c/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67)](https://camo.githubusercontent.com/bd30403debc9a753512d0097f47958808974525c/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67)\n\nWhen you change one object, you change all of them."
   },
@@ -81,10 +81,10 @@
     "text": null,
     "code": "let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
     "choices": [
-      "A: true false true",
-      "B: false false true",
-      "C: true false false",
-      "D: false true true"
+      "A: `true` `false` `true`",
+      "B: `false` `false` `true`",
+      "C: `true` `false` `false`",
+      "D: `false` `true` `true`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-1)Answer: C\n\n`new Number()` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.\n\nWhen we use the `==` operator, it only checks whether it has the same _value_. They both have the value of `3`, so it returns `true`.\n\nHowever, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`"
   },
@@ -94,10 +94,10 @@
     "text": null,
     "code": "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = \"green\" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: \"purple\" });\nfreddie.colorChange(\"orange\");",
     "choices": [
-      "A: orange",
-      "B: purple",
-      "C: green",
-      "D: TypeError"
+      "A: `orange`",
+      "B: `purple`",
+      "C: `green`",
+      "D: `TypeError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-d-1)Answer: D\n\nThe `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown."
   },
@@ -107,9 +107,9 @@
     "text": null,
     "code": "let greeting;\ngreetign = {}; // Typo!\nconsole.log(greetign);",
     "choices": [
-      "A: {}",
-      "B: ReferenceError: greetign is not defined",
-      "C: undefined"
+      "A: `{}`",
+      "B: `ReferenceError: greetign is not defined`",
+      "C: `undefined`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-3)Answer: A\n\nIt logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as `global.greetign = {}` (or `window.greetign = {}` in a browser).\n\nIn order to avoid this, we can use `\"use strict\"`. This makes sure that you have declared a variable before setting it equal to anything."
   },
@@ -120,9 +120,9 @@
     "code": "function bark() {\n  console.log(\"Woof!\");\n}\n\nbark.animal = \"dog\";",
     "choices": [
       "A: Nothing, this is totally fine!",
-      "B: SyntaxError. You cannot add properties to a function this way.",
-      "C: undefined",
-      "D: ReferenceError"
+      "B: `SyntaxError`. You cannot add properties to a function this way.",
+      "C: `undefined`",
+      "D: `ReferenceError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-4)Answer: A\n\nThis is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)\n\nA function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable."
   },
@@ -132,10 +132,10 @@
     "text": null,
     "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());",
     "choices": [
-      "A: TypeError",
-      "B: SyntaxError",
-      "C: Lydia Hallie",
-      "D: undefined undefined"
+      "A: `TypeError`",
+      "B: `SyntaxError`",
+      "C: `Lydia Hallie`",
+      "D: `undefined` `undefined`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-5)Answer: A\n\nYou can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,\n\nPerson.prototype.getFullName \\= function () {\n  return \\`${this.firstName} ${this.lastName}\\`;\n}\n\nwould have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!"
   },
@@ -145,10 +145,10 @@
     "text": null,
     "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person(\"Lydia\", \"Hallie\");\nconst sarah = Person(\"Sarah\", \"Smith\");\n\nconsole.log(lydia);\nconsole.log(sarah);",
     "choices": [
-      "A: Person {firstName: \"Lydia\", lastName: \"Hallie\"} and undefined",
-      "B: Person {firstName: \"Lydia\", lastName: \"Hallie\"} and Person {firstName: \"Sarah\", lastName: \"Smith\"}",
-      "C: Person {firstName: \"Lydia\", lastName: \"Hallie\"} and {}",
-      "D:Person {firstName: \"Lydia\", lastName: \"Hallie\"} and ReferenceError"
+      "A: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `undefined`",
+      "B: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `Person {firstName: \"Sarah\", lastName: \"Smith\"}`",
+      "C: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `{}`",
+      "D:`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `ReferenceError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-6)Answer: A\n\nFor `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!\n\nWe said that `this.firstName` equals `\"Sarah\"` and `this.lastName` equals `\"Smith\"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`."
   },
@@ -182,10 +182,10 @@
     "text": null,
     "code": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
     "choices": [
-      "A: NaN",
-      "B: TypeError",
-      "C: \"12\"",
-      "D: 3"
+      "A: `NaN`",
+      "B: `TypeError`",
+      "C: `\"12\"`",
+      "D: `3`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-2)Answer: C\n\nJavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.\n\nIn this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `\"Hello\" + \"World\"`, so what's happening here is `\"1\" + \"2\"` which returns `\"12\"`."
   },
@@ -195,10 +195,10 @@
     "text": null,
     "code": "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
     "choices": [
-      "A: 1 1 2",
-      "B: 1 2 2",
-      "C: 0 2 2",
-      "D: 0 1 2"
+      "A: `1` `1` `2`",
+      "B: `1` `2` `2`",
+      "C: `0` `2` `2`",
+      "D: `0` `1` `2`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-3)Answer: C\n\nThe **postfix** unary operator `++`:\n\n1.  Returns the value (this returns `0`)\n2.  Increments the value (number is now `1`)\n\nThe **prefix** unary operator `++`:\n\n1.  Increments the value (number is now `2`)\n2.  Returns the value (this returns `2`)\n\nThis returns `0 2 2`."
   },
@@ -208,9 +208,9 @@
     "text": null,
     "code": "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = \"Lydia\";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
     "choices": [
-      "A: \"Lydia\" 21 [\"\", \" is \", \" years old\"]",
-      "B: [\"\", \" is \", \" years old\"] \"Lydia\" 21",
-      "C: \"Lydia\" [\"\", \" is \", \" years old\"] 21"
+      "A: `\"Lydia\"` `21` `[\"\", \" is \", \" years old\"]`",
+      "B: `[\"\", \" is \", \" years old\"]` `\"Lydia\"` `21`",
+      "C: `\"Lydia\"` `[\"\", \" is \", \" years old\"]` `21`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-2)Answer: B\n\nIf you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!"
   },
@@ -220,9 +220,9 @@
     "text": null,
     "code": "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log(\"You are an adult!\");\n  } else if (data == { age: 18 }) {\n    console.log(\"You are still an adult.\");\n  } else {\n    console.log(`Hmm.. You don't have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });",
     "choices": [
-      "A: You are an adult!",
-      "B: You are still an adult.",
-      "C: Hmm.. You don't have an age I guess"
+      "A: `You are an adult!`",
+      "B: `You are still an adult.`",
+      "C: `Hmm.. You don't have an age I guess`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-4)Answer: C\n\nWhen testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.\n\nThe two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.\n\nThis is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`."
   },
@@ -232,10 +232,10 @@
     "text": null,
     "code": "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
     "choices": [
-      "A: \"number\"",
-      "B: \"array\"",
-      "C: \"object\"",
-      "D: \"NaN\""
+      "A: `\"number\"`",
+      "B: `\"array\"`",
+      "C: `\"object\"`",
+      "D: `\"NaN\"`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-5)Answer: C\n\nThe spread operator (`...args`.) returns an array with arguments. An array is an object, so `typeof args` returns `\"object\"`"
   },
@@ -245,10 +245,10 @@
     "text": null,
     "code": "function getAge() {\n  \"use strict\";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
     "choices": [
-      "A: 21",
-      "B: undefined",
-      "C: ReferenceError",
-      "D: TypeError"
+      "A: `21`",
+      "B: `undefined`",
+      "C: `ReferenceError`",
+      "D: `TypeError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-6)Answer: C\n\nWith `\"use strict\"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `\"use strict\"`, it will throw a reference error. If we didn't use `\"use strict\"`, it would have worked, since the property `age` would have gotten added to the global object."
   },
@@ -258,10 +258,10 @@
     "text": null,
     "code": "const sum = eval(\"10*10+5\");",
     "choices": [
-      "A: 105",
-      "B: \"105\"",
-      "C: TypeError",
-      "D: \"10*10+5\""
+      "A: `105`",
+      "B: `\"105\"`",
+      "C: `TypeError`",
+      "D: `\"10*10+5\"`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-7)Answer: A\n\n`eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`."
   },
@@ -284,10 +284,10 @@
     "text": null,
     "code": "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
     "choices": [
-      "A: 8",
-      "B: 10",
-      "C: SyntaxError",
-      "D: ReferenceError"
+      "A: `8`",
+      "B: `10`",
+      "C: `SyntaxError`",
+      "D: `ReferenceError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-4)Answer: B\n\nWith the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.\n\nYou cannot do this with `let` or `const` since they're block-scoped."
   },
@@ -297,10 +297,10 @@
     "text": null,
     "code": "const obj = { 1: \"a\", 2: \"b\", 3: \"c\" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty(\"1\");\nobj.hasOwnProperty(1);\nset.has(\"1\");\nset.has(1);",
     "choices": [
-      "A: false true false true",
-      "B: false true true true",
-      "C: true true false true",
-      "D: true true true true"
+      "A: `false` `true` `false` `true`",
+      "B: `false` `true` `true` `true`",
+      "C: `true` `true` `false` `true`",
+      "D: `true` `true` `true` `true`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-7)Answer: C\n\nAll object keys (excluding Symbols) are strings under the hood, even if you don't type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.\n\nIt doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`."
   },
@@ -310,10 +310,10 @@
     "text": null,
     "code": "const obj = { a: \"one\", b: \"two\", a: \"three\" };\nconsole.log(obj);",
     "choices": [
-      "A: { a: \"one\", b: \"two\" }",
-      "B: { b: \"two\", a: \"three\" }",
-      "C: { a: \"three\", b: \"two\" }",
-      "D: SyntaxError"
+      "A: `{ a: \"one\", b: \"two\" }`",
+      "B: `{ b: \"two\", a: \"three\" }`",
+      "C: `{ a: \"three\", b: \"two\" }`",
+      "D: `SyntaxError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-8)Answer: C\n\nIf you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value."
   },
@@ -335,10 +335,10 @@
     "text": null,
     "code": "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
     "choices": [
-      "A: 1 2",
-      "B: 1 2 3",
-      "C: 1 2 4",
-      "D: 1 3 4"
+      "A: `1` `2`",
+      "B: `1` `2` `3`",
+      "C: `1` `2` `4`",
+      "D: `1` `3` `4`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-9)Answer: C\n\nThe `continue` statement skips an iteration if a certain condition returns `true`."
   },
@@ -348,10 +348,10 @@
     "text": null,
     "code": "String.prototype.giveLydiaPizza = () => {\n  return \"Just give Lydia pizza already!\";\n};\n\nconst name = \"Lydia\";\n\nname.giveLydiaPizza();",
     "choices": [
-      "A: \"Just give Lydia pizza already!\"",
-      "B: TypeError: not a function",
-      "C: SyntaxError",
-      "D: undefined"
+      "A: `\"Just give Lydia pizza already!\"`",
+      "B: `TypeError: not a function`",
+      "C: `SyntaxError`",
+      "D: `undefined`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-9)Answer: A\n\n`String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!"
   },
@@ -361,10 +361,10 @@
     "text": null,
     "code": "const a = {};\nconst b = { key: \"b\" };\nconst c = { key: \"c\" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
     "choices": [
-      "A: 123",
-      "B: 456",
-      "C: undefined",
-      "D: ReferenceError"
+      "A: `123`",
+      "B: `456`",
+      "C: `undefined`",
+      "D: `ReferenceError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-5)Answer: B\n\nObject keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.\n\nHowever, when we stringify an object, it becomes `\"[Object object]\"`. So what we are saying here, is that `a[\"Object object\"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a[\"Object object\"] = 456`.\n\nThen, we log `a[b]`, which is actually `a[\"Object object\"]`. We just set that to `456`, so it returns `456`."
   },
@@ -374,10 +374,10 @@
     "text": null,
     "code": "const foo = () => console.log(\"First\");\nconst bar = () => setTimeout(() => console.log(\"Second\"));\nconst baz = () => console.log(\"Third\");\n\nbar();\nfoo();\nbaz();",
     "choices": [
-      "A: First Second Third",
-      "B: First Third Second",
-      "C: Second First Third",
-      "D: Second Third First"
+      "A: `First` `Second` `Third`",
+      "B: `First` `Third` `Second`",
+      "C: `Second` `First` `Third`",
+      "D: `Second` `Third` `First`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-6)Answer: B\n\nWe have a `setTimeout` function and invoked it first. Yet, it was logged last.\n\nThis is because in browsers, we don't just have the runtime engine, we also have something called a `WebAPI`. The `WebAPI` gives us the `setTimeout` function to start with, and for example the DOM.\n\nAfter the _callback_ is pushed to the WebAPI, the `setTimeout` function itself (but not the callback!) is popped off the stack.\n\n[![](https://camo.githubusercontent.com/335a3d02ffb7f822628886c480a9584ace2ff931/68747470733a2f2f692e696d6775722e636f6d2f58357773484f672e706e67)](https://camo.githubusercontent.com/335a3d02ffb7f822628886c480a9584ace2ff931/68747470733a2f2f692e696d6775722e636f6d2f58357773484f672e706e67)\n\nNow, `foo` gets invoked, and `\"First\"` is being logged.\n\n[![](https://camo.githubusercontent.com/cf5f8bd460361ccee8bd2534026adbb22e2596e5/68747470733a2f2f692e696d6775722e636f6d2f507663306447712e706e67)](https://camo.githubusercontent.com/cf5f8bd460361ccee8bd2534026adbb22e2596e5/68747470733a2f2f692e696d6775722e636f6d2f507663306447712e706e67)\n\n`foo` is popped off the stack, and `baz` gets invoked. `\"Third\"` gets logged.\n\n[![](https://camo.githubusercontent.com/1b97d5c5a796735746aafd7dc0119c236863eb57/68747470733a2f2f692e696d6775722e636f6d2f576841326243502e706e67)](https://camo.githubusercontent.com/1b97d5c5a796735746aafd7dc0119c236863eb57/68747470733a2f2f692e696d6775722e636f6d2f576841326243502e706e67)\n\nThe WebAPI can't just add stuff to the stack whenever it's ready. Instead, it pushes the callback function to something called the _queue_.\n\n[![](https://camo.githubusercontent.com/030dfcad68efec405301a5870e217fb374069645/68747470733a2f2f692e696d6775722e636f6d2f4e536e445a6d552e706e67)](https://camo.githubusercontent.com/030dfcad68efec405301a5870e217fb374069645/68747470733a2f2f692e696d6775722e636f6d2f4e536e445a6d552e706e67)\n\nThis is where an event loop starts to work. An **event loop** looks at the stack and task queue. If the stack is empty, it takes the first thing on the queue and pushes it onto the stack.\n\n[![](https://camo.githubusercontent.com/8371c584d1456dea5fbe13c8c0554d75e147ea6b/68747470733a2f2f692e696d6775722e636f6d2f757969536341492e706e67)](https://camo.githubusercontent.com/8371c584d1456dea5fbe13c8c0554d75e147ea6b/68747470733a2f2f692e696d6775722e636f6d2f757969536341492e706e67)\n\n`bar` gets invoked, `\"Second\"` gets logged, and it's popped off the stack."
   },
@@ -387,9 +387,9 @@
     "text": null,
     "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
     "choices": [
-      "A: Outer div",
-      "B: Inner div",
-      "C: button",
+      "A: Outer `div`",
+      "B: Inner `div`",
+      "C: `button`",
       "D: An array of all nested elements."
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-10)Answer: C\n\nThe deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`"
@@ -400,10 +400,10 @@
     "text": null,
     "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
     "choices": [
-      "A: p div",
-      "B: div p",
-      "C: p",
-      "D: div"
+      "A: `p` `div`",
+      "B: `div` `p`",
+      "C: `p`",
+      "D: `div`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-10)Answer: A\n\nIf we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards."
   },
@@ -413,10 +413,10 @@
     "text": null,
     "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
     "choices": [
-      "A: undefined is 21 Lydia is 21",
-      "B: function function",
-      "C: Lydia is 21 Lydia is 21",
-      "D: Lydia is 21 function"
+      "A: `undefined is 21` `Lydia is 21`",
+      "B: `function` `function`",
+      "C: `Lydia is 21` `Lydia is 21`",
+      "D: `Lydia is 21` `function`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-d-3)Answer: D\n\nWith both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!\n\n`.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately."
   },
@@ -426,10 +426,10 @@
     "text": null,
     "code": "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
     "choices": [
-      "A: \"object\"",
-      "B: \"number\"",
-      "C: \"function\"",
-      "D: \"undefined\""
+      "A: `\"object\"`",
+      "B: `\"number\"`",
+      "C: `\"function\"`",
+      "D: `\"undefined\"`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-7)Answer: B\n\nThe `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `\"number\"`.\n\nFYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `\"function\"` is not a type, since functions are objects, it's of type `\"object\"`."
   },
@@ -439,9 +439,9 @@
     "text": null,
     "code": "0;\nnew Number(0);\n(\"\");\n(\" \");\nnew Boolean(false);\nundefined;",
     "choices": [
-      "A: 0, '', undefined",
-      "B: 0, new Number(0), '', new Boolean(false), undefined",
-      "C: 0, '', new Boolean(false), undefined",
+      "A: `0`, `''`, `undefined`",
+      "B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`",
+      "C: `0`, `''`, `new Boolean(false)`, `undefined`",
       "D: All of them are falsy"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-11)Answer: A\n\nThere are only six falsy values:\n\n*   `undefined`\n*   `null`\n*   `NaN`\n*   `0`\n*   `''` (empty string)\n*   `false`\n\nFunction constructors, like `new Number` and `new Boolean` are truthy."
@@ -452,10 +452,10 @@
     "text": null,
     "code": "console.log(typeof typeof 1);",
     "choices": [
-      "A: \"number\"",
-      "B: \"string\"",
-      "C: \"object\"",
-      "D: \"undefined\""
+      "A: `\"number\"`",
+      "B: `\"string\"`",
+      "C: `\"object\"`",
+      "D: `\"undefined\"`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-8)Answer: B\n\n`typeof 1` returns `\"number\"`. `typeof \"number\"` returns `\"string\"`"
   },
@@ -465,10 +465,10 @@
     "text": null,
     "code": "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
     "choices": [
-      "A: [1, 2, 3, 7 x null, 11]",
-      "B: [1, 2, 3, 11]",
-      "C: [1, 2, 3, 7 x empty, 11]",
-      "D: SyntaxError"
+      "A: `[1, 2, 3, 7 x null, 11]`",
+      "B: `[1, 2, 3, 11]`",
+      "C: `[1, 2, 3, 7 x empty, 11]`",
+      "D: `SyntaxError`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-11)Answer: C\n\nWhen you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called \"empty slots\". These actually have the value of `undefined`, but you will see something like:\n\n`[1, 2, 3, 7 x empty, 11]`\n\ndepending on where you run it (it's different for every browser, node, etc.)"
   },
@@ -478,10 +478,10 @@
     "text": null,
     "code": "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
     "choices": [
-      "A: 1 undefined 2",
-      "B: undefined undefined undefined",
-      "C: 1 1 2",
-      "D: 1 undefined undefined"
+      "A: `1` `undefined` `2`",
+      "B: `undefined` `undefined` `undefined`",
+      "C: `1` `1` `2`",
+      "D: `1` `undefined` `undefined`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-12)Answer: A\n\nThe `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.\n\nLater, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.\n\nOutside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`."
   },
@@ -504,10 +504,10 @@
     "text": null,
     "code": "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
     "choices": [
-      "A: [0, 1, 2, 3, 1, 2]",
-      "B: [6, 1, 2]",
-      "C: [1, 2, 0, 1, 2, 3]",
-      "D: [1, 2, 6]"
+      "A: `[0, 1, 2, 3, 1, 2]`",
+      "B: `[6, 1, 2]`",
+      "C: `[1, 2, 0, 1, 2, 3]`",
+      "D: `[1, 2, 6]`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-c-12)Answer: C\n\n`[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.\n\nThen, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`"
   },
@@ -517,10 +517,10 @@
     "text": null,
     "code": "!!null;\n!!\"\";\n!!1;",
     "choices": [
-      "A: false true false",
-      "B: false false true",
-      "C: false true true",
-      "D: true true false"
+      "A: `false` `true` `false`",
+      "B: `false` `false` `true`",
+      "C: `false` `true` `true`",
+      "D: `true` `true` `false`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-b-9)Answer: B\n\n`null` is falsy. `!null` returns `true`. `!true` returns `false`.\n\n`\"\"` is falsy. `!\"\"` returns `true`. `!true` returns `false`.\n\n`1` is truthy. `!1` returns `false`. `!false` returns `true`."
   },
@@ -533,7 +533,7 @@
       "A: a unique id",
       "B: the amount of milliseconds specified",
       "C: the passed function",
-      "D: undefined"
+      "D: `undefined`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-14)Answer: A\n\nIt returns a unique id. This id can be used to clear that interval with the `clearInterval()` function."
   },
@@ -543,10 +543,10 @@
     "text": null,
     "code": "[...\"Lydia\"];",
     "choices": [
-      "A: [\"L\", \"y\", \"d\", \"i\", \"a\"]",
-      "B: [\"Lydia\"]",
-      "C: [[], \"Lydia\"]",
-      "D: [[\"L\", \"y\", \"d\", \"i\", \"a\"]]"
+      "A: `[\"L\", \"y\", \"d\", \"i\", \"a\"]`",
+      "B: `[\"Lydia\"]`",
+      "C: `[[], \"Lydia\"]`",
+      "D: `[[\"L\", \"y\", \"d\", \"i\", \"a\"]]`"
     ],
     "answer": "**Answer**\n\n#### [](#answer-a-15)Answer: A\n\nA string is an iterable. The spread operator maps every character of an iterable to one element."
   }

@@ -35,7 +35,8 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
     }
     function getChoices(node) {
       const rootNode = getNextSibling(node, 'ul');
-      const choices = rootNode && rootNode.innerText.split('\n');
+      const choiceNodes = Array.from(rootNode.querySelectorAll('li'));
+      const choices = choiceNodes.map(node => node.innerHTML);
       return choices;
     }
     function getAnswer(node) {
@@ -68,6 +69,7 @@ function saveQuestions(data) {
   const turndownService = new TurndownService();
   const questions = data.map(data => {
     data.answer = turndownService.turndown(data.answer);
+    data.choices = data.choices.map(choice => turndownService.turndown(choice));
     return data;
   });
 

@@ -170,10 +170,18 @@ footer {
   text-align: center;
   text-decoration: none;
 }
+.Button:focus {
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 0.2em;
+  outline: 0;
+}
 
 .Button--purple {
   color: #fff;
   background-color: #68153e;
+}
+
+.Button--purple:focus {
+  box-shadow: rgba(104, 21, 62, 0.4) 0px 0px 0px 0.2em;
 }
 
 .Pagination {
@@ -210,6 +218,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.Drawer summary:focus {
+  box-shadow: rgba(104, 21, 62, 0.4) 0px 0px 0px 0.2em;
+  outline: 0;
 }
 
 .Drawer[open] > summary::before {

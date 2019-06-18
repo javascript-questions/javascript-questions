@@ -51,6 +51,7 @@ pre {
   padding: 16px;
   margin-top: 0;
   margin-bottom: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 [disabled] {

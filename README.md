@@ -2,6 +2,7 @@
 
 > Multiple choice JavaScript questions as Progressive Web App.
 
+<img src="media/preview.png" alt="JavaScript Questions PWA preview" width="530">
 
 ## Related
 

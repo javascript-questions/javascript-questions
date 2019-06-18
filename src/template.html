@@ -13,7 +13,7 @@
 		<% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
 			<meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
 		<% } %>
-    <meta name="twitter:image:src" content="https://javascript-questions.netlify.com/assets/social-media-preview.png" />
+    <meta name="twitter:image:src" content="<%= process.env.BASE_URL %>/assets/social-media-preview.png?<%= htmlWebpackPlugin.options.timeInMs %>" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>" />
     <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.manifest.description %>" />

@@ -9,6 +9,7 @@ import LoadingActivity from './components/LoadingActivity';
 export default class App extends Component {
   state = {
     questions: [],
+    questionsUpdatedAt: null,
     questionId: location.hash ? parseInt(location.hash.split('#')[1]) : null,
     revealAnswer: false,
     userAnswers: []
@@ -17,7 +18,10 @@ export default class App extends Component {
   loadQuestions() {
     fetch('./assets/questions.json')
       .then(res => res.json())
-      .then(questions => this.setState({ questions }));
+      .then(questions => this.setState({
+        questions: questions.data,
+        questionsUpdatedAt: questions.updatedAt
+      }));
 	}
 
   componentDidMount() {
@@ -65,17 +69,17 @@ export default class App extends Component {
     this.setState({ revealAnswer: true });
   }
 
-	render({}, { questions, questionId, userAnswers, revealAnswer }) {
+	render({}, { questions, questionsUpdatedAt, questionId, userAnswers, revealAnswer }) {
     const totalQuestions = questions.length;
     const question = this.getQuestion(questionId);
     const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
 
-    if (!questionId) return <div><Intro /><Drawer /></div>;
+    if (!questionId) return <div><Intro /><Drawer updatedAt={questionsUpdatedAt} /></div>;
     if (!question) return <div className="app-shell"><LoadingActivity /></div>;
 
 		return (
       <div className="app-shell">
-        <Drawer />
+        <Drawer updatedAt={questionsUpdatedAt} />
         <main>
           <QuestionHeader question={question} />
           <div className="Box">

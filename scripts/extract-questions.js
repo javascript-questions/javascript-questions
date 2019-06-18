@@ -67,11 +67,14 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
 
 function saveQuestions(data) {
   const turndownService = new TurndownService();
-  const questions = data.map(data => {
-    data.answer = turndownService.turndown(data.answer).replace('**Answer**\n\n', '');
-    data.choices = data.choices.map(choice => turndownService.turndown(choice));
-    return data;
-  });
+  const questions = {
+    updatedAt: new Date(),
+    data: data.map(data => {
+      data.answer = turndownService.turndown(data.answer).replace('**Answer**\n\n', '');
+      data.choices = data.choices.map(choice => turndownService.turndown(choice));
+      return data;
+    })
+  };
 
   fs.writeFile('src/assets/questions.json', JSON.stringify(questions, null, 2), err => {
     if (err) throw err;

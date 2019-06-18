@@ -16,6 +16,10 @@ const Drawer = ({ updatedAt }) => (
       </a>
 
       <div style={{ marginTop: 'auto' }}>
+        <div style={{ borderBottom: '1px solid #e1e4e8', margin: '16px 0', padding: '16px 0'}}>
+          <a href="https://www.producthunt.com/posts/javascript-questions?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-javascript-questions" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=158796&theme=light" alt="JavaScript Questions - Multiple choice JavaScript questions as Progressive Web App | Product Hunt Embed" width="250px" height="54px" style={{ width: '250px', height: '54px' }} /></a>
+        </div>
+
         <b>Questions:</b>
         <ul>
           <li><small>Updated at: {updatedAt}</small></li>

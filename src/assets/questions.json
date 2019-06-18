@@ -22,7 +22,7 @@
       "B: `0 1 2` and `3 3 3`",
       "C: `3 3 3` and `0 1 2`"
     ],
-    "answer": "#### [](#answer-c)Answer: C\n\nBecause of the event queue in JavaScript, the `setTimeout` function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` function was invoked, `i` was equal to `3` in the first example.\n\nIn the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop."
+    "answer": "#### [](#answer-c)Answer: C\n\nBecause of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.\n\nIn the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop."
   },
   {
     "id": 3,
@@ -51,13 +51,13 @@
   },
   {
     "id": 5,
-    "title": "5. Which one is NOT valid?",
+    "title": "5. Which one is true?",
     "text": null,
     "code": "const bird = {\n  size: \"small\"\n};\n\nconst mouse = {\n  name: \"Mickey\",\n  small: true\n};",
     "choices": [
-      "A: `mouse.bird.size`",
-      "B: `mouse[bird.size]`",
-      "C: `mouse[bird[\"size\"]]`",
+      "A: `mouse.bird.size` is not valid",
+      "B: `mouse[bird.size]` is not valid",
+      "C: `mouse[bird[\"size\"]]` is not valid",
       "D: All of them are valid"
     ],
     "answer": "#### [](#answer-a-1)Answer: A\n\nIn JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not _type_ them as strings, they are always converted into strings under the hood.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement.\n\n`mouse[bird.size]`: First it evaluates `bird.size`, which is `\"small\"`. `mouse[\"small\"]` returns `true`\n\nHowever, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property \"size\" of undefined`."
@@ -69,9 +69,10 @@
     "code": "let c = { greeting: \"Hey!\" };\nlet d;\n\nd = c;\nc.greeting = \"Hello\";\nconsole.log(d.greeting);",
     "choices": [
       "A: `Hello`",
-      "B: `undefined`",
-      "C: `ReferenceError`",
-      "D: `TypeError`"
+      "B: `Hey`",
+      "C: `undefined`",
+      "D: `ReferenceError`",
+      "E: `TypeError`"
     ],
     "answer": "#### [](#answer-a-2)Answer: A\n\nIn JavaScript, all objects interact by _reference_ when setting them equal to each other.\n\nFirst, variable `c` holds a value to an object. Later, we assign `d` with the same reference that `c` has to the object.\n\n[![](https://camo.githubusercontent.com/bd30403debc9a753512d0097f47958808974525c/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67)](https://camo.githubusercontent.com/bd30403debc9a753512d0097f47958808974525c/68747470733a2f2f692e696d6775722e636f6d2f6b6f356b3066732e706e67)\n\nWhen you change one object, you change all of them."
   },
@@ -130,14 +131,14 @@
     "id": 11,
     "title": "11. What's the output?",
     "text": null,
-    "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());",
+    "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());",
     "choices": [
       "A: `TypeError`",
       "B: `SyntaxError`",
       "C: `Lydia Hallie`",
       "D: `undefined` `undefined`"
     ],
-    "answer": "#### [](#answer-a-5)Answer: A\n\nYou can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,\n\nPerson.prototype.getFullName \\= function () {\n  return \\`${this.firstName} ${this.lastName}\\`;\n}\n\nwould have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!"
+    "answer": "#### [](#answer-a-5)Answer: A\n\nYou can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,\n\nPerson.prototype.getFullName \\= function() {\n  return \\`${this.firstName} ${this.lastName}\\`;\n};\n\nwould have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!"
   },
   {
     "id": 12,

@@ -1,6 +1,6 @@
 # JavaScript Questions
 
-> Multiple choice JavaScript questions
+> Multiple choice JavaScript questions as Progressive Web App.
 
 
 ## Related

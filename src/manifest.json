@@ -1,6 +1,7 @@
 {
   "name": "JavaScript Questions",
   "short_name": "JS Questions",
+  "description": "Multiple choice JavaScript questions as Progressive Web App",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

@@ -311,7 +311,6 @@ footer {
   }
   .Intro p:last-of-type {
     font-size: inherit;
-    margin-top: auto;
   }
 
   .QuestionHeader > h2 {

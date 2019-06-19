@@ -1,11 +1,7 @@
-html, body {
+html {
+  color: #24292e;
 	font: 14px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 	font-weight: 400;
-  margin: 0;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {
@@ -13,7 +9,11 @@ body {
   /* background by SVGBackgrounds.com */
   background-attachment: fixed;
   background-size: cover;
-  color: #24292e;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -127,7 +127,7 @@ footer {
   align-items: center;
 	justify-content: center;
   min-height: 100vh;
-  padding: 80px 16px 48px 16px;
+  padding: 80px 16px 16px 16px;
   margin-left: auto;
   margin-right: auto;
   max-width: 480px;
@@ -143,10 +143,20 @@ footer {
 
 .Intro p {
   font-size: 1em;
-  font-weight: 500;
   line-height: 1.4;
   margin-top: 0;
   margin-bottom: 48px;
+}
+
+.Intro p:last-of-type {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 56px;
+  margin-bottom: 0;
+}
+
+.Intro a:not([class]) {
+  color: white;
 }
 
 .QuestionHeader {
@@ -207,20 +217,27 @@ footer {
   z-index: 1;
 }
 
-.Drawer summary {
-  border-radius: 28px;
+.Drawer > summary {
+  border-radius: 50%;
+}
+
+/* Using a nested div to fix a flexbox issue on iOS */
+.Drawer > summary > div {
+  border-radius: 50%;
   box-shadow: 0 4px 11px rgba(0, 0, 0, .3);
   background-color: #68153e;
   color: white;
   cursor: pointer;
-  width: 56px;
-  height: 56px;
-  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.Drawer summary:focus {
+.Drawer > summary:focus {
   box-shadow: rgba(104, 21, 62, 0.4) 0px 0px 0px 0.2em;
   outline: 0;
 }
@@ -256,6 +273,18 @@ footer {
   padding: 16px;
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Drawer p {
+  margin-top: 0;
+}
+
+.Drawer h3 {
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 800px) {
@@ -269,8 +298,20 @@ footer {
     right: 16px;
   }
 
+  .Drawer > summary > div {
+    width: 56px;
+    height: 56px;
+  }
+
+  .Intro {
+    padding-bottom: 48px;
+  }
   .Intro h1 {
     font-size: 3.4em;
+  }
+  .Intro p:last-of-type {
+    font-size: inherit;
+    margin-top: auto;
   }
 
   .QuestionHeader > h2 {

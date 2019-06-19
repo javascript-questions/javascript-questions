@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 		<title><%= htmlWebpackPlugin.options.title %></title>
@@ -17,6 +18,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %>" />
     <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.manifest.description %>" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/atom-one-dark.min.css" integrity="sha256-GA29iW/iYj9FcuQQktvW45pRzHvZeFfgeFvA4tGVjpM=" crossorigin="anonymous" />
 		<% for (var chunk of webpack.chunks) { %>
 		 <% if (chunk.names.length === 1 && chunk.names[0] === 'polyfills') continue; %>
 			<% for (var file of chunk.files) { %>

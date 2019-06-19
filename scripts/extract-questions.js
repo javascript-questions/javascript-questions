@@ -1,6 +1,9 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const TurndownService = require('turndown');
+const hljs = require('highlight.js/lib/highlight');
+const javascript = require('highlight.js/lib/languages/javascript');
+hljs.registerLanguage('javascript', javascript);
 
 const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
 
@@ -70,6 +73,7 @@ function saveQuestions(data) {
   const questions = {
     updatedAt: new Date(),
     data: data.map(data => {
+      data.code = hljs.highlight('javascript', data.code).value;
       data.answer = turndownService.turndown(data.answer).replace('**Answer**\n\n', '');
       data.choices = data.choices.map(choice => turndownService.turndown(choice));
       return data;

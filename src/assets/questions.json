@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2019-06-18T11:59:57.390Z",
+  "updatedAt": "2019-06-19T15:26:29.067Z",
   "data": [
     {
       "id": 1,
       "title": "1. What's the output?",
       "text": null,
-      "code": "function sayHi() {\n  console.log(name);\n  console.log(age);\n  var name = \"Lydia\";\n  let age = 21;\n}\n\nsayHi();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(name);\n  <span class=\"hljs-built_in\">console</span>.log(age);\n  <span class=\"hljs-keyword\">var</span> name = <span class=\"hljs-string\">\"Lydia\"</span>;\n  <span class=\"hljs-keyword\">let</span> age = <span class=\"hljs-number\">21</span>;\n}\n\nsayHi();",
       "choices": [
         "A: `Lydia` and `undefined`",
         "B: `Lydia` and `ReferenceError`",
@@ -18,7 +18,7 @@
       "id": 2,
       "title": "2. What's the output?",
       "text": null,
-      "code": "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
+      "code": "<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">var</span> i = <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-number\">3</span>; i++) {\n  setTimeout(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(i), <span class=\"hljs-number\">1</span>);\n}\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; <span class=\"hljs-number\">3</span>; i++) {\n  setTimeout(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(i), <span class=\"hljs-number\">1</span>);\n}",
       "choices": [
         "A: `0 1 2` and `0 1 2`",
         "B: `0 1 2` and `3 3 3`",
@@ -30,7 +30,7 @@
       "id": 3,
       "title": "3. What's the output?",
       "text": null,
-      "code": "const shape = {\n  radius: 10,\n  diameter() {\n    return this.radius * 2;\n  },\n  perimeter: () => 2 * Math.PI * this.radius\n};\n\nshape.diameter();\nshape.perimeter();",
+      "code": "<span class=\"hljs-keyword\">const</span> shape = {\n  <span class=\"hljs-attr\">radius</span>: <span class=\"hljs-number\">10</span>,\n  diameter() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.radius * <span class=\"hljs-number\">2</span>;\n  },\n  <span class=\"hljs-attr\">perimeter</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-number\">2</span> * <span class=\"hljs-built_in\">Math</span>.PI * <span class=\"hljs-keyword\">this</span>.radius\n};\n\nshape.diameter();\nshape.perimeter();",
       "choices": [
         "A: `20` and `62.83185307179586`",
         "B: `20` and `NaN`",
@@ -43,7 +43,7 @@
       "id": 4,
       "title": "4. What's the output?",
       "text": null,
-      "code": "+true;\n!\"Lydia\";",
+      "code": "+<span class=\"hljs-literal\">true</span>;\n!<span class=\"hljs-string\">\"Lydia\"</span>;",
       "choices": [
         "A: `1` and `false`",
         "B: `false` and `NaN`",
@@ -55,7 +55,7 @@
       "id": 5,
       "title": "5. Which one is true?",
       "text": null,
-      "code": "const bird = {\n  size: \"small\"\n};\n\nconst mouse = {\n  name: \"Mickey\",\n  small: true\n};",
+      "code": "<span class=\"hljs-keyword\">const</span> bird = {\n  <span class=\"hljs-attr\">size</span>: <span class=\"hljs-string\">\"small\"</span>\n};\n\n<span class=\"hljs-keyword\">const</span> mouse = {\n  <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Mickey\"</span>,\n  <span class=\"hljs-attr\">small</span>: <span class=\"hljs-literal\">true</span>\n};",
       "choices": [
         "A: `mouse.bird.size` is not valid",
         "B: `mouse[bird.size]` is not valid",
@@ -68,7 +68,7 @@
       "id": 6,
       "title": "6. What's the output?",
       "text": null,
-      "code": "let c = { greeting: \"Hey!\" };\nlet d;\n\nd = c;\nc.greeting = \"Hello\";\nconsole.log(d.greeting);",
+      "code": "<span class=\"hljs-keyword\">let</span> c = { <span class=\"hljs-attr\">greeting</span>: <span class=\"hljs-string\">\"Hey!\"</span> };\n<span class=\"hljs-keyword\">let</span> d;\n\nd = c;\nc.greeting = <span class=\"hljs-string\">\"Hello\"</span>;\n<span class=\"hljs-built_in\">console</span>.log(d.greeting);",
       "choices": [
         "A: `Hello`",
         "B: `Hey`",
@@ -82,7 +82,7 @@
       "id": 7,
       "title": "7. What's the output?",
       "text": null,
-      "code": "let a = 3;\nlet b = new Number(3);\nlet c = 3;\n\nconsole.log(a == b);\nconsole.log(a === b);\nconsole.log(b === c);",
+      "code": "<span class=\"hljs-keyword\">let</span> a = <span class=\"hljs-number\">3</span>;\n<span class=\"hljs-keyword\">let</span> b = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Number</span>(<span class=\"hljs-number\">3</span>);\n<span class=\"hljs-keyword\">let</span> c = <span class=\"hljs-number\">3</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(a == b);\n<span class=\"hljs-built_in\">console</span>.log(a === b);\n<span class=\"hljs-built_in\">console</span>.log(b === c);",
       "choices": [
         "A: `true` `false` `true`",
         "B: `false` `false` `true`",
@@ -95,7 +95,7 @@
       "id": 8,
       "title": "8. What's the output?",
       "text": null,
-      "code": "class Chameleon {\n  static colorChange(newColor) {\n    this.newColor = newColor;\n    return this.newColor;\n  }\n\n  constructor({ newColor = \"green\" } = {}) {\n    this.newColor = newColor;\n  }\n}\n\nconst freddie = new Chameleon({ newColor: \"purple\" });\nfreddie.colorChange(\"orange\");",
+      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Chameleon</span> </span>{\n  <span class=\"hljs-keyword\">static</span> colorChange(newColor) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.newColor;\n  }\n\n  <span class=\"hljs-keyword\">constructor</span>({ newColor = <span class=\"hljs-string\">\"green\"</span> } = {}) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> freddie = <span class=\"hljs-keyword\">new</span> Chameleon({ <span class=\"hljs-attr\">newColor</span>: <span class=\"hljs-string\">\"purple\"</span> });\nfreddie.colorChange(<span class=\"hljs-string\">\"orange\"</span>);",
       "choices": [
         "A: `orange`",
         "B: `purple`",
@@ -108,7 +108,7 @@
       "id": 9,
       "title": "9. What's the output?",
       "text": null,
-      "code": "let greeting;\ngreetign = {}; // Typo!\nconsole.log(greetign);",
+      "code": "<span class=\"hljs-keyword\">let</span> greeting;\ngreetign = {}; <span class=\"hljs-comment\">// Typo!</span>\n<span class=\"hljs-built_in\">console</span>.log(greetign);",
       "choices": [
         "A: `{}`",
         "B: `ReferenceError: greetign is not defined`",
@@ -120,7 +120,7 @@
       "id": 10,
       "title": "10. What happens when we do this?",
       "text": null,
-      "code": "function bark() {\n  console.log(\"Woof!\");\n}\n\nbark.animal = \"dog\";",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">bark</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Woof!\"</span>);\n}\n\nbark.animal = <span class=\"hljs-string\">\"dog\"</span>;",
       "choices": [
         "A: Nothing, this is totally fine!",
         "B: `SyntaxError`. You cannot add properties to a function this way.",
@@ -133,7 +133,7 @@
       "id": 11,
       "title": "11. What's the output?",
       "text": null,
-      "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person(\"Lydia\", \"Hallie\");\nPerson.getFullName = function() {\n  return `${this.firstName} ${this.lastName}`;\n};\n\nconsole.log(member.getFullName());",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">Person</span>(<span class=\"hljs-params\">firstName, lastName</span>) </span>{\n  <span class=\"hljs-keyword\">this</span>.firstName = firstName;\n  <span class=\"hljs-keyword\">this</span>.lastName = lastName;\n}\n\n<span class=\"hljs-keyword\">const</span> member = <span class=\"hljs-keyword\">new</span> Person(<span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-string\">\"Hallie\"</span>);\nPerson.getFullName = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.firstName}</span> <span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.lastName}</span>`</span>;\n};\n\n<span class=\"hljs-built_in\">console</span>.log(member.getFullName());",
       "choices": [
         "A: `TypeError`",
         "B: `SyntaxError`",
@@ -146,7 +146,7 @@
       "id": 12,
       "title": "12. What's the output?",
       "text": null,
-      "code": "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst lydia = new Person(\"Lydia\", \"Hallie\");\nconst sarah = Person(\"Sarah\", \"Smith\");\n\nconsole.log(lydia);\nconsole.log(sarah);",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">Person</span>(<span class=\"hljs-params\">firstName, lastName</span>) </span>{\n  <span class=\"hljs-keyword\">this</span>.firstName = firstName;\n  <span class=\"hljs-keyword\">this</span>.lastName = lastName;\n}\n\n<span class=\"hljs-keyword\">const</span> lydia = <span class=\"hljs-keyword\">new</span> Person(<span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-string\">\"Hallie\"</span>);\n<span class=\"hljs-keyword\">const</span> sarah = Person(<span class=\"hljs-string\">\"Sarah\"</span>, <span class=\"hljs-string\">\"Smith\"</span>);\n\n<span class=\"hljs-built_in\">console</span>.log(lydia);\n<span class=\"hljs-built_in\">console</span>.log(sarah);",
       "choices": [
         "A: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `undefined`",
         "B: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `Person {firstName: \"Sarah\", lastName: \"Smith\"}`",
@@ -159,7 +159,7 @@
       "id": 13,
       "title": "13. What are the three phases of event propagation?",
       "text": null,
-      "code": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> a + b;\n}\n\nsum(<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">\"2\"</span>);",
       "choices": [
         "A: Target > Capturing > Bubbling",
         "B: Bubbling > Target > Capturing",
@@ -172,7 +172,7 @@
       "id": 14,
       "title": "14. All object have prototypes.",
       "text": null,
-      "code": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> a + b;\n}\n\nsum(<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">\"2\"</span>);",
       "choices": [
         "A: true",
         "B: false"
@@ -183,7 +183,7 @@
       "id": 15,
       "title": "15. What's the output?",
       "text": null,
-      "code": "function sum(a, b) {\n  return a + b;\n}\n\nsum(1, \"2\");",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> a + b;\n}\n\nsum(<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">\"2\"</span>);",
       "choices": [
         "A: `NaN`",
         "B: `TypeError`",
@@ -196,7 +196,7 @@
       "id": 16,
       "title": "16. What's the output?",
       "text": null,
-      "code": "let number = 0;\nconsole.log(number++);\nconsole.log(++number);\nconsole.log(number);",
+      "code": "<span class=\"hljs-keyword\">let</span> number = <span class=\"hljs-number\">0</span>;\n<span class=\"hljs-built_in\">console</span>.log(number++);\n<span class=\"hljs-built_in\">console</span>.log(++number);\n<span class=\"hljs-built_in\">console</span>.log(number);",
       "choices": [
         "A: `1` `1` `2`",
         "B: `1` `2` `2`",
@@ -209,7 +209,7 @@
       "id": 17,
       "title": "17. What's the output?",
       "text": null,
-      "code": "function getPersonInfo(one, two, three) {\n  console.log(one);\n  console.log(two);\n  console.log(three);\n}\n\nconst person = \"Lydia\";\nconst age = 21;\n\ngetPersonInfo`${person} is ${age} years old`;",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getPersonInfo</span>(<span class=\"hljs-params\">one, two, three</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(one);\n  <span class=\"hljs-built_in\">console</span>.log(two);\n  <span class=\"hljs-built_in\">console</span>.log(three);\n}\n\n<span class=\"hljs-keyword\">const</span> person = <span class=\"hljs-string\">\"Lydia\"</span>;\n<span class=\"hljs-keyword\">const</span> age = <span class=\"hljs-number\">21</span>;\n\ngetPersonInfo<span class=\"hljs-string\">`<span class=\"hljs-subst\">${person}</span> is <span class=\"hljs-subst\">${age}</span> years old`</span>;",
       "choices": [
         "A: `\"Lydia\"` `21` `[\"\", \" is \", \" years old\"]`",
         "B: `[\"\", \" is \", \" years old\"]` `\"Lydia\"` `21`",
@@ -221,7 +221,7 @@
       "id": 18,
       "title": "18. What's the output?",
       "text": null,
-      "code": "function checkAge(data) {\n  if (data === { age: 18 }) {\n    console.log(\"You are an adult!\");\n  } else if (data == { age: 18 }) {\n    console.log(\"You are still an adult.\");\n  } else {\n    console.log(`Hmm.. You don't have an age I guess`);\n  }\n}\n\ncheckAge({ age: 18 });",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">checkAge</span>(<span class=\"hljs-params\">data</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (data === { <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">18</span> }) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"You are an adult!\"</span>);\n  } <span class=\"hljs-keyword\">else</span> <span class=\"hljs-keyword\">if</span> (data == { <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">18</span> }) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"You are still an adult.\"</span>);\n  } <span class=\"hljs-keyword\">else</span> {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`Hmm.. You don't have an age I guess`</span>);\n  }\n}\n\ncheckAge({ <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">18</span> });",
       "choices": [
         "A: `You are an adult!`",
         "B: `You are still an adult.`",
@@ -233,7 +233,7 @@
       "id": 19,
       "title": "19. What's the output?",
       "text": null,
-      "code": "function getAge(...args) {\n  console.log(typeof args);\n}\n\ngetAge(21);",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getAge</span>(<span class=\"hljs-params\">...args</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> args);\n}\n\ngetAge(<span class=\"hljs-number\">21</span>);",
       "choices": [
         "A: `\"number\"`",
         "B: `\"array\"`",
@@ -246,7 +246,7 @@
       "id": 20,
       "title": "20. What's the output?",
       "text": null,
-      "code": "function getAge() {\n  \"use strict\";\n  age = 21;\n  console.log(age);\n}\n\ngetAge();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getAge</span>(<span class=\"hljs-params\"></span>) </span>{\n<span class=\"hljs-meta\">  \"use strict\"</span>;\n  age = <span class=\"hljs-number\">21</span>;\n  <span class=\"hljs-built_in\">console</span>.log(age);\n}\n\ngetAge();",
       "choices": [
         "A: `21`",
         "B: `undefined`",
@@ -259,7 +259,7 @@
       "id": 21,
       "title": "21. What's value of sum?",
       "text": null,
-      "code": "const sum = eval(\"10*10+5\");",
+      "code": "<span class=\"hljs-keyword\">const</span> sum = <span class=\"hljs-built_in\">eval</span>(<span class=\"hljs-string\">\"10*10+5\"</span>);",
       "choices": [
         "A: `105`",
         "B: `\"105\"`",
@@ -272,7 +272,7 @@
       "id": 22,
       "title": "22. How long is cool_secret accessible?",
       "text": null,
-      "code": "sessionStorage.setItem(\"cool_secret\", 123);",
+      "code": "sessionStorage.setItem(<span class=\"hljs-string\">\"cool_secret\"</span>, <span class=\"hljs-number\">123</span>);",
       "choices": [
         "A: Forever, the data doesn't get lost.",
         "B: When the user closes the tab.",
@@ -285,7 +285,7 @@
       "id": 23,
       "title": "23. What's the output?",
       "text": null,
-      "code": "var num = 8;\nvar num = 10;\n\nconsole.log(num);",
+      "code": "<span class=\"hljs-keyword\">var</span> num = <span class=\"hljs-number\">8</span>;\n<span class=\"hljs-keyword\">var</span> num = <span class=\"hljs-number\">10</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(num);",
       "choices": [
         "A: `8`",
         "B: `10`",
@@ -298,7 +298,7 @@
       "id": 24,
       "title": "24. What's the output?",
       "text": null,
-      "code": "const obj = { 1: \"a\", 2: \"b\", 3: \"c\" };\nconst set = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty(\"1\");\nobj.hasOwnProperty(1);\nset.has(\"1\");\nset.has(1);",
+      "code": "<span class=\"hljs-keyword\">const</span> obj = { <span class=\"hljs-number\">1</span>: <span class=\"hljs-string\">\"a\"</span>, <span class=\"hljs-number\">2</span>: <span class=\"hljs-string\">\"b\"</span>, <span class=\"hljs-number\">3</span>: <span class=\"hljs-string\">\"c\"</span> };\n<span class=\"hljs-keyword\">const</span> <span class=\"hljs-keyword\">set</span> = new Set([1, 2, 3, 4, 5]);\n\nobj.hasOwnProperty(\"1\");\nobj.hasOwnProperty(1);\n<span class=\"hljs-keyword\">set</span>.has(\"1\");\n<span class=\"hljs-keyword\">set</span>.has(1);",
       "choices": [
         "A: `false` `true` `false` `true`",
         "B: `false` `true` `true` `true`",
@@ -311,7 +311,7 @@
       "id": 25,
       "title": "25. What's the output?",
       "text": null,
-      "code": "const obj = { a: \"one\", b: \"two\", a: \"three\" };\nconsole.log(obj);",
+      "code": "<span class=\"hljs-keyword\">const</span> obj = { <span class=\"hljs-attr\">a</span>: <span class=\"hljs-string\">\"one\"</span>, <span class=\"hljs-attr\">b</span>: <span class=\"hljs-string\">\"two\"</span>, <span class=\"hljs-attr\">a</span>: <span class=\"hljs-string\">\"three\"</span> };\n<span class=\"hljs-built_in\">console</span>.log(obj);",
       "choices": [
         "A: `{ a: \"one\", b: \"two\" }`",
         "B: `{ b: \"two\", a: \"three\" }`",
@@ -324,7 +324,7 @@
       "id": 26,
       "title": "26. The JavaScript global execution context creates two things for you: the global object, and the \"this\" keyword.",
       "text": null,
-      "code": "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
+      "code": "<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">1</span>; i &lt; <span class=\"hljs-number\">5</span>; i++) {\n  <span class=\"hljs-keyword\">if</span> (i === <span class=\"hljs-number\">3</span>) <span class=\"hljs-keyword\">continue</span>;\n  <span class=\"hljs-built_in\">console</span>.log(i);\n}",
       "choices": [
         "A: true",
         "B: false",
@@ -336,7 +336,7 @@
       "id": 27,
       "title": "27. What's the output?",
       "text": null,
-      "code": "for (let i = 1; i < 5; i++) {\n  if (i === 3) continue;\n  console.log(i);\n}",
+      "code": "<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">1</span>; i &lt; <span class=\"hljs-number\">5</span>; i++) {\n  <span class=\"hljs-keyword\">if</span> (i === <span class=\"hljs-number\">3</span>) <span class=\"hljs-keyword\">continue</span>;\n  <span class=\"hljs-built_in\">console</span>.log(i);\n}",
       "choices": [
         "A: `1` `2`",
         "B: `1` `2` `3`",
@@ -349,7 +349,7 @@
       "id": 28,
       "title": "28. What's the output?",
       "text": null,
-      "code": "String.prototype.giveLydiaPizza = () => {\n  return \"Just give Lydia pizza already!\";\n};\n\nconst name = \"Lydia\";\n\nname.giveLydiaPizza();",
+      "code": "<span class=\"hljs-built_in\">String</span>.prototype.giveLydiaPizza = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">\"Just give Lydia pizza already!\"</span>;\n};\n\n<span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">\"Lydia\"</span>;\n\nname.giveLydiaPizza();",
       "choices": [
         "A: `\"Just give Lydia pizza already!\"`",
         "B: `TypeError: not a function`",
@@ -362,7 +362,7 @@
       "id": 29,
       "title": "29. What's the output?",
       "text": null,
-      "code": "const a = {};\nconst b = { key: \"b\" };\nconst c = { key: \"c\" };\n\na[b] = 123;\na[c] = 456;\n\nconsole.log(a[b]);",
+      "code": "<span class=\"hljs-keyword\">const</span> a = {};\n<span class=\"hljs-keyword\">const</span> b = { <span class=\"hljs-attr\">key</span>: <span class=\"hljs-string\">\"b\"</span> };\n<span class=\"hljs-keyword\">const</span> c = { <span class=\"hljs-attr\">key</span>: <span class=\"hljs-string\">\"c\"</span> };\n\na[b] = <span class=\"hljs-number\">123</span>;\na[c] = <span class=\"hljs-number\">456</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(a[b]);",
       "choices": [
         "A: `123`",
         "B: `456`",
@@ -375,7 +375,7 @@
       "id": 30,
       "title": "30. What's the output?",
       "text": null,
-      "code": "const foo = () => console.log(\"First\");\nconst bar = () => setTimeout(() => console.log(\"Second\"));\nconst baz = () => console.log(\"Third\");\n\nbar();\nfoo();\nbaz();",
+      "code": "<span class=\"hljs-keyword\">const</span> foo = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"First\"</span>);\n<span class=\"hljs-keyword\">const</span> bar = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> setTimeout(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Second\"</span>));\n<span class=\"hljs-keyword\">const</span> baz = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Third\"</span>);\n\nbar();\nfoo();\nbaz();",
       "choices": [
         "A: `First` `Second` `Third`",
         "B: `First` `Third` `Second`",
@@ -388,7 +388,7 @@
       "id": 31,
       "title": "31. What is the event.target when clicking the button?",
       "text": null,
-      "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+      "code": "<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> };\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\">age</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.name}</span> is <span class=\"hljs-subst\">${age}</span>`</span>);\n}\n\nsayHi.call(person, <span class=\"hljs-number\">21</span>);\nsayHi.bind(person, <span class=\"hljs-number\">21</span>);",
       "choices": [
         "A: Outer `div`",
         "B: Inner `div`",
@@ -401,7 +401,7 @@
       "id": 32,
       "title": "32. When you click the paragraph, what's the logged output?",
       "text": null,
-      "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+      "code": "<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> };\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\">age</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.name}</span> is <span class=\"hljs-subst\">${age}</span>`</span>);\n}\n\nsayHi.call(person, <span class=\"hljs-number\">21</span>);\nsayHi.bind(person, <span class=\"hljs-number\">21</span>);",
       "choices": [
         "A: `p` `div`",
         "B: `div` `p`",
@@ -414,7 +414,7 @@
       "id": 33,
       "title": "33. What's the output?",
       "text": null,
-      "code": "const person = { name: \"Lydia\" };\n\nfunction sayHi(age) {\n  console.log(`${this.name} is ${age}`);\n}\n\nsayHi.call(person, 21);\nsayHi.bind(person, 21);",
+      "code": "<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> };\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\">age</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.name}</span> is <span class=\"hljs-subst\">${age}</span>`</span>);\n}\n\nsayHi.call(person, <span class=\"hljs-number\">21</span>);\nsayHi.bind(person, <span class=\"hljs-number\">21</span>);",
       "choices": [
         "A: `undefined is 21` `Lydia is 21`",
         "B: `function` `function`",
@@ -427,7 +427,7 @@
       "id": 34,
       "title": "34. What's the output?",
       "text": null,
-      "code": "function sayHi() {\n  return (() => 0)();\n}\n\ntypeof sayHi();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\">(<span class=\"hljs-params\">(</span>) =&gt;</span> <span class=\"hljs-number\">0</span>)();\n}\n\n<span class=\"hljs-keyword\">typeof</span> sayHi();",
       "choices": [
         "A: `\"object\"`",
         "B: `\"number\"`",
@@ -440,7 +440,7 @@
       "id": 35,
       "title": "35. Which of these values are falsy?",
       "text": null,
-      "code": "0;\nnew Number(0);\n(\"\");\n(\" \");\nnew Boolean(false);\nundefined;",
+      "code": "<span class=\"hljs-number\">0</span>;\n<span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Number</span>(<span class=\"hljs-number\">0</span>);\n(<span class=\"hljs-string\">\"\"</span>);\n(<span class=\"hljs-string\">\" \"</span>);\n<span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Boolean</span>(<span class=\"hljs-literal\">false</span>);\n<span class=\"hljs-literal\">undefined</span>;",
       "choices": [
         "A: `0`, `''`, `undefined`",
         "B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`",
@@ -453,7 +453,7 @@
       "id": 36,
       "title": "36. What's the output?",
       "text": null,
-      "code": "console.log(typeof typeof 1);",
+      "code": "<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> <span class=\"hljs-keyword\">typeof</span> <span class=\"hljs-number\">1</span>);",
       "choices": [
         "A: `\"number\"`",
         "B: `\"string\"`",
@@ -466,7 +466,7 @@
       "id": 37,
       "title": "37. What's the output?",
       "text": null,
-      "code": "const numbers = [1, 2, 3];\nnumbers[10] = 11;\nconsole.log(numbers);",
+      "code": "<span class=\"hljs-keyword\">const</span> numbers = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\nnumbers[<span class=\"hljs-number\">10</span>] = <span class=\"hljs-number\">11</span>;\n<span class=\"hljs-built_in\">console</span>.log(numbers);",
       "choices": [
         "A: `[1, 2, 3, 7 x null, 11]`",
         "B: `[1, 2, 3, 11]`",
@@ -479,7 +479,7 @@
       "id": 38,
       "title": "38. What's the output?",
       "text": null,
-      "code": "(() => {\n  let x, y;\n  try {\n    throw new Error();\n  } catch (x) {\n    (x = 1), (y = 2);\n    console.log(x);\n  }\n  console.log(x);\n  console.log(y);\n})();",
+      "code": "(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">let</span> x, y;\n  <span class=\"hljs-keyword\">try</span> {\n    <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Error</span>();\n  } <span class=\"hljs-keyword\">catch</span> (x) {\n    (x = <span class=\"hljs-number\">1</span>), (y = <span class=\"hljs-number\">2</span>);\n    <span class=\"hljs-built_in\">console</span>.log(x);\n  }\n  <span class=\"hljs-built_in\">console</span>.log(x);\n  <span class=\"hljs-built_in\">console</span>.log(y);\n})();",
       "choices": [
         "A: `1` `undefined` `2`",
         "B: `undefined` `undefined` `undefined`",
@@ -492,7 +492,7 @@
       "id": 39,
       "title": "39. Everything in JavaScript is either a...",
       "text": null,
-      "code": "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
+      "code": "[[<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>]].reduce(\n  <span class=\"hljs-function\">(<span class=\"hljs-params\">acc, cur</span>) =&gt;</span> {\n    <span class=\"hljs-keyword\">return</span> acc.concat(cur);\n  },\n  [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>]\n);",
       "choices": [
         "A: primitive or object",
         "B: function or object",
@@ -505,7 +505,7 @@
       "id": 40,
       "title": "40. What's the output?",
       "text": null,
-      "code": "[[0, 1], [2, 3]].reduce(\n  (acc, cur) => {\n    return acc.concat(cur);\n  },\n  [1, 2]\n);",
+      "code": "[[<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>], [<span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>]].reduce(\n  <span class=\"hljs-function\">(<span class=\"hljs-params\">acc, cur</span>) =&gt;</span> {\n    <span class=\"hljs-keyword\">return</span> acc.concat(cur);\n  },\n  [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>]\n);",
       "choices": [
         "A: `[0, 1, 2, 3, 1, 2]`",
         "B: `[6, 1, 2]`",
@@ -518,7 +518,7 @@
       "id": 41,
       "title": "41. What's the output?",
       "text": null,
-      "code": "!!null;\n!!\"\";\n!!1;",
+      "code": "!!<span class=\"hljs-literal\">null</span>;\n!!<span class=\"hljs-string\">\"\"</span>;\n!!<span class=\"hljs-number\">1</span>;",
       "choices": [
         "A: `false` `true` `false`",
         "B: `false` `false` `true`",
@@ -529,9 +529,9 @@
     },
     {
       "id": 42,
-      "title": "42. What does the setInterval method return?",
+      "title": "42. What does the setInterval method return in the browser?",
       "text": null,
-      "code": "setInterval(() => console.log(\"Hi\"), 1000);",
+      "code": "setInterval(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Hi\"</span>), <span class=\"hljs-number\">1000</span>);",
       "choices": [
         "A: a unique id",
         "B: the amount of milliseconds specified",
@@ -544,7 +544,7 @@
       "id": 43,
       "title": "43. What does this return?",
       "text": null,
-      "code": "[...\"Lydia\"];",
+      "code": "[...<span class=\"hljs-string\">\"Lydia\"</span>];",
       "choices": [
         "A: `[\"L\", \"y\", \"d\", \"i\", \"a\"]`",
         "B: `[\"Lydia\"]`",

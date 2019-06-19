@@ -2,7 +2,7 @@
   "private": true,
   "name": "javascript-questions",
   "description": "JavaScript Questions",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",

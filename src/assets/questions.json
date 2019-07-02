@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-06-19T15:26:29.067Z",
+  "updatedAt": "2019-07-02T11:24:44.909Z",
   "data": [
     {
       "id": 1,
@@ -30,7 +30,7 @@
       "id": 3,
       "title": "3. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-keyword\">const</span> shape = {\n  <span class=\"hljs-attr\">radius</span>: <span class=\"hljs-number\">10</span>,\n  diameter() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.radius * <span class=\"hljs-number\">2</span>;\n  },\n  <span class=\"hljs-attr\">perimeter</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-number\">2</span> * <span class=\"hljs-built_in\">Math</span>.PI * <span class=\"hljs-keyword\">this</span>.radius\n};\n\nshape.diameter();\nshape.perimeter();",
+      "code": "<span class=\"hljs-keyword\">const</span> shape = {\n  <span class=\"hljs-attr\">radius</span>: <span class=\"hljs-number\">10</span>,\n  diameter() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.radius * <span class=\"hljs-number\">2</span>;\n  },\n  <span class=\"hljs-attr\">perimeter</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-number\">2</span> * <span class=\"hljs-built_in\">Math</span>.PI * <span class=\"hljs-keyword\">this</span>.radius\n};\n\n<span class=\"hljs-built_in\">console</span>.log(shape.diameter());\n<span class=\"hljs-built_in\">console</span>.log(shape.perimeter());",
       "choices": [
         "A: `20` and `62.83185307179586`",
         "B: `20` and `NaN`",
@@ -71,7 +71,7 @@
       "code": "<span class=\"hljs-keyword\">let</span> c = { <span class=\"hljs-attr\">greeting</span>: <span class=\"hljs-string\">\"Hey!\"</span> };\n<span class=\"hljs-keyword\">let</span> d;\n\nd = c;\nc.greeting = <span class=\"hljs-string\">\"Hello\"</span>;\n<span class=\"hljs-built_in\">console</span>.log(d.greeting);",
       "choices": [
         "A: `Hello`",
-        "B: `Hey`",
+        "B: `Hey!`",
         "C: `undefined`",
         "D: `ReferenceError`",
         "E: `TypeError`"
@@ -95,7 +95,7 @@
       "id": 8,
       "title": "8. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Chameleon</span> </span>{\n  <span class=\"hljs-keyword\">static</span> colorChange(newColor) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.newColor;\n  }\n\n  <span class=\"hljs-keyword\">constructor</span>({ newColor = <span class=\"hljs-string\">\"green\"</span> } = {}) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> freddie = <span class=\"hljs-keyword\">new</span> Chameleon({ <span class=\"hljs-attr\">newColor</span>: <span class=\"hljs-string\">\"purple\"</span> });\nfreddie.colorChange(<span class=\"hljs-string\">\"orange\"</span>);",
+      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Chameleon</span> </span>{\n  <span class=\"hljs-keyword\">static</span> colorChange(newColor) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-keyword\">this</span>.newColor;\n  }\n\n  <span class=\"hljs-keyword\">constructor</span>({ newColor = <span class=\"hljs-string\">\"green\"</span> } = {}) {\n    <span class=\"hljs-keyword\">this</span>.newColor = newColor;\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> freddie = <span class=\"hljs-keyword\">new</span> Chameleon({ <span class=\"hljs-attr\">newColor</span>: <span class=\"hljs-string\">\"purple\"</span> });\n<span class=\"hljs-built_in\">console</span>.log(freddie.colorChange(<span class=\"hljs-string\">\"orange\"</span>));",
       "choices": [
         "A: `orange`",
         "B: `purple`",
@@ -124,7 +124,7 @@
       "choices": [
         "A: Nothing, this is totally fine!",
         "B: `SyntaxError`. You cannot add properties to a function this way.",
-        "C: `undefined`",
+        "C: `\"Woof\"` gets logged.",
         "D: `ReferenceError`"
       ],
       "answer": "#### [](#answer-a-4)Answer: A\n\nThis is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)\n\nA function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable."
@@ -177,7 +177,7 @@
         "A: true",
         "B: false"
       ],
-      "answer": "#### [](#answer-b-1)Answer: B\n\nAll objects have prototypes, except for the **base object**. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you."
+      "answer": "#### [](#answer-b-1)Answer: B\n\nAll objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you."
     },
     {
       "id": 15,
@@ -427,7 +427,7 @@
       "id": 34,
       "title": "34. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\">(<span class=\"hljs-params\">(</span>) =&gt;</span> <span class=\"hljs-number\">0</span>)();\n}\n\n<span class=\"hljs-keyword\">typeof</span> sayHi();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-function\">(<span class=\"hljs-params\">(</span>) =&gt;</span> <span class=\"hljs-number\">0</span>)();\n}\n\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> sayHi());",
       "choices": [
         "A: `\"object\"`",
         "B: `\"number\"`",
@@ -552,6 +552,266 @@
         "D: `[[\"L\", \"y\", \"d\", \"i\", \"a\"]]`"
       ],
       "answer": "#### [](#answer-a-15)Answer: A\n\nA string is an iterable. The spread operator maps every character of an iterable to one element."
+    },
+    {
+      "id": 44,
+      "title": "44. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">generator</span>(<span class=\"hljs-params\">i</span>) </span>{\n  <span class=\"hljs-keyword\">yield</span> i;\n  <span class=\"hljs-keyword\">yield</span> i * <span class=\"hljs-number\">2</span>;\n}\n\n<span class=\"hljs-keyword\">const</span> gen = generator(<span class=\"hljs-number\">10</span>);\n\n<span class=\"hljs-built_in\">console</span>.log(gen.next().value);\n<span class=\"hljs-built_in\">console</span>.log(gen.next().value);",
+      "choices": [
+        "A: `[0, 10], [10, 20]`",
+        "B: `20, 20`",
+        "C: `10, 20`",
+        "D: `0, 10 and 10, 20`"
+      ],
+      "answer": "#### [](#answer-c-13)Answer: C\n\nRegular functions cannot be stopped mid-way after invocation. However, a generator function can be \"stopped\" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.\n\nFirst, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now \"paused\", and `10` gets logged.\n\nThen, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`."
+    },
+    {
+      "id": 45,
+      "title": "45. What does this return?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> firstPromise = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Promise</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">res, rej</span>) =&gt;</span> {\n  setTimeout(res, <span class=\"hljs-number\">500</span>, <span class=\"hljs-string\">\"one\"</span>);\n});\n\n<span class=\"hljs-keyword\">const</span> secondPromise = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Promise</span>(<span class=\"hljs-function\">(<span class=\"hljs-params\">res, rej</span>) =&gt;</span> {\n  setTimeout(res, <span class=\"hljs-number\">100</span>, <span class=\"hljs-string\">\"two\"</span>);\n});\n\n<span class=\"hljs-built_in\">Promise</span>.race([firstPromise, secondPromise]).then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res));",
+      "choices": [
+        "A: `\"one\"`",
+        "B: `\"two\"`",
+        "C: `\"two\" \"one\"`",
+        "D: `\"one\" \"two\"`"
+      ],
+      "answer": "#### [](#answer-b-10)Answer: B\n\nWhen we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged."
+    },
+    {
+      "id": 46,
+      "title": "46. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">let</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> };\n<span class=\"hljs-keyword\">const</span> members = [person];\nperson = <span class=\"hljs-literal\">null</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(members);",
+      "choices": [
+        "A: `null`",
+        "B: `[null]`",
+        "C: `[{}]`",
+        "D: `[{ name: \"Lydia\" }]`"
+      ],
+      "answer": "#### [](#answer-d-4)Answer: D\n\nFirst, we declare a variable `person` with the value of an object that has a `name` property.\n\n[![](https://camo.githubusercontent.com/18ec11730a406fb1ea8fe7e4f0cea77d8fe33dd0/68747470733a2f2f692e696d6775722e636f6d2f544d4c314d62532e706e67)](https://camo.githubusercontent.com/18ec11730a406fb1ea8fe7e4f0cea77d8fe33dd0/68747470733a2f2f692e696d6775722e636f6d2f544d4c314d62532e706e67)\n\nThen, we declare a variable called `members`. We set the first element of that array equal to the value of the `person` variable. Objects interact by _reference_ when setting them equal to each other. When you assign a reference from one variable to another, you make a _copy_ of that reference. (note that they don't have the _same_ reference!)\n\n[![](https://camo.githubusercontent.com/a775ede4cce9b143614b05f06e4afac49ee4aab0/68747470733a2f2f692e696d6775722e636f6d2f465347354b33462e706e67)](https://camo.githubusercontent.com/a775ede4cce9b143614b05f06e4afac49ee4aab0/68747470733a2f2f692e696d6775722e636f6d2f465347354b33462e706e67)\n\nThen, we set the variable `person` equal to `null`.\n\n[![](https://camo.githubusercontent.com/a13998111c61325f557b40db37d77a054fa76407/68747470733a2f2f692e696d6775722e636f6d2f73596a63734d542e706e67)](https://camo.githubusercontent.com/a13998111c61325f557b40db37d77a054fa76407/68747470733a2f2f692e696d6775722e636f6d2f73596a63734d542e706e67)\n\nWe are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged."
+    },
+    {
+      "id": 47,
+      "title": "47. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> person = {\n  <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span>,\n  <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span>\n};\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">const</span> item <span class=\"hljs-keyword\">in</span> person) {\n  <span class=\"hljs-built_in\">console</span>.log(item);\n}",
+      "choices": [
+        "A: `{ name: \"Lydia\" }, { age: 21 }`",
+        "B: `\"name\", \"age\"`",
+        "C: `\"Lydia\", 21`",
+        "D: `[\"name\", \"Lydia\"], [\"age\", 21]`"
+      ],
+      "answer": "#### [](#answer-b-11)Answer: B\n\nWith a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item`equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged."
+    },
+    {
+      "id": 48,
+      "title": "48. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-number\">3</span> + <span class=\"hljs-number\">4</span> + <span class=\"hljs-string\">\"5\"</span>);",
+      "choices": [
+        "A: `\"345\"`",
+        "B: `\"75\"`",
+        "C: `12`",
+        "D: `\"12\"`"
+      ],
+      "answer": "#### [](#answer-b-12)Answer: B\n\nOperator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.\n\n`3 + 4` gets evaluated first. This results in the number `7`.\n\n`7 + '5'` results in `\"75\"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `\"7\" + \"5\"` results in `\"75\"`."
+    },
+    {
+      "id": 49,
+      "title": "49. What's the value of num?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> num = <span class=\"hljs-built_in\">parseInt</span>(<span class=\"hljs-string\">\"7*6\"</span>, <span class=\"hljs-number\">10</span>);",
+      "choices": [
+        "A: `42`",
+        "B: `\"42\"`",
+        "C: `7`",
+        "D: `NaN`"
+      ],
+      "answer": "#### [](#answer-c-14)Answer: C\n\nOnly the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.\n\n`*` is not a valid number. It only parses `\"7\"` into the decimal `7`. `num` now holds the value of `7`."
+    },
+    {
+      "id": 50,
+      "title": "50. What's the output`?",
+      "text": null,
+      "code": "[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>].map(<span class=\"hljs-function\"><span class=\"hljs-params\">num</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> num === <span class=\"hljs-string\">\"number\"</span>) <span class=\"hljs-keyword\">return</span>;\n  <span class=\"hljs-keyword\">return</span> num * <span class=\"hljs-number\">2</span>;\n});",
+      "choices": [
+        "A: `[]`",
+        "B: `[null, null, null]`",
+        "C: `[undefined, undefined, undefined]`",
+        "D: `[ 3 x empty ]`"
+      ],
+      "answer": "#### [](#answer-c-15)Answer: C\n\nWhen mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === \"number\"` returns `true`. The map function creates a new array and inserts the values returned from the function.\n\nHowever, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`."
+    },
+    {
+      "id": 51,
+      "title": "51. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getInfo</span>(<span class=\"hljs-params\">member, year</span>) </span>{\n  member.name = <span class=\"hljs-string\">\"Lydia\"</span>;\n  year = <span class=\"hljs-string\">\"1998\"</span>;\n}\n\n<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Sarah\"</span> };\n<span class=\"hljs-keyword\">const</span> birthYear = <span class=\"hljs-string\">\"1997\"</span>;\n\ngetInfo(person, birthYear);\n\n<span class=\"hljs-built_in\">console</span>.log(person, birthYear);",
+      "choices": [
+        "A: `{ name: \"Lydia\" }, \"1997\"`",
+        "B: `{ name: \"Sarah\" }, \"1998\"`",
+        "C: `{ name: \"Lydia\" }, \"1998\"`",
+        "D: `{ name: \"Sarah\" }, \"1997\"`"
+      ],
+      "answer": "#### [](#answer-a-16)Answer: A\n\nArguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it's a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).\n\nThe variable `birthYear` has a reference to the value `\"1997\"`. The argument `year` also has a reference to the value `\"1997\"`, but it's not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `\"1998\"`, we are only updating the value of `year`. `birthYear` is still equal to `\"1997\"`.\n\nThe value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `\"Lydia\"`"
+    },
+    {
+      "id": 52,
+      "title": "52. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">greeting</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-string\">\"Hello world!\"</span>;\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">try</span> {\n    <span class=\"hljs-keyword\">const</span> data = greeting();\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"It worked!\"</span>, data);\n  } <span class=\"hljs-keyword\">catch</span> (e) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Oh no an error!\"</span>, e);\n  }\n}\n\nsayHi();",
+      "choices": [
+        "A: `\"It worked! Hello world!\"`",
+        "B: `\"Oh no an error: undefined`",
+        "C: `SyntaxError: can only throw Error objects`",
+        "D: `\"Oh no an error: Hello world!`"
+      ],
+      "answer": "#### [](#answer-d-5)Answer: D\n\nWith the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a **string**, a **number**, a **boolean** or an **object**. In this case, our exception is the string `'Hello world'`.\n\nWith the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`."
+    },
+    {
+      "id": 53,
+      "title": "53. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">Car</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">this</span>.make = <span class=\"hljs-string\">\"Lamborghini\"</span>;\n  <span class=\"hljs-keyword\">return</span> { <span class=\"hljs-attr\">make</span>: <span class=\"hljs-string\">\"Maserati\"</span> };\n}\n\n<span class=\"hljs-keyword\">const</span> myCar = <span class=\"hljs-keyword\">new</span> Car();\n<span class=\"hljs-built_in\">console</span>.log(myCar.make);",
+      "choices": [
+        "A: `\"Lamborghini\"`",
+        "B: `\"Maserati\"`",
+        "C: `ReferenceError`",
+        "D: `TypeError`"
+      ],
+      "answer": "#### [](#answer-b-13)Answer: B\n\nWhen you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `\"Maserati\"`, so `myCar.make` is equal to `\"Maserati\"`."
+    },
+    {
+      "id": 54,
+      "title": "54. What's the output?",
+      "text": null,
+      "code": "(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">let</span> x = (y = <span class=\"hljs-number\">10</span>);\n})();\n\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> x);\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> y);",
+      "choices": [
+        "A: `\"undefined\", \"number\"`",
+        "B: `\"number\", \"number\"`",
+        "C: `\"object\", \"number\"`",
+        "D: `\"number\", \"undefined\"`"
+      ],
+      "answer": "#### [](#answer-a-17)Answer: A\n\n`let x = y = 10;` is actually shorthand for:\n\ny \\= 10;\nlet x \\= y;\n\nWhen we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.\n\nThen, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `\"undefined\"`. `console.log(typeof x)` returns `\"undefined\"`.\n\nHowever, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `\"number\"`. `console.log(typeof y)` returns `\"number\"`."
+    },
+    {
+      "id": 55,
+      "title": "55. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Dog</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(name) {\n    <span class=\"hljs-keyword\">this</span>.name = name;\n  }\n}\n\nDog.prototype.bark = <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`Woof I am <span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.name}</span>`</span>);\n};\n\n<span class=\"hljs-keyword\">const</span> pet = <span class=\"hljs-keyword\">new</span> Dog(<span class=\"hljs-string\">\"Mara\"</span>);\n\npet.bark();\n\n<span class=\"hljs-keyword\">delete</span> Dog.prototype.bark;\n\npet.bark();",
+      "choices": [
+        "A: `\"Woof I am Mara\"`, `TypeError`",
+        "B: `\"Woof I am Mara\"`,`\"Woof I am Mara\"`",
+        "C: `\"Woof I am Mara\"`, `undefined`",
+        "D: `TypeError`, `TypeError`"
+      ],
+      "answer": "#### [](#answer-a-18)Answer: A\n\nWe can delete properties from objects using the `delete` keyword, also on the prototype. By deleting a property on the prototype, it is not available anymore in the prototype chain. In this case, the `bark` function is not available anymore on the prototype after `delete Dog.prototype.bark`, yet we still try to access it.\n\nWhen we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`."
+    },
+    {
+      "id": 56,
+      "title": "56. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> <span class=\"hljs-keyword\">set</span> = new Set([1, 1, 2, 3, 4]);\n\nconsole.log(<span class=\"hljs-keyword\">set</span>);",
+      "choices": [
+        "A: `[1, 1, 2, 3, 4]`",
+        "B: `[1, 2, 3, 4]`",
+        "C: `{1, 1, 2, 3, 4}`",
+        "D: `{1, 2, 3, 4}`"
+      ],
+      "answer": "#### [](#answer-d-6)Answer: D\n\nThe `Set` object is a collection of _unique_ values: a value can only occur once in a set.\n\nWe passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`."
+    },
+    {
+      "id": 57,
+      "title": "57. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-comment\">// counter.js</span>\n<span class=\"hljs-keyword\">let</span> counter = <span class=\"hljs-number\">10</span>;\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> counter;",
+      "choices": [
+        "A: `10`",
+        "B: `11`",
+        "C: `Error`",
+        "D: `NaN`"
+      ],
+      "answer": "#### [](#answer-c-16)Answer: C\n\nAn imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.\n\nWhen we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified."
+    },
+    {
+      "id": 58,
+      "title": "58. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">\"Lydia\"</span>;\nage = <span class=\"hljs-number\">21</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">delete</span> name);\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">delete</span> age);",
+      "choices": [
+        "A: `false`, `true`",
+        "B: `\"Lydia\"`, `21`",
+        "C: `true`, `true`",
+        "D: `undefined`, `undefined`"
+      ],
+      "answer": "#### [](#answer-a-19)Answer: A\n\nThe `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.\n\nThe `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`."
+    },
+    {
+      "id": 59,
+      "title": "59. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> numbers = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">5</span>];\n<span class=\"hljs-keyword\">const</span> [y] = numbers;\n\n<span class=\"hljs-built_in\">console</span>.log(y);",
+      "choices": [
+        "A: `[[1, 2, 3, 4, 5]]`",
+        "B: `[1, 2, 3, 4, 5]`",
+        "C: `1`",
+        "D: `[1]`"
+      ],
+      "answer": "#### [](#answer-c-17)Answer: C\n\nWe can unpack values from arrays or properties from objects through destructuring. For example:\n\n\\[a, b\\] \\= \\[1, 2\\];\n\n[![](https://camo.githubusercontent.com/8903a861b474f8b63da9d0d46d14a74d9e2db039/68747470733a2f2f692e696d6775722e636f6d2f41444670566f702e706e67)](https://camo.githubusercontent.com/8903a861b474f8b63da9d0d46d14a74d9e2db039/68747470733a2f2f692e696d6775722e636f6d2f41444670566f702e706e67)\n\nThe value of `a` is now `1`, and the value of `b` is now `2`. What we actually did in the question, is:\n\n\\[y\\] \\= \\[1, 2, 3, 4, 5\\];\n\n[![](https://camo.githubusercontent.com/3474488027d64c5fc9955ab5be7c3a88d1254449/68747470733a2f2f692e696d6775722e636f6d2f4e7a476b4d4e6b2e706e67)](https://camo.githubusercontent.com/3474488027d64c5fc9955ab5be7c3a88d1254449/68747470733a2f2f692e696d6775722e636f6d2f4e7a476b4d4e6b2e706e67)\n\nThis means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned."
+    },
+    {
+      "id": 60,
+      "title": "60. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> user = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span> };\n<span class=\"hljs-keyword\">const</span> admin = { <span class=\"hljs-attr\">admin</span>: <span class=\"hljs-literal\">true</span>, ...user };\n\n<span class=\"hljs-built_in\">console</span>.log(admin);",
+      "choices": [
+        "A: `{ admin: true, user: { name: \"Lydia\", age: 21 } }`",
+        "B: `{ admin: true, name: \"Lydia\", age: 21 }`",
+        "C: `{ admin: true, user: [\"Lydia\", 21] }`",
+        "D: `{ admin: true }`"
+      ],
+      "answer": "#### [](#answer-b-14)Answer: B\n\nIt's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: \"Lydia\", age: 21 }`."
+    },
+    {
+      "id": 61,
+      "title": "61. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> };\n\n<span class=\"hljs-built_in\">Object</span>.defineProperty(person, <span class=\"hljs-string\">\"age\"</span>, { <span class=\"hljs-attr\">value</span>: <span class=\"hljs-number\">21</span> });\n\n<span class=\"hljs-built_in\">console</span>.log(person);\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-built_in\">Object</span>.keys(person));",
+      "choices": [
+        "A: `{ name: \"Lydia\", age: 21 }`, `[\"name\", \"age\"]`",
+        "B: `{ name: \"Lydia\", age: 21 }`, `[\"name\"]`",
+        "C: `{ name: \"Lydia\"}`, `[\"name\", \"age\"]`",
+        "D: `{ name: \"Lydia\"}`, `[\"age\"]`"
+      ],
+      "answer": "#### [](#answer-b-15)Answer: B\n\nWith the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `\"name\"`.\n\nProperties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object."
+    },
+    {
+      "id": 62,
+      "title": "62. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> settings = {\n  <span class=\"hljs-attr\">username</span>: <span class=\"hljs-string\">\"lydiahallie\"</span>,\n  <span class=\"hljs-attr\">level</span>: <span class=\"hljs-number\">19</span>,\n  <span class=\"hljs-attr\">health</span>: <span class=\"hljs-number\">90</span>\n};\n\n<span class=\"hljs-keyword\">const</span> data = <span class=\"hljs-built_in\">JSON</span>.stringify(settings, [<span class=\"hljs-string\">\"level\"</span>, <span class=\"hljs-string\">\"health\"</span>]);\n<span class=\"hljs-built_in\">console</span>.log(data);",
+      "choices": [
+        "A: `\"{\"level\":19, \"health\":90}\"`",
+        "B: `\"{\"username\": \"lydiahallie\"}\"`",
+        "C: `\"[\"level\", \"health\"]\"`",
+        "D: `\"{\"username\": \"lydiahallie\", \"level\":19, \"health\":90}\"`"
+      ],
+      "answer": "#### [](#answer-a-20)Answer: A\n\nThe second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.\n\nIf the replacer is an _array_, only the properties which names are included in the array will be added to the JSON string. In this case, only the properies with the names `\"level\"` and `\"health\"` are included, `\"username\"` is excluded. `data` is now equal to `\"{\"level\":19, \"health\":90}\"`.\n\nIf the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string."
+    },
+    {
+      "id": 63,
+      "title": "63. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">let</span> num = <span class=\"hljs-number\">10</span>;\n\n<span class=\"hljs-keyword\">const</span> increaseNumber = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> num++;\n<span class=\"hljs-keyword\">const</span> increasePassedNumber = <span class=\"hljs-function\"><span class=\"hljs-params\">number</span> =&gt;</span> number++;\n\n<span class=\"hljs-keyword\">const</span> num1 = increaseNumber();\n<span class=\"hljs-keyword\">const</span> num2 = increasePassedNumber(num1);\n\n<span class=\"hljs-built_in\">console</span>.log(num1);\n<span class=\"hljs-built_in\">console</span>.log(num2);",
+      "choices": [
+        "A: `10`, `10`",
+        "B: `10`, `11`",
+        "C: `11`, `11`",
+        "D: `11`, `12`"
+      ],
+      "answer": "#### [](#answer-a-21)Answer: A\n\nThe unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.\n\n`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`."
     }
   ]
 }

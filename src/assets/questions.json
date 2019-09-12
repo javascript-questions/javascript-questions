@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-08-03T10:21:38.183Z",
+  "updatedAt": "2019-09-12T12:27:20.416Z",
   "data": [
     {
       "id": 1,
@@ -661,12 +661,12 @@
       "id": 52,
       "title": "52. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">greeting</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-string\">\"Hello world!\"</span>;\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">try</span> {\n    <span class=\"hljs-keyword\">const</span> data = greeting();\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"It worked!\"</span>, data);\n  } <span class=\"hljs-keyword\">catch</span> (e) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Oh no an error!\"</span>, e);\n  }\n}\n\nsayHi();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">greeting</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-string\">\"Hello world!\"</span>;\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sayHi</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">try</span> {\n    <span class=\"hljs-keyword\">const</span> data = greeting();\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"It worked!\"</span>, data);\n  } <span class=\"hljs-keyword\">catch</span> (e) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Oh no an error:\"</span>, e);\n  }\n}\n\nsayHi();",
       "choices": [
-        "A: `\"It worked! Hello world!\"`",
-        "B: `\"Oh no an error: undefined`",
+        "A: `It worked! Hello world!`",
+        "B: `Oh no an error: undefined`",
         "C: `SyntaxError: can only throw Error objects`",
-        "D: `\"Oh no an error: Hello world!`"
+        "D: `Oh no an error: Hello world!`"
       ],
       "answer": "#### [](#answer-d-5)Answer: D\n\nWith the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a **string**, a **number**, a **boolean** or an **object**. In this case, our exception is the string `'Hello world'`.\n\nWith the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`."
     },
@@ -1108,7 +1108,202 @@
         "C: `new Boolean(name)`",
         "D: `name.length`"
       ],
-      "answer": "#### [](#answer-a-27)Answer: A\n\nWith `!!name`, we determine whether the value of `name` is truthy or falsey. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.\n\nBy setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.\n\n`new Boolean(true)` returns an object wrapper, not the boolean value itself.\n\n`name.length` returns the length of the passed argument, not whether it's `true`."
+      "answer": "#### [](#answer-a-27)Answer: A\n\nWith `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.\n\nBy setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.\n\n`new Boolean(true)` returns an object wrapper, not the boolean value itself.\n\n`name.length` returns the length of the passed argument, not whether it's `true`."
+    },
+    {
+      "id": 87,
+      "title": "87. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"I want pizza\"</span>[<span class=\"hljs-number\">0</span>])",
+      "choices": [
+        "A: `\"\"\"`",
+        "B: `\"I\"`",
+        "C: `SyntaxError`",
+        "D: `undefined`"
+      ],
+      "answer": "#### [](#answer-b-22)Answer: B\n\nIn order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character `\"I'`, which gets logged.\n\nNote that this method is not supported in IE7 and below. In that case, use `.charAt()`"
+    },
+    {
+      "id": 88,
+      "title": "88. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">num1, num2 = num1</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(num1 + num2)\n}\n\nsum(<span class=\"hljs-number\">10</span>)",
+      "choices": [
+        "A: `NaN`",
+        "B: `20`",
+        "C: `ReferenceError`",
+        "D: `undefined`"
+      ],
+      "answer": "#### [](#answer-b-23)Answer: B\n\nYou can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, amd the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.\n\nIf you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error."
+    },
+    {
+      "id": 89,
+      "title": "89. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-comment\">// module.js </span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> () =&gt; <span class=\"hljs-string\">\"Hello world\"</span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">\"Lydia\"</span>\n\n<span class=\"hljs-comment\">// index.js </span>\n<span class=\"hljs-keyword\">import</span> * <span class=\"hljs-keyword\">as</span> data <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">\"./module\"</span>\n\n<span class=\"hljs-built_in\">console</span>.log(data)",
+      "choices": [
+        "A: `{ default: function default(), name: \"Lydia\" }`",
+        "B: `{ default: function default() }`",
+        "C: `{ default: \"Hello world\", name: \"Lydia\" }`",
+        "D: Global object of `module.js`"
+      ],
+      "answer": "#### [](#answer-a-28)Answer: A\n\nWith the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `\"Hello World\"`, and the named export is a variable called `name` which has the value of the string `\"Lydia\"`.\n\nThe `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values."
+    },
+    {
+      "id": 90,
+      "title": "90. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Person</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>(name) {\n    <span class=\"hljs-keyword\">this</span>.name = name\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> member = <span class=\"hljs-keyword\">new</span> Person(<span class=\"hljs-string\">\"John\"</span>)\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">typeof</span> member)",
+      "choices": [
+        "A: `\"class\"`",
+        "B: `\"function\"`",
+        "C: `\"object\"`",
+        "D: `\"string\"`"
+      ],
+      "answer": "#### [](#answer-c-27)Answer: C\n\nClasses are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:\n\nfunction Person() {\n  this.name \\= name\n}\n\nCalling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `\"object\"` for an instance. `typeof member` returns `\"object\"`."
+    },
+    {
+      "id": 91,
+      "title": "91. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">let</span> newList = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>].push(<span class=\"hljs-number\">4</span>)\n\n<span class=\"hljs-built_in\">console</span>.log(newList.push(<span class=\"hljs-number\">5</span>))",
+      "choices": [
+        "A: `[1, 2, 3, 4, 5]`",
+        "B: `[1, 2, 3, 5]`",
+        "C: `[1, 2, 3, 4]`",
+        "D: `Error`"
+      ],
+      "answer": "#### [](#answer-d-9)Answer: D\n\nThe `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`.\n\nThen, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown."
+    },
+    {
+      "id": 92,
+      "title": "92. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">giveLydiaPizza</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">\"Here is pizza!\"</span>\n}\n\n<span class=\"hljs-keyword\">const</span> giveLydiaChocolate = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">\"Here's chocolate... now go hit the gym already.\"</span>\n\n<span class=\"hljs-built_in\">console</span>.log(giveLydiaPizza.prototype)\n<span class=\"hljs-built_in\">console</span>.log(giveLydiaChocolate.prototype)",
+      "choices": [
+        "A: `{ constructor: ...}` `{ constructor: ...}`",
+        "B: `{}` `{ constructor: ...}`",
+        "C: `{ constructor: ...}` `{}`",
+        "D: `{ constructor: ...}` `undefined`"
+      ],
+      "answer": "#### [](#answer-d-10)Answer: D\n\nRegular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`."
+    },
+    {
+      "id": 93,
+      "title": "93. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> person = {\n  <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span>,\n  <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span>\n}\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">const</span> [x, y] <span class=\"hljs-keyword\">of</span> <span class=\"hljs-built_in\">Object</span>.entries(person)) {\n  <span class=\"hljs-built_in\">console</span>.log(x, y)\n}",
+      "choices": [
+        "A: `name` `Lydia` and `age` `21`",
+        "B: `[\"name\", \"Lydia\"]` and `[\"age\", 21]`",
+        "C: `[\"name\", \"age\"]` and `undefined`",
+        "D: `Error`"
+      ],
+      "answer": "#### [](#answer-a-29)Answer: A\n\n`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:\n\n`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`\n\nUsing the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray.\n\nThe first subarray is `[ \"name\", \"Lydia\" ]`, with `x` equal to `\"name\"`, and `y` equal to `\"Lydia\"`, which get logged. The second subarray is `[ \"age\", 21 ]`, with `x` equal to `\"age\"`, and `y` equal to `21`, which get logged."
+    },
+    {
+      "id": 94,
+      "title": "94. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getItems</span>(<span class=\"hljs-params\">fruitList, ...args, favoriteFruit</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> [...fruitList, ...args, favoriteFruit]\n}\n\ngetItems([<span class=\"hljs-string\">\"banana\"</span>, <span class=\"hljs-string\">\"apple\"</span>], <span class=\"hljs-string\">\"pear\"</span>, <span class=\"hljs-string\">\"orange\"</span>)",
+      "choices": [
+        "A: `[\"banana\", \"apple\", \"pear\", \"orange\"]`",
+        "B: `[[\"banana\", \"apple\"], \"pear\", \"orange\"]`",
+        "C: `[\"banana\", \"apple\", [\"pear\"], \"orange\"]`",
+        "D: `SyntaxError`"
+      ],
+      "answer": "#### [](#answer-d-11)Answer: D\n\n`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.\n\nfunction getItems(fruitList, favoriteFruit, ...args) {\n  return \\[...fruitList, ...args, favoriteFruit\\]\n}\n\ngetItems(\\[\"banana\", \"apple\"\\], \"pear\", \"orange\")\n\nThe above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`"
+    },
+    {
+      "id": 95,
+      "title": "95. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">nums</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">if</span>\n  (a &gt; b)\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'a is bigger'</span>)\n  <span class=\"hljs-keyword\">else</span> \n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'b is bigger'</span>)\n  <span class=\"hljs-keyword\">return</span> \n  a + b\n}\n\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">2</span>))\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>))",
+      "choices": [
+        "A: `a is bigger`, `6` and `b is bigger`, `3`",
+        "B: `a is bigger`, `undefined` and `b is bigger`, `undefined`",
+        "C: `undefined` and `undefined`",
+        "D: `SyntaxError`"
+      ],
+      "answer": "#### [](#answer-b-24)Answer: B\n\nIn JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc.\n\nHere, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:\n\n  return;\n  a + b\n\nThis means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!"
+    },
+    {
+      "id": 96,
+      "title": "96. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Person</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>() {\n    <span class=\"hljs-keyword\">this</span>.name = <span class=\"hljs-string\">\"Lydia\"</span>\n  }\n}\n\nPerson = <span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">AnotherPerson</span> </span>{\n  <span class=\"hljs-keyword\">constructor</span>() {\n    <span class=\"hljs-keyword\">this</span>.name = <span class=\"hljs-string\">\"Sarah\"</span>\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> member = <span class=\"hljs-keyword\">new</span> Person()\n<span class=\"hljs-built_in\">console</span>.log(member.name)",
+      "choices": [
+        "A: `\"Lydia\"`",
+        "B: `\"Sarah\"`",
+        "C: `Error: cannot redeclare Person`",
+        "D: `SyntaxError`"
+      ],
+      "answer": "#### [](#answer-b-25)Answer: B\n\nWe can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `\"Sarah\"`."
+    },
+    {
+      "id": 97,
+      "title": "97. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> info = {\n  [<span class=\"hljs-built_in\">Symbol</span>(<span class=\"hljs-string\">'a'</span>)]: <span class=\"hljs-string\">'b'</span>\n}\n\n<span class=\"hljs-built_in\">console</span>.log(info)\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-built_in\">Object</span>.keys(info))",
+      "choices": [
+        "A: `{Symbol('a'): 'b'}` and `[\"{Symbol('a')\"]`",
+        "B: `{}` and `[]`",
+        "C: `{ a: \"b\" }` and `[\"a\"]`",
+        "D: `{Symbol('a'): 'b'}` and `[]`"
+      ],
+      "answer": "#### [](#answer-d-12)Answer: D\n\nA Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.\n\nThis is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also \"hide\" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method)."
+    },
+    {
+      "id": 98,
+      "title": "98. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> getList = <span class=\"hljs-function\">(<span class=\"hljs-params\">[x, ...y]</span>) =&gt;</span> [x, y]\n<span class=\"hljs-keyword\">const</span> getUser = <span class=\"hljs-function\"><span class=\"hljs-params\">user</span> =&gt;</span> { <span class=\"hljs-attr\">name</span>: user.name, <span class=\"hljs-attr\">age</span>: user.age }\n\n<span class=\"hljs-keyword\">const</span> list = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>, <span class=\"hljs-number\">4</span>]\n<span class=\"hljs-keyword\">const</span> user = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span> }\n\n<span class=\"hljs-built_in\">console</span>.log(getList(list))\n<span class=\"hljs-built_in\">console</span>.log(getUser(user))",
+      "choices": [
+        "A: `[1, [2, 3, 4]]` and `undefined`",
+        "B: `[1, [2, 3, 4]]` and `{ name: \"Lydia\", age: 21 }`",
+        "C: `[1, 2, 3, 4]` and `{ name: \"Lydia\", age: 21 }`",
+        "D: `Error` and `{ name: \"Lydia\", age: 21 }`"
+      ],
+      "answer": "#### [](#answer-a-30)Answer: A\n\nThe `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:\n\n`[x, ...y] = [1, 2, 3, 4]`\n\nWith the rest parameter `...y`, we put all \"remaining\" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.\n\nThe `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:\n\n`const getUser = user => ({ name: user.name, age: user.age })`\n\nSince no value gets returned in this case, the function returns `undefined`."
+    },
+    {
+      "id": 99,
+      "title": "99. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">\"Lydia\"</span>\n\n<span class=\"hljs-built_in\">console</span>.log(name())",
+      "choices": [
+        "A: `SyntaxError`",
+        "B: `ReferenceError`",
+        "C: `TypeError`",
+        "D: `undefined`"
+      ],
+      "answer": "#### [](#answer-c-28)Answer: C\n\nThe variable `name` holds the value of a string, which is not a function, thus cannot invoke.\n\nTypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!\n\nSyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access."
+    },
+    {
+      "id": 100,
+      "title": "100. What's the value of output?",
+      "text": null,
+      "code": "<span class=\"hljs-comment\">// 🎉✨ This is my 100th question! ✨🎉</span>\n\n<span class=\"hljs-keyword\">const</span> output = <span class=\"hljs-string\">`<span class=\"hljs-subst\">${[] &amp;&amp; <span class=\"hljs-string\">'Im'</span>}</span>possible!\nYou should<span class=\"hljs-subst\">${<span class=\"hljs-string\">''</span> &amp;&amp; <span class=\"hljs-string\">`n't`</span>}</span> see a therapist after so much JavaScript lol`</span>",
+      "choices": [
+        "A: `possible! You should see a therapist after so much JavaScript lol`",
+        "B: `Impossible! You should see a therapist after so much JavaScript lol`",
+        "C: `possible! You shouldn't see a therapist after so much JavaScript lol`",
+        "D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`"
+      ],
+      "answer": "#### [](#answer-b-26)Answer: B\n\n`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `\"Im'` gets returned.\n\n`\"\"` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned."
+    },
+    {
+      "id": 101,
+      "title": "101. What's the value of output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> one = (<span class=\"hljs-literal\">false</span> || {} || <span class=\"hljs-literal\">null</span>)\n<span class=\"hljs-keyword\">const</span> two = (<span class=\"hljs-literal\">null</span> || <span class=\"hljs-literal\">false</span> || <span class=\"hljs-string\">\"\"</span>)\n<span class=\"hljs-keyword\">const</span> three = ([] || <span class=\"hljs-number\">0</span> || <span class=\"hljs-literal\">true</span>)\n\n<span class=\"hljs-built_in\">console</span>.log(one, two, three)",
+      "choices": [
+        "A: `false` `null` `[]`",
+        "B: `null` `\"\"` `true`",
+        "C: `{}` `\"\"` `[]`",
+        "D: `null` `null` `true`"
+      ],
+      "answer": "#### [](#answer-c-29)Answer: C\n\nWith the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.\n\n`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.\n\n`(null || false || \"\")`: all operands are falsy values. This means that the past operand, `\"\"` gets returned. `two` is equal to `\"\"`.\n\n`([] || 0 || \"\")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`."
     }
   ]
 }

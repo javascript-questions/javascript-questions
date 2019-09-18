@@ -726,7 +726,7 @@
       "id": 57,
       "title": "57. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-comment\">// counter.js</span>\n<span class=\"hljs-keyword\">let</span> counter = <span class=\"hljs-number\">10</span>;\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> counter;",
+      "code": "<span class=\"hljs-comment\">// counter.js</span>\n<span class=\"hljs-keyword\">let</span> counter = <span class=\"hljs-number\">10</span>;\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> counter;\n<span class=\"hljs-comment\">//  index.js</span>\n<span class=\"hljs-keyword\">import</span> myCounter <span class=\"hljs-keyword\">from</span>'./counter';\nmyCounter += 1;\nconsole.log(myCounter); ",
       "choices": [
         "A: `10`",
         "B: `11`",

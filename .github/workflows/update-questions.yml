@@ -2,8 +2,7 @@ name: Update questions
 # This workflow runs at 00:30 everyday
 on:
   schedule:
-    -
-      cron: 30 18 * * *
+    - cron: "30 18 * * *"
 jobs:
   build:
     name: questions update
@@ -16,4 +15,6 @@ jobs:
 
       - run: npm install
       - run: npm run update-questions
-      - run: git add src/assets/questions.json && git commit -am 'feat: fetch latest questions' && git push origin master
+      - run: git add src/assets/questions.json
+      - run: "git commit -am \"feat: fetch latest questions\""
+      - run: git push origin master

@@ -9,7 +9,8 @@
     "build": "preact build --template src/template.html",
     "serve": "preact build && preact serve",
     "dev": "preact watch --template src/template.html",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "update-questions": "node scripts/extract-questions"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"

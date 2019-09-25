@@ -17,4 +17,4 @@ jobs:
       - run: npm run update-questions
       - run: git add src/assets/questions.json
       - run: "git commit -am \"feat: fetch latest questions\""
-      - run: git push origin master
+      - run: git push origin HEAD

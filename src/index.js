@@ -75,19 +75,19 @@ export default class App extends Component {
     const userAnswer = userAnswers.find(answer => answer.questionId === questionId);
 
     if (!questionId) return <div><Intro /><Drawer updatedAt={questionsUpdatedAt} /></div>;
-    if (!question) return <div className="app-shell"><LoadingActivity /></div>;
+    if (!question) return <div class="app-shell"><LoadingActivity /></div>;
 
 		return (
-      <div className="app-shell">
+      <div class="app-shell">
         <Drawer updatedAt={questionsUpdatedAt} />
         <main>
           <QuestionHeader question={question} />
-          <div className="Box">
-            <pre className="Box-header" dangerouslySetInnerHTML={{__html: question.code}} />
+          <div class="Box">
+            <pre class="Box-header" dangerouslySetInnerHTML={{__html: question.code}} />
             <ul>
               {question.choices.map((choice, choiceId) => (
                 <li
-                  className="Box-row Box-row--hover-gray"
+                  class="Box-row Box-row--hover-gray"
                   dangerouslySetInnerHTML={{__html: snarkdown(choice)}}
                   data-selected={userAnswer && userAnswer.choiceId === choiceId}
                   onClick={() => {
@@ -97,13 +97,13 @@ export default class App extends Component {
                 />
               ))}
             </ul>
-            {revealAnswer && <div className="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
+            {revealAnswer && <div class="Box-row" dangerouslySetInnerHTML={{__html: snarkdown(question.answer)}} />}
           </div>
 
           <div class="Pagination">
-            <a href={`/#${questionId - 1}`} className="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
+            <a href={`/#${questionId - 1}`} class="Button Button--purple" rel="prev" disabled={questionId === 1}>Prev</a>
             <small><i>{questionId} of {totalQuestions}</i></small>
-            <a href={`/#${questionId + 1}`} className="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
+            <a href={`/#${questionId + 1}`} class="Button Button--purple" rel="next" disabled={questionId === totalQuestions}>Next</a>
           </div>
         </main>
       </div>

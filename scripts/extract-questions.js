@@ -6,6 +6,9 @@ const javascript = require('highlight.js/lib/languages/javascript');
 hljs.registerLanguage('javascript', javascript);
 
 const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
+const QUESTIONS_PATH = 'src/assets/questions.json';
+const CACHED_QUESTIONS_RAW = fs.readFileSync(QUESTIONS_PATH);
+const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -64,7 +67,11 @@ const QUESTIONS_URL = 'https://github.com/lydiahallie/javascript-questions';
     }
   });
 
-  saveQuestions(questions);
+  // Quick diff before saving
+  if (JSON.stringify(CACHED_QUESTIONS.data) !== JSON.stringify(questions.data)) {
+    saveQuestions(questions);
+  }
+
   await browser.close();
 })();
 

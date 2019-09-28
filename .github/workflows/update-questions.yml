@@ -2,7 +2,7 @@ name: Update questions
 # This workflow runs at 00:30 everyday
 on:
   schedule:
-    - cron: "30 18 * * *"
+    - cron: "30 00 * * *"
 jobs:
   build:
     name: questions update
@@ -15,6 +15,10 @@ jobs:
 
       - run: npm install
       - run: npm run update-questions
-      - run: git add src/assets/questions.json
-      - run: "git commit -am \"feat: fetch latest questions\""
-      - run: git push origin HEAD
+
+      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+        with:
+          commit_message: "feat: fetch latest questions"
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-09-12T12:27:20.416Z",
+  "updatedAt": "2019-09-29T00:33:11.343Z",
   "data": [
     {
       "id": 1,
@@ -1304,6 +1304,95 @@
         "D: `null` `null` `true`"
       ],
       "answer": "#### [](#answer-c-29)Answer: C\n\nWith the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.\n\n`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.\n\n`(null || false || \"\")`: all operands are falsy values. This means that the past operand, `\"\"` gets returned. `two` is equal to `\"\"`.\n\n`([] || 0 || \"\")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`."
+    },
+    {
+      "id": 102,
+      "title": "102. What's the value of output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> myPromise = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'I have resolved!'</span>)\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">firstFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  myPromise().then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res))\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">secondFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">await</span> myPromise())\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}",
+      "choices": [
+        "A: `I have resolved!`, `second` and `I have resolved!`, `second`",
+        "B: `second`, `I have resolved!` and `second`, `I have resolved!`",
+        "C: `I have resolved!`, `second` and `second`, `I have resolved!`",
+        "D: `second`, `I have resolved!` and `I have resolved!`, `second`"
+      ],
+      "answer": "#### [](#answer-d-13)Answer: D\n\nWith a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._\n\nWe can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently.\n\nIn the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.\n\nWith the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.\n\nThis means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged."
+    },
+    {
+      "id": 103,
+      "title": "103. What's the value of output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> <span class=\"hljs-keyword\">set</span> = new Set()\n\n<span class=\"hljs-keyword\">set</span>.add(1)\n<span class=\"hljs-keyword\">set</span>.add(\"Lydia\")\n<span class=\"hljs-keyword\">set</span>.add({ name: <span class=\"hljs-string\">\"Lydia\"</span> })\n\n<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> item <span class=\"hljs-keyword\">of</span> <span class=\"hljs-keyword\">set</span>) {\n  <span class=\"hljs-built_in\">console</span>.log(item + <span class=\"hljs-number\">2</span>)\n}",
+      "choices": [
+        "A: `3`, `NaN`, `NaN`",
+        "B: `3`, `7`, `NaN`",
+        "C: `3`, `Lydia2`, `[Object object]2`",
+        "D: `\"12\"`, `Lydia2`, `[Object object]2`"
+      ],
+      "answer": "#### [](#answer-c-30)Answer: C\n\nThe `+` operator is not only used for adding numerica lvalues, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.\n\nThe first one is `1`, which is a numerical value. `1 + 2` returns the number 3.\n\nHowever, the second one is a string `\"Lydia\"`. `\"Lydia\"` is a string and `2` is a number: `2` gets coerced into a string. `\"Lydia\"` and `\"2\"` get concatenated, whic hresults in the string `\"Lydia2\"`.\n\n`{ name: \"Lydia\" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `\"[Object object]\"`. `\"[Object object]\"` concatenated with `\"2\"` becomes `\"[Object object]2\"`."
+    },
+    {
+      "id": 104,
+      "title": "104. What's its value?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-number\">5</span>)",
+      "choices": [
+        "A: `5`",
+        "B: `Promise {<pending>: 5}`",
+        "C: `Promise {<resolved>: 5}`",
+        "D: `Error`"
+      ],
+      "answer": "#### [](#answer-c-31)Answer: C\n\nWe can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.\n\nIn this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`."
+    },
+    {
+      "id": 105,
+      "title": "105. What's its value?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">compareMembers</span>(<span class=\"hljs-params\">person1, person2 = person</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (person1 !== person2) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Not the same!\"</span>)\n  } <span class=\"hljs-keyword\">else</span> {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"They are the same!\"</span>)\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> }\n\ncompareMembers(perosn)",
+      "choices": [
+        "A: `Not the same!`",
+        "B: `They are the same!`",
+        "C: `ReferenceError`",
+        "D: `SyntaxError`"
+      ],
+      "answer": "#### [](#answer-b-27)Answer: B\n\nObjects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references.\n\nWe set the default value for `person2` equal to the `person` object, and passed the `person` object as the value for `person1`.\n\nThis means that both values have a reference to the same spot in memory, thus they are equal.\n\nThe code block in the `else` statement gets run, and `They are the same!` gets logged."
+    },
+    {
+      "id": 106,
+      "title": "106. What's its value?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> colorConfig = {\n  <span class=\"hljs-attr\">red</span>: <span class=\"hljs-literal\">true</span>,\n  <span class=\"hljs-attr\">blue</span>: <span class=\"hljs-literal\">false</span>,\n  <span class=\"hljs-attr\">green</span>: <span class=\"hljs-literal\">true</span>,\n  <span class=\"hljs-attr\">black</span>: <span class=\"hljs-literal\">true</span>,\n  <span class=\"hljs-attr\">yellow</span>: <span class=\"hljs-literal\">false</span>,\n}\n\n<span class=\"hljs-keyword\">const</span> colors = [<span class=\"hljs-string\">\"pink\"</span>, <span class=\"hljs-string\">\"red\"</span>, <span class=\"hljs-string\">\"blue\"</span>]\n\n<span class=\"hljs-built_in\">console</span>.log(colorConfig.colors[<span class=\"hljs-number\">1</span>])",
+      "choices": [
+        "A: `true`",
+        "B: `false`",
+        "C: `undefined`",
+        "D: `TypeError`"
+      ],
+      "answer": "#### [](#answer-d-14)Answer: D\n\nIn JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig[\"colors\"]`).\n\nWith dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colorConfig`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object."
+    },
+    {
+      "id": 107,
+      "title": "107. What's its value?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'❤️'</span> === <span class=\"hljs-string\">'❤️'</span>)",
+      "choices": [
+        "A: `true`",
+        "B: `false`"
+      ],
+      "answer": "#### [](#answer-a-31)Answer: A\n\nUnder the hood, emojis are unicodes. The unicodes for the heart emoji is `\"U+2764 U+FE0F\"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true."
+    },
+    {
+      "id": 108,
+      "title": "108. Which of these methods modifies the original array?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> emojis = [<span class=\"hljs-string\">'✨'</span>, <span class=\"hljs-string\">'🥑'</span>, <span class=\"hljs-string\">'😍'</span>]\n\nemojis.map(<span class=\"hljs-function\"><span class=\"hljs-params\">x</span> =&gt;</span> x + <span class=\"hljs-string\">'✨'</span>)\nemojis.filter(<span class=\"hljs-function\"><span class=\"hljs-params\">x</span> =&gt;</span> x !== <span class=\"hljs-string\">'🥑'</span>)\nemojis.find(<span class=\"hljs-function\"><span class=\"hljs-params\">x</span> =&gt;</span> x !== <span class=\"hljs-string\">'🥑'</span>)\nemojis.reduce(<span class=\"hljs-function\">(<span class=\"hljs-params\">acc, cur</span>) =&gt;</span> acc + <span class=\"hljs-string\">'✨'</span>)\nemojis.slice(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-string\">'✨'</span>) \nemojis.splice(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-string\">'✨'</span>)",
+      "choices": [
+        "A: `All of them`",
+        "B: `map` `reduce` `slice` `splice`",
+        "C: `map` `slice` `splice`",
+        "D: `splice`"
+      ],
+      "answer": "#### [](#answer-d-15)Answer: D\n\nWith `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ![sparkles](https://github.githubassets.com/images/icons/emoji/unicode/2728.png) emoji instead.\n\n`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value."
     }
   ]
 }

@@ -67,10 +67,7 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
     }
   });
 
-  // Quick diff before saving
-  if (JSON.stringify(CACHED_QUESTIONS.data) !== JSON.stringify(questions.data)) {
-    saveQuestions(questions);
-  }
+  saveQuestions(questions);
 
   await browser.close();
 })();
@@ -87,8 +84,14 @@ function saveQuestions(data) {
     })
   };
 
-  fs.writeFile('src/assets/questions.json', JSON.stringify(questions, null, 2), err => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+  // Quick diff before saving
+  if (JSON.stringify(CACHED_QUESTIONS.data) !== JSON.stringify(questions.data)) {
+    fs.writeFile('src/assets/questions.json', JSON.stringify(questions, null, 2), err => {
+      if (err) throw err;
+      console.log('The updated questions.json file has been saved.');
+    });
+  }
+  else {
+    console.log('Nothing to update.');
+  }
 }

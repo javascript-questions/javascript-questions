@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-09-30T00:32:37.122Z",
+  "updatedAt": "2019-10-01T00:32:37.870Z",
   "data": [
     {
       "id": 1,
@@ -1134,7 +1134,7 @@
         "C: `ReferenceError`",
         "D: `undefined`"
       ],
-      "answer": "#### [](#answer-b-23)Answer: B\n\nYou can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, amd the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.\n\nIf you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error."
+      "answer": "#### [](#answer-b-23)Answer: B\n\nYou can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.\n\nIf you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error."
     },
     {
       "id": 89,
@@ -1309,7 +1309,7 @@
       "id": 102,
       "title": "102. What's the value of output?",
       "text": null,
-      "code": "<span class=\"hljs-keyword\">const</span> myPromise = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'I have resolved!'</span>)\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">firstFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  myPromise().then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res))\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">secondFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">await</span> myPromise())\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}",
+      "code": "<span class=\"hljs-keyword\">const</span> myPromise = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'I have resolved!'</span>)\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">firstFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  myPromise().then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res))\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}\n\n<span class=\"hljs-keyword\">async</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">secondFunction</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-keyword\">await</span> myPromise())\n  <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'second'</span>)\n}\n\nfirstFunction()\nsecondFunction()",
       "choices": [
         "A: `I have resolved!`, `second` and `I have resolved!`, `second`",
         "B: `second`, `I have resolved!` and `second`, `I have resolved!`",
@@ -1348,7 +1348,7 @@
       "id": 105,
       "title": "105. What's its value?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">compareMembers</span>(<span class=\"hljs-params\">person1, person2 = person</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (person1 !== person2) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Not the same!\"</span>)\n  } <span class=\"hljs-keyword\">else</span> {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"They are the same!\"</span>)\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> }\n\ncompareMembers(perosn)",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">compareMembers</span>(<span class=\"hljs-params\">person1, person2 = person</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (person1 !== person2) {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Not the same!\"</span>)\n  } <span class=\"hljs-keyword\">else</span> {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"They are the same!\"</span>)\n  }\n}\n\n<span class=\"hljs-keyword\">const</span> person = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> }\n\ncompareMembers(person)",
       "choices": [
         "A: `Not the same!`",
         "B: `They are the same!`",

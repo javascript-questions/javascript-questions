@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-10-01T00:32:37.870Z",
+  "updatedAt": "2019-10-11T00:32:59.726Z",
   "data": [
     {
       "id": 1,
@@ -1329,7 +1329,7 @@
         "C: `3`, `Lydia2`, `[Object object]2`",
         "D: `\"12\"`, `Lydia2`, `[Object object]2`"
       ],
-      "answer": "#### [](#answer-c-30)Answer: C\n\nThe `+` operator is not only used for adding numerica lvalues, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.\n\nThe first one is `1`, which is a numerical value. `1 + 2` returns the number 3.\n\nHowever, the second one is a string `\"Lydia\"`. `\"Lydia\"` is a string and `2` is a number: `2` gets coerced into a string. `\"Lydia\"` and `\"2\"` get concatenated, whic hresults in the string `\"Lydia2\"`.\n\n`{ name: \"Lydia\" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `\"[Object object]\"`. `\"[Object object]\"` concatenated with `\"2\"` becomes `\"[Object object]2\"`."
+      "answer": "#### [](#answer-c-30)Answer: C\n\nThe `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.\n\nThe first one is `1`, which is a numerical value. `1 + 2` returns the number 3.\n\nHowever, the second one is a string `\"Lydia\"`. `\"Lydia\"` is a string and `2` is a number: `2` gets coerced into a string. `\"Lydia\"` and `\"2\"` get concatenated, which results in the string `\"Lydia2\"`.\n\n`{ name: \"Lydia\" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `\"[Object object]\"`. `\"[Object object]\"` concatenated with `\"2\"` becomes `\"[Object object]2\"`."
     },
     {
       "id": 104,
@@ -1368,7 +1368,7 @@
         "C: `undefined`",
         "D: `TypeError`"
       ],
-      "answer": "#### [](#answer-d-14)Answer: D\n\nIn JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig[\"colors\"]`).\n\nWith dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colorConfig`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object."
+      "answer": "#### [](#answer-d-14)Answer: D\n\nIn JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig[\"colors\"]`).\n\nWith dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object."
     },
     {
       "id": 107,
@@ -1393,6 +1393,110 @@
         "D: `splice`"
       ],
       "answer": "#### [](#answer-d-15)Answer: D\n\nWith `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ![sparkles](https://github.githubassets.com/images/icons/emoji/unicode/2728.png) emoji instead.\n\n`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value."
+    },
+    {
+      "id": 109,
+      "title": "109. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> food = [<span class=\"hljs-string\">'🍕'</span>, <span class=\"hljs-string\">'🍫'</span>, <span class=\"hljs-string\">'🥑'</span>, <span class=\"hljs-string\">'🍔'</span>]\n<span class=\"hljs-keyword\">const</span> info = { <span class=\"hljs-attr\">favoriteFood</span>: food[<span class=\"hljs-number\">0</span>] }\n\ninfo.favoriteFood = <span class=\"hljs-string\">'🍝'</span>\n\n<span class=\"hljs-built_in\">console</span>.log(food)",
+      "choices": [
+        "A: `['🍕', '🍫', '🥑', '🍔']`",
+        "B: `['🍝', '🍫', '🥑', '🍔']`",
+        "C: `['🍝', '🍕', '🍫', '🥑', '🍔']`",
+        "D: `ReferenceError`"
+      ],
+      "answer": "#### [](#answer-a-32)Answer: A\n\nWe set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference\n\nIn JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)\n\nThen, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`."
+    },
+    {
+      "id": 110,
+      "title": "110. What does this method do?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">JSON</span>.parse()",
+      "choices": [
+        "A: Parses JSON to a JavaScript value",
+        "B: Parses a JavaScript object to JSON",
+        "C: Parses any JavaScript value to JSON",
+        "D: Parses JSON to a JavaScript object only"
+      ],
+      "answer": "#### [](#answer-a-33)Answer: A\n\nWith the `JSON.parse()` method, we can parse JSON string to a JavaScript value.\n\n// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonNumber \\= JSON.stringify(4) // '4'\nJSON.parse(jsonNumber) // 4\n\n// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray \\= JSON.stringify(\\[1, 2, 3\\]) // '\\[1, 2, 3\\]'\nJSON.parse(jsonArray) // \\[1, 2, 3\\]\n\n// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:\nconst jsonArray \\= JSON.stringify({ name: \"Lydia\" }) // '{\"name\":\"Lydia\"}'\nJSON.parse(jsonArray) // { name: 'Lydia' }"
+    },
+    {
+      "id": 111,
+      "title": "111. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">let</span> name = <span class=\"hljs-string\">'Lydia'</span>\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getName</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(name)\n  <span class=\"hljs-keyword\">let</span> name = <span class=\"hljs-string\">'Sarah'</span>\n}\n\ngetName()",
+      "choices": [
+        "A: Lydia",
+        "B: Sarah",
+        "C: `undefined`",
+        "D: `ReferenceError`"
+      ],
+      "answer": "#### [](#answer-d-16)Answer: D\n\nEach function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`.\n\nVariables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get _initialized_. They are not accessible before the line we declare (initialize) them. This is called the \"temporal dead zone\". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.\n\nIf we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.\n\nlet name \\= 'Lydia'\n\nfunction getName() {\n  console.log(name)\n}\n\ngetName() // Lydia"
+    },
+    {
+      "id": 112,
+      "title": "112. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">generatorOne</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">yield</span> [<span class=\"hljs-string\">'a'</span>, <span class=\"hljs-string\">'b'</span>, <span class=\"hljs-string\">'c'</span>];\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">generatorTwo</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">yield</span>* [<span class=\"hljs-string\">'a'</span>, <span class=\"hljs-string\">'b'</span>, <span class=\"hljs-string\">'c'</span>];\n}\n\n<span class=\"hljs-keyword\">const</span> one = generatorOne()\n<span class=\"hljs-keyword\">const</span> two = generatorTwo()\n\n<span class=\"hljs-built_in\">console</span>.log(one.next().value)\n<span class=\"hljs-built_in\">console</span>.log(two.next().value)",
+      "choices": [
+        "A: `a` and `a`",
+        "B: `a` and `undefined`",
+        "C: `['a', 'b', 'c']` and `a`",
+        "D: `a` and `['a', 'b', 'c']`"
+      ],
+      "answer": "#### [](#answer-c-32)Answer: C\n\nWith the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).\n\nIn `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.\n\nconsole.log(one.next().value) // \\['a', 'b', 'c'\\]\nconsole.log(one.next().value) // undefined\n\nIn `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned.\n\nconsole.log(two.next().value) // 'a'\nconsole.log(two.next().value) // 'b'\nconsole.log(two.next().value) // 'c'\nconsole.log(two.next().value) // undefined"
+    },
+    {
+      "id": 113,
+      "title": "113. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${(x =&gt; x)(<span class=\"hljs-string\">'I love'</span>)}</span> to program`</span>)",
+      "choices": [
+        "A: `I love to program`",
+        "B: `undefined to program`",
+        "C: `${(x => x)('I love') to program`",
+        "D: `TypeError`"
+      ],
+      "answer": "#### [](#answer-a-34)Answer: A\n\nExpressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`."
+    },
+    {
+      "id": 114,
+      "title": "114. What will happen?",
+      "text": null,
+      "code": "let config = {\n  alert: setInterval(() =&gt; {\n    console.log('Alert!)\n  }, 1000)\n}\n\nconfig = null",
+      "choices": [
+        "A: The `setInterval` callback won't be invoked",
+        "B: The `setInterval` callback gets invoked once",
+        "C: The `setInterval` callback will still be called every second",
+        "D: We never invoked `config.alert()`, config is `null`"
+      ],
+      "answer": "#### [](#answer-c-33)Answer: C\n\nNormally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won't get garbage collected. Since it's not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s)."
+    },
+    {
+      "id": 115,
+      "title": "115. Which method(s) will return the value 'Hello world!'?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> myMap = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Map</span>()\n<span class=\"hljs-keyword\">const</span> myFunc = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>\n\nmyMap.set(myFunc, <span class=\"hljs-string\">'Hello world!'</span>)\n\n<span class=\"hljs-comment\">//1</span>\nmyMap.get(<span class=\"hljs-string\">'greeting'</span>)\n<span class=\"hljs-comment\">//2</span>\nmyMap.get(myFunc)\n<span class=\"hljs-comment\">//3</span>\nmyMap.get(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>))",
+      "choices": [
+        "A: 1",
+        "B: 2",
+        "C: 2 and 3",
+        "D: All of them"
+      ],
+      "answer": "#### [](#answer-b-28)Answer: B\n\nWhen adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`.\n\n1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`. 3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory."
+    },
+    {
+      "id": 116,
+      "title": "116. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> person = {\n  <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span>,\n  <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span>\n}\n\n<span class=\"hljs-keyword\">const</span> changeAge = <span class=\"hljs-function\">(<span class=\"hljs-params\">x = { ...person }</span>) =&gt;</span> x.age += <span class=\"hljs-number\">1</span>\n<span class=\"hljs-keyword\">const</span> changeAgeAndName = <span class=\"hljs-function\">(<span class=\"hljs-params\">x = { ...person }</span>) =&gt;</span> {\n  x.age += <span class=\"hljs-number\">1</span>\n  x.name = <span class=\"hljs-string\">\"Sarah\"</span>\n}\n\nchangeAge(person)\nchangeAgeAndName()\n\n<span class=\"hljs-built_in\">console</span>.log(person)",
+      "choices": [
+        "A: `{name: \"Sarah\", age: 22}`",
+        "B: `{name: \"Sarah\", age: 23}`",
+        "C: `{name: \"Lydia\", age: 22}`",
+        "D: `{name: \"Lydia\", age: 23}`"
+      ],
+      "answer": "#### [](#answer-c-34)Answer: C\n\nBoth the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object.\n\nFirst, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: \"Lydia\", age: 22 }`.\n\nThen, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: \"Lydia\", age: 22 }`."
     }
   ]
 }

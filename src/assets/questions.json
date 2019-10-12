@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-10-11T00:32:59.726Z",
+  "updatedAt": "2019-10-12T00:33:37.623Z",
   "data": [
     {
       "id": 1,
@@ -1463,7 +1463,7 @@
       "id": 114,
       "title": "114. What will happen?",
       "text": null,
-      "code": "let config = {\n  alert: setInterval(() =&gt; {\n    console.log('Alert!)\n  }, 1000)\n}\n\nconfig = null",
+      "code": "<span class=\"hljs-keyword\">let</span> config = {\n  <span class=\"hljs-attr\">alert</span>: setInterval(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> {\n    <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'Alert!'</span>)\n  }, <span class=\"hljs-number\">1000</span>)\n}\n\nconfig = <span class=\"hljs-literal\">null</span>",
       "choices": [
         "A: The `setInterval` callback won't be invoked",
         "B: The `setInterval` callback gets invoked once",
@@ -1476,7 +1476,7 @@
       "id": 115,
       "title": "115. Which method(s) will return the value 'Hello world!'?",
       "text": null,
-      "code": "<span class=\"hljs-keyword\">const</span> myMap = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Map</span>()\n<span class=\"hljs-keyword\">const</span> myFunc = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>\n\nmyMap.set(myFunc, <span class=\"hljs-string\">'Hello world!'</span>)\n\n<span class=\"hljs-comment\">//1</span>\nmyMap.get(<span class=\"hljs-string\">'greeting'</span>)\n<span class=\"hljs-comment\">//2</span>\nmyMap.get(myFunc)\n<span class=\"hljs-comment\">//3</span>\nmyMap.get(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>))",
+      "code": "<span class=\"hljs-keyword\">const</span> myMap = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Map</span>()\n<span class=\"hljs-keyword\">const</span> myFunc = <span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>\n\nmyMap.set(myFunc, <span class=\"hljs-string\">'Hello world!'</span>)\n\n<span class=\"hljs-comment\">//1</span>\nmyMap.get(<span class=\"hljs-string\">'greeting'</span>)\n<span class=\"hljs-comment\">//2</span>\nmyMap.get(myFunc)\n<span class=\"hljs-comment\">//3</span>\nmyMap.get(<span class=\"hljs-function\"><span class=\"hljs-params\">()</span> =&gt;</span> <span class=\"hljs-string\">'greeting'</span>)",
       "choices": [
         "A: 1",
         "B: 2",

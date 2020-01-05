@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2019-12-25T00:35:10.452Z",
+  "updatedAt": "2020-01-05T00:34:29.992Z",
   "data": [
     {
       "id": 1,
@@ -246,7 +246,7 @@
       "id": 20,
       "title": "20. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getAge</span>(<span class=\"hljs-params\"></span>) </span>{\n<span class=\"hljs-meta\">  \"use strict\"</span>;\n  age = <span class=\"hljs-number\">21</span>;\n  <span class=\"hljs-built_in\">console</span>.log(age);\n}\n\ngetAge();",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getAge</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-string\">\"use strict\"</span>;\n  age = <span class=\"hljs-number\">21</span>;\n  <span class=\"hljs-built_in\">console</span>.log(age);\n}\n\ngetAge();",
       "choices": [
         "A: `21`",
         "B: `undefined`",

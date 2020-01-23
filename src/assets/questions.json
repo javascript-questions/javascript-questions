@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-01-05T00:34:29.992Z",
+  "updatedAt": "2020-01-23T00:34:49.728Z",
   "data": [
     {
       "id": 1,
@@ -1316,7 +1316,7 @@
         "C: `I have resolved!`, `second` and `second`, `I have resolved!`",
         "D: `second`, `I have resolved!` and `I have resolved!`, `second`"
       ],
-      "answer": "#### [](#answer-d-13)Answer: D\n\nWith a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._\n\nWe can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently.\n\nIn the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.\n\nWith the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.\n\nThis means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged."
+      "answer": "#### [](#answer-d-13)Answer: D\n\nWith a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._\n\nWe can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently.\n\nIn the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.\n\nWith the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved before moving to the next line.\n\nThis means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged."
     },
     {
       "id": 103,
@@ -1368,7 +1368,7 @@
         "C: `undefined`",
         "D: `TypeError`"
       ],
-      "answer": "#### [](#answer-d-14)Answer: D\n\nIn JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig[\"colors\"]`).\n\nWith dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object."
+      "answer": "#### [](#answer-d-14)Answer: D\n\nIn JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig[\"colors\"]`).\n\nWith dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no property called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.\n\nJavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object."
     },
     {
       "id": 107,
@@ -1773,20 +1773,7 @@
     },
     {
       "id": 138,
-      "title": "138. Which of the following will modify the person object?",
-      "text": null,
-      "code": "<span class=\"hljs-keyword\">const</span> person = {\n\t<span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia Hallie\"</span>,\n\t<span class=\"hljs-attr\">address</span>: {\n\t\t<span class=\"hljs-attr\">street</span>: <span class=\"hljs-string\">\"100 Main St\"</span>\n\t}\n};\n\n<span class=\"hljs-built_in\">Object</span>.freeze(person);",
-      "choices": [
-        "A: `person.name = \"Evan Bacon\"`",
-        "B: `delete person.address`",
-        "C: `person.address.street = \"101 Main St\"`",
-        "D: `person.pet = { name: \"Mara\" }`"
-      ],
-      "answer": "#### [](#answer-c-43)Answer: C\n\nThe `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.\n\nHowever, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified."
-    },
-    {
-      "id": 139,
-      "title": "139. What's the output?",
+      "title": "138. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> add = <span class=\"hljs-function\"><span class=\"hljs-params\">x</span> =&gt;</span> x + x;\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">myFunc</span>(<span class=\"hljs-params\">num = <span class=\"hljs-number\">2</span>, value = add(num</span>)) </span>{\n\t<span class=\"hljs-built_in\">console</span>.log(num, value);\n}\n\nmyFunc();\nmyFunc(<span class=\"hljs-number\">3</span>);",
       "choices": [
@@ -1798,8 +1785,8 @@
       "answer": "#### [](#answer-a-37)Answer: A\n\nFirst, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` and `value` got their default values: num is `2`, and `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.\n\nThen, we invoked `myFunc(3)` and passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`."
     },
     {
-      "id": 140,
-      "title": "140. What's the output?",
+      "id": 139,
+      "title": "139. What's the output?",
       "text": null,
       "code": "class Counter {\n  #number = 10\n\n  increment() {\n    this.#number++\n  }\n\n  getNum() {\n    return this.#number\n  }\n}\n\nconst counter = new Counter()\ncounter.increment()\n\nconsole.log(counter.#number)",
       "choices": [
@@ -1811,8 +1798,8 @@
       "answer": "#### [](#answer-d-22)Answer: D\n\nIn ES2020, we can add private variables in classes by using the `#`. We cannot access these variables outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!"
     },
     {
-      "id": 141,
-      "title": "141. What's the output?",
+      "id": 140,
+      "title": "140. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> teams = [\n\t{ <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Team 1\"</span>, <span class=\"hljs-attr\">members</span>: [<span class=\"hljs-string\">\"Paul\"</span>, <span class=\"hljs-string\">\"Lisa\"</span>] },\n\t{ <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Team 2\"</span>, <span class=\"hljs-attr\">members</span>: [<span class=\"hljs-string\">\"Laura\"</span>, <span class=\"hljs-string\">\"Tim\"</span>] }\n];\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">getMembers</span>(<span class=\"hljs-params\">members</span>) </span>{\n\t<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; members.length; i++) {\n\t\t<span class=\"hljs-keyword\">yield</span> members[i];\n\t}\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">getTeams</span>(<span class=\"hljs-params\">teams</span>) </span>{\n\t<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; teams.length; i++) {\n\t\t<span class=\"hljs-comment\">// ✨ SOMETHING IS MISSING HERE ✨</span>\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> obj = getTeams(teams);\nobj.next(); <span class=\"hljs-comment\">// { value: \"Paul\", done: false }</span>\nobj.next(); <span class=\"hljs-comment\">// { value: \"Lisa\", done: false }</span>",
       "choices": [
@@ -1824,8 +1811,8 @@
       "answer": "#### [](#answer-b-35)Answer: B\n\nIn order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.\n\nIf we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method."
     },
     {
-      "id": 142,
-      "title": "142. What's the output?",
+      "id": 141,
+      "title": "141. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> person = {\n\t<span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia Hallie\"</span>,\n\t<span class=\"hljs-attr\">hobbies</span>: [<span class=\"hljs-string\">\"coding\"</span>]\n};\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">addHobby</span>(<span class=\"hljs-params\">hobby, hobbies = person.hobbies</span>) </span>{\n\thobbies.push(hobby);\n\t<span class=\"hljs-keyword\">return</span> hobbies;\n}\n\naddHobby(<span class=\"hljs-string\">\"running\"</span>, []);\naddHobby(<span class=\"hljs-string\">\"dancing\"</span>);\naddHobby(<span class=\"hljs-string\">\"baking\"</span>, person.hobbies);\n\n<span class=\"hljs-built_in\">console</span>.log(person.hobbies);",
       "choices": [
@@ -1834,11 +1821,11 @@
         "C: `[\"coding\", \"dancing\", \"baking\"]`",
         "D: `[\"coding\", \"running\", \"dancing\", \"baking\"]`"
       ],
-      "answer": "#### [](#answer-c-44)Answer: C\n\nThe `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.\n\nFirst, we invoke the `addHobby` function, and pass `\"running\"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `\"running\"` gets added to this empty array.\n\nThen, we invoke the `addHobby` function, and pass `\"dancing\"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.\n\nLast, we invoke the `addHobby` function, and pass `\"bdaking\"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.\n\nAfter pushing `dancing` and `baking`, the value of `person.hobbies` is `[\"coding\", \"dancing\", \"baking\"]`"
+      "answer": "#### [](#answer-c-43)Answer: C\n\nThe `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.\n\nFirst, we invoke the `addHobby` function, and pass `\"running\"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `y`, `\"running\"` gets added to this empty array.\n\nThen, we invoke the `addHobby` function, and pass `\"dancing\"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.\n\nLast, we invoke the `addHobby` function, and pass `\"bdaking\"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.\n\nAfter pushing `dancing` and `baking`, the value of `person.hobbies` is `[\"coding\", \"dancing\", \"baking\"]`"
     },
     {
-      "id": 143,
-      "title": "143. What's the output?",
+      "id": 142,
+      "title": "142. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Bird</span> </span>{\n\t<span class=\"hljs-keyword\">constructor</span>() {\n\t\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"I'm a bird. 🦢\"</span>);\n\t}\n}\n\n<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Flamingo</span> <span class=\"hljs-keyword\">extends</span> <span class=\"hljs-title\">Bird</span> </span>{\n\t<span class=\"hljs-keyword\">constructor</span>() {\n\t\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"I'm pink. 🌸\"</span>);\n\t\t<span class=\"hljs-keyword\">super</span>();\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> pet = <span class=\"hljs-keyword\">new</span> Flamingo();",
       "choices": [
@@ -1850,8 +1837,8 @@
       "answer": "#### [](#answer-b-36)Answer: B\n\nWe create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `\"I'm pink. 🌸\"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `\"I'm a bird. 🦢\"`."
     },
     {
-      "id": 144,
-      "title": "144. Which of the options result(s) in an error?",
+      "id": 143,
+      "title": "143. Which of the options result(s) in an error?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> emojis = [<span class=\"hljs-string\">\"🎄\"</span>, <span class=\"hljs-string\">\"🎅🏼\"</span>, <span class=\"hljs-string\">\"🎁\"</span>, <span class=\"hljs-string\">\"⭐\"</span>];\n\n<span class=\"hljs-comment\">/* 1 */</span> emojis.push(<span class=\"hljs-string\">\"🦌\"</span>);\n<span class=\"hljs-comment\">/* 2 */</span> emojis.splice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">2</span>);\n<span class=\"hljs-comment\">/* 3 */</span> emojis = [...emojis, <span class=\"hljs-string\">\"🥂\"</span>];\n<span class=\"hljs-comment\">/* 4 */</span> emojis.length = <span class=\"hljs-number\">0</span>;",
       "choices": [
@@ -1863,17 +1850,17 @@
       "answer": "#### [](#answer-d-23)Answer: D\n\nThe `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0."
     },
     {
-      "id": 145,
-      "title": "145. What do we need to add to the person object to get [\"Lydia Hallie\", 21] as the output of [...person]?",
+      "id": 144,
+      "title": "144. What do we need to add to the person object to get [\"Lydia Hallie\", 21] as the output of [...person]?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> person = {\n  <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia Hallie\"</span>,\n  <span class=\"hljs-attr\">age</span>: <span class=\"hljs-number\">21</span>\n}\n\n[...person] <span class=\"hljs-comment\">// [\"Lydia Hallie\", 21]</span>",
       "choices": [
         "A: Nothing, object are iterable by default",
         "B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`",
-        "C: `*[Symbol.iterator]() { for (let x in this) yield* Object.values(this) }`",
+        "C: `*[Symbol.iterator]() { yield* Object.values(this) }`",
         "D: `*[Symbol.iterator]() { for (let x in this) yield this }`"
       ],
-      "answer": "#### [](#answer-c-45)Answer: C\n\nObjects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `[\"Lydia Hallie\", 21]`: `yield* Object.values(this)`."
+      "answer": "#### [](#answer-c-44)Answer: C\n\nObjects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `[\"Lydia Hallie\", 21]`: `yield* Object.values(this)`."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-01-23T00:34:49.728Z",
+  "updatedAt": "2020-03-12T00:34:48.379Z",
   "data": [
     {
       "id": 1,
@@ -1303,7 +1303,7 @@
         "C: `{}` `\"\"` `[]`",
         "D: `null` `null` `true`"
       ],
-      "answer": "#### [](#answer-c-29)Answer: C\n\nWith the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.\n\n`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.\n\n`(null || false || \"\")`: all operands are falsy values. This means that the past operand, `\"\"` gets returned. `two` is equal to `\"\"`.\n\n`([] || 0 || \"\")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`."
+      "answer": "#### [](#answer-c-29)Answer: C\n\nWith the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.\n\n`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.\n\n`(null || false || \"\")`: all operands are falsy values. This means that the last operand, `\"\"` gets returned. `two` is equal to `\"\"`.\n\n`([] || 0 || \"\")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`."
     },
     {
       "id": 102,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-03-12T00:34:48.379Z",
+  "updatedAt": "2020-03-13T00:34:52.007Z",
   "data": [
     {
       "id": 1,
@@ -1799,7 +1799,7 @@
     },
     {
       "id": 140,
-      "title": "140. What's the output?",
+      "title": "140. What's missing?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> teams = [\n\t{ <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Team 1\"</span>, <span class=\"hljs-attr\">members</span>: [<span class=\"hljs-string\">\"Paul\"</span>, <span class=\"hljs-string\">\"Lisa\"</span>] },\n\t{ <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Team 2\"</span>, <span class=\"hljs-attr\">members</span>: [<span class=\"hljs-string\">\"Laura\"</span>, <span class=\"hljs-string\">\"Tim\"</span>] }\n];\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">getMembers</span>(<span class=\"hljs-params\">members</span>) </span>{\n\t<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; members.length; i++) {\n\t\t<span class=\"hljs-keyword\">yield</span> members[i];\n\t}\n}\n\n<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">getTeams</span>(<span class=\"hljs-params\">teams</span>) </span>{\n\t<span class=\"hljs-keyword\">for</span> (<span class=\"hljs-keyword\">let</span> i = <span class=\"hljs-number\">0</span>; i &lt; teams.length; i++) {\n\t\t<span class=\"hljs-comment\">// ✨ SOMETHING IS MISSING HERE ✨</span>\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> obj = getTeams(teams);\nobj.next(); <span class=\"hljs-comment\">// { value: \"Paul\", done: false }</span>\nobj.next(); <span class=\"hljs-comment\">// { value: \"Lisa\", done: false }</span>",
       "choices": [

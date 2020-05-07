@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-05-01T00:34:31.463Z",
+  "updatedAt": "2020-05-07T00:34:47.989Z",
   "data": [
     {
       "id": 1,
@@ -1522,7 +1522,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰."
+      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png), `console.log(list[2])` prints ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png)."
     },
     {
       "id": 119,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-06-08T00:34:42.692Z",
+  "updatedAt": "2020-06-10T00:34:21.172Z",
   "data": [
     {
       "id": 1,
@@ -1926,6 +1926,45 @@
         "D: `['🍇', '🍌', '🍊', '🍎']`"
       ],
       "answer": "#### [](#answer-c-46)Answer: C\n\nFirst, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji. Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`. At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘![grapes](https://github.githubassets.com/images/icons/emoji/unicode/1f347.png)’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`."
+    },
+    {
+      "id": 150,
+      "title": "151. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> animals = {};\n<span class=\"hljs-keyword\">let</span> dog = { <span class=\"hljs-attr\">emoji</span>: <span class=\"hljs-string\">'🐶'</span> }\n<span class=\"hljs-keyword\">let</span> cat = { <span class=\"hljs-attr\">emoji</span>: <span class=\"hljs-string\">'🐈'</span> }\n\nanimals[dog] = { ...dog, <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Mara\"</span> }\nanimals[cat] = { ...cat, <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Sara\"</span> }\n\n<span class=\"hljs-built_in\">console</span>.log(animals[dog])",
+      "choices": [
+        "A: `{ emoji: \"🐶\", name: \"Mara\" }`",
+        "B: `{ emoji: \"🐈\", name: \"Sara\" }`",
+        "C: `undefined`",
+        "D: `ReferenceError`"
+      ],
+      "answer": "#### [](#answer-b-38)Answer: B\n\nObject keys are converted to strings.\n\nSince the value of `dog` is an object, `animals[dog]` actually means that we’re creating a new property called `\"object Object\"` equal to the new object. `animals[\"object Object\"]` is now equal to `{ emoji: \"🐶\", name: \"Mara\"}`.\n\n`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of `animals[``\"``object Object``\"``]` with the new cat properties.\n\nLogging `animals[dog]`, or actually `animals[\"object Object\"]` since converting the `dog` object to a string results `\"object Object\"`, returns the `{ emoji: \"🐈\", name: \"Sara\" }`."
+    },
+    {
+      "id": 151,
+      "title": "152. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> user = {\n\t<span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"my@email.com\"</span>,\n\t<span class=\"hljs-attr\">updateEmail</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">email</span> =&gt;</span> {\n\t\t<span class=\"hljs-keyword\">this</span>.email = email\n\t}\n}\n\nuser.updateEmail(<span class=\"hljs-string\">\"new@email.com\"</span>)\n<span class=\"hljs-built_in\">console</span>.log(user.email)",
+      "choices": [
+        "A: `my@email.com`",
+        "B: `new@email.com`",
+        "C: `undefined`",
+        "D: `ReferenceError`"
+      ],
+      "answer": "#### [](#answer-a-39)Answer: A\n\nThe `updateEmail` function is an arrow function, and is not bound to the `user` object. This means that the `this` keyword is not referring to the `user` object, but refers to the global scope in this case. The value of `email` within the `user` object does not get updated. When logging the value of `user.email`, the original value of `my@email.com` gets returned."
+    },
+    {
+      "id": 152,
+      "title": "153. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> promise1 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'First'</span>)\n<span class=\"hljs-keyword\">const</span> promise2 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'Second'</span>)\n<span class=\"hljs-keyword\">const</span> promise3 = <span class=\"hljs-built_in\">Promise</span>.reject(<span class=\"hljs-string\">'Third'</span>)\n<span class=\"hljs-keyword\">const</span> promise4 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'Fourth'</span>)\n\n<span class=\"hljs-keyword\">const</span> runPromises = <span class=\"hljs-keyword\">async</span> () =&gt; {\n\t<span class=\"hljs-keyword\">const</span> res1 = <span class=\"hljs-keyword\">await</span> <span class=\"hljs-built_in\">Promise</span>.all([promise1, promise2])\n\t<span class=\"hljs-keyword\">const</span> res2  = <span class=\"hljs-keyword\">await</span> <span class=\"hljs-built_in\">Promise</span>.all([promise3, promise4])\n\t<span class=\"hljs-keyword\">return</span> [res1, res2]\n}\n\nrunPromises()\n\t.then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res))\n\t.catch(<span class=\"hljs-function\"><span class=\"hljs-params\">err</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(err))",
+      "choices": [
+        "A: `[['First', 'Second'], ['Fourth']]`",
+        "B: `[['First', 'Second'], ['Third', 'Fourth']]`",
+        "C: `[['First', 'Second']]`",
+        "D: `'Third'`"
+      ],
+      "answer": "#### [](#answer-d-25)Answer: D\n\nThe `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method \\_rejects) with the value of the rejected promise. In this case, `promise3` rejected with the value `\"Third\"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `\"Third\"` gets logged, since `promise3` rejected with this value."
     }
   ]
 }

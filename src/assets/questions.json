@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-06-10T00:34:21.172Z",
+  "updatedAt": "2020-06-13T00:34:34.116Z",
   "data": [
     {
       "id": 1,
@@ -1965,6 +1965,45 @@
         "D: `'Third'`"
       ],
       "answer": "#### [](#answer-d-25)Answer: D\n\nThe `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method \\_rejects) with the value of the rejected promise. In this case, `promise3` rejected with the value `\"Third\"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `\"Third\"` gets logged, since `promise3` rejected with this value."
+    },
+    {
+      "id": 153,
+      "title": "154. What should the value of method be to log { name: \"Lydia\", age: 22 }?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> keys = [<span class=\"hljs-string\">\"name\"</span>, <span class=\"hljs-string\">\"age\"</span>]\n<span class=\"hljs-keyword\">const</span> values = [<span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-number\">22</span>]\n\n<span class=\"hljs-keyword\">const</span> method = <span class=\"hljs-comment\">/* ?? */</span>\n<span class=\"hljs-built_in\">Object</span>[method](keys.map(<span class=\"hljs-function\">(<span class=\"hljs-params\">_, i</span>) =&gt;</span> {\n\t<span class=\"hljs-keyword\">return</span> [keys[i], values[i]]\n})) <span class=\"hljs-comment\">// { name: \"Lydia\", age: 22 }</span>",
+      "choices": [
+        "A: `entries`",
+        "B: `values`",
+        "C: `fromEntries`",
+        "D: `forEach`"
+      ],
+      "answer": "#### [](#answer-c-47)Answer: C\n\nThe `fromEntries` method turns a 2d array into an object. The first element in each subarray will be the key, and the second element in each subarray will be the value. In this case, we’re mapping over the `keys` array, which returns an array which first element is the item on the key array on the current index, and the second element is the item of the values array on the current index.\n\nThis creates an array of subarrays containing the correct keys and values, which results in `{ name: \"Lydia\", age: 22 }`"
+    },
+    {
+      "id": 154,
+      "title": "155. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">const</span> createMember = <span class=\"hljs-function\">(<span class=\"hljs-params\">{ email, address = {}}</span>) =&gt;</span> {\n\t<span class=\"hljs-keyword\">const</span> validEmail = <span class=\"hljs-regexp\">/.+\\@.+\\..+/</span>.test(email)\n\t<span class=\"hljs-keyword\">if</span> (!validEmail) <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Error</span>(<span class=\"hljs-string\">\"Valid email pls\"</span>)\n\n\t<span class=\"hljs-keyword\">return</span> {\n\t\temail,\n\t\t<span class=\"hljs-attr\">address</span>: address ? address : <span class=\"hljs-literal\">null</span>\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> member = createMember({ <span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"my@email.com\"</span> })\n<span class=\"hljs-built_in\">console</span>.log(member)",
+      "choices": [
+        "A: `{ email: \"my@email.com\", address: null }`",
+        "B: `{ email: \"my@email.com\" }`",
+        "C: `{ email: \"my@email.com\", address: {} }`",
+        "D: `{ email: \"my@email.com\", address: undefined }`"
+      ],
+      "answer": "#### [](#answer-c-48)Answer: C\n\nThe default value of `address` is an empty object `{}`. When we set the variable `member` equal to the object returned by the `createMember` function, we didn't pass a value for address, which means that the value of address is the default empty object `{}`. An empty object is a truthy value, which means that the condition of the `address ? address : null` conditional returns `true`. The value of address is the empty object `{}`."
+    },
+    {
+      "id": 155,
+      "title": "156. What's the output?",
+      "text": null,
+      "code": "<span class=\"hljs-keyword\">let</span> randomValue = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> }\nrandomValue = <span class=\"hljs-number\">23</span>\n\n<span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-keyword\">typeof</span> randomValue === <span class=\"hljs-string\">\"string\"</span>) {\n\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"It's not a string!\"</span>)\n} <span class=\"hljs-keyword\">else</span> {\n\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Yay it's a string!\"</span>)\n}",
+      "choices": [
+        "A: `It's not a string!`",
+        "B: `Yay it's a string!`",
+        "C: `TypeError`",
+        "D: `undefined`"
+      ],
+      "answer": "#### [](#answer-b-39)Answer: B\n\nThe condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `\"string\"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `\"string\"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.\n\n`!typeof randomValue === \"string\"` always returns false, since we're actually checking `false === \"string\"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged."
     }
   ]
 }

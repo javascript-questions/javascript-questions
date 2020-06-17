@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-06-13T00:34:34.116Z",
+  "updatedAt": "2020-06-17T00:34:35.802Z",
   "data": [
     {
       "id": 1,
@@ -153,7 +153,7 @@
         "C: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `{}`",
         "D:`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `ReferenceError`"
       ],
-      "answer": "#### [](#answer-a-6)Answer: A\n\nFor `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don't add `new` it refers to the **global object**!\n\nWe said that `this.firstName` equals `\"Sarah\"` and `this.lastName` equals `\"Smith\"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function."
+      "answer": "#### [](#answer-a-6)Answer: A\n\nFor `sarah`, we didn't use the `new` keyword. When using `new`, `this` refers to the new empty object we create. However, if you don't add `new`, `this` refers to the **global object**!\n\nWe said that `this.firstName` equals `\"Sarah\"` and `this.lastName` equals `\"Smith\"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function."
     },
     {
       "id": 13,
@@ -2003,7 +2003,7 @@
         "C: `TypeError`",
         "D: `undefined`"
       ],
-      "answer": "#### [](#answer-b-39)Answer: B\n\nThe condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `\"string\"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `\"string\"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.\n\n`!typeof randomValue === \"string\"` always returns false, since we're actually checking `false === \"string\"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged."
+      "answer": "#### [](#answer-b-39)Answer: B\n\nThe condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `\"string\"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `\"number\"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.\n\n`!typeof randomValue === \"string\"` always returns false, since we're actually checking `false === \"string\"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged."
     }
   ]
 }

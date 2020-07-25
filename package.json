@@ -19,7 +19,7 @@
     "build/*"
   ],
   "devDependencies": {
-    "dotenv-safe": "^6.1.0",
+    "dotenv-safe": "^8.2.0",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "highlight.js": "^9.18.1",

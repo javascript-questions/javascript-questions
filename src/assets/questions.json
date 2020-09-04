@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-06-17T00:34:35.802Z",
+  "updatedAt": "2020-09-04T01:02:21.904Z",
   "data": [
     {
       "id": 1,
@@ -151,7 +151,7 @@
         "A: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `undefined`",
         "B: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `Person {firstName: \"Sarah\", lastName: \"Smith\"}`",
         "C: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `{}`",
-        "D:`Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `ReferenceError`"
+        "D: `Person {firstName: \"Lydia\", lastName: \"Hallie\"}` and `ReferenceError`"
       ],
       "answer": "#### [](#answer-a-6)Answer: A\n\nFor `sarah`, we didn't use the `new` keyword. When using `new`, `this` refers to the new empty object we create. However, if you don't add `new`, `this` refers to the **global object**!\n\nWe said that `this.firstName` equals `\"Sarah\"` and `this.lastName` equals `\"Smith\"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function."
     },
@@ -240,7 +240,7 @@
         "C: `\"object\"`",
         "D: `\"NaN\"`"
       ],
-      "answer": "#### [](#answer-c-5)Answer: C\n\nThe rest parameter (`...args`.) lets us \"collect\" all remaining arguments into an array. An array is an object, so `typeof args` returns `\"object\"`"
+      "answer": "#### [](#answer-c-5)Answer: C\n\nThe rest parameter (`...args`) lets us \"collect\" all remaining arguments into an array. An array is an object, so `typeof args` returns `\"object\"`"
     },
     {
       "id": 20,
@@ -257,7 +257,7 @@
     },
     {
       "id": 21,
-      "title": "21. What's value of sum?",
+      "title": "21. What's the value of sum?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> sum = <span class=\"hljs-built_in\">eval</span>(<span class=\"hljs-string\">'10*10+5'</span>);",
       "choices": [
@@ -369,7 +369,7 @@
         "C: `undefined`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-5)Answer: B\n\nObject keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.\n\nHowever, when we stringify an object, it becomes `\"[object Object]\"`. So what we are saying here, is that `a[\"object Object\"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a[\"object Object\"] = 456`.\n\nThen, we log `a[b]`, which is actually `a[\"object Object\"]`. We just set that to `456`, so it returns `456`."
+      "answer": "#### [](#answer-b-5)Answer: B\n\nObject keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.\n\nHowever, when we stringify an object, it becomes `\"[object Object]\"`. So what we are saying here, is that `a[\"[object Object]\"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a[\"[object Object]\"] = 456`.\n\nThen, we log `a[b]`, which is actually `a[\"[object Object]\"]`. We just set that to `456`, so it returns `456`."
     },
     {
       "id": 30,
@@ -434,7 +434,7 @@
         "C: `\"function\"`",
         "D: `\"undefined\"`"
       ],
-      "answer": "#### [](#answer-b-7)Answer: B\n\nThe `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `\"number\"`.\n\nFYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `\"function\"` is not a type, since functions are objects, it's of type `\"object\"`."
+      "answer": "#### [](#answer-b-7)Answer: B\n\nThe `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `\"number\"`.\n\nFYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `\"function\"` is not a type, since functions are objects, it's of type `\"object\"`."
     },
     {
       "id": 35,
@@ -447,7 +447,7 @@
         "C: `0`, `''`, `new Boolean(false)`, `undefined`",
         "D: All of them are falsy"
       ],
-      "answer": "#### [](#answer-a-11)Answer: A\n\nThere are only six falsy values:\n\n*   `undefined`\n*   `null`\n*   `NaN`\n*   `0`\n*   `''` (empty string)\n*   `false`\n\nFunction constructors, like `new Number` and `new Boolean` are truthy."
+      "answer": "#### [](#answer-a-11)Answer: A\n\nThere are 8 falsy values:\n\n*   `undefined`\n*   `null`\n*   `NaN`\n*   `false`\n*   `''` (empty string)\n*   `0`\n*   `-0`\n*   `0n` (BigInt(0))\n\nFunction constructors, like `new Number` and `new Boolean` are truthy."
     },
     {
       "id": 36,
@@ -633,7 +633,7 @@
     },
     {
       "id": 50,
-      "title": "50. What's the output`?",
+      "title": "50. What's the output?",
       "text": null,
       "code": "[<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>].map(<span class=\"hljs-function\"><span class=\"hljs-params\">num</span> =&gt;</span> {\n  <span class=\"hljs-keyword\">if</span> (<span class=\"hljs-keyword\">typeof</span> num === <span class=\"hljs-string\">'number'</span>) <span class=\"hljs-keyword\">return</span>;\n  <span class=\"hljs-keyword\">return</span> num * <span class=\"hljs-number\">2</span>;\n});",
       "choices": [
@@ -694,7 +694,7 @@
         "C: `\"object\", \"number\"`",
         "D: `\"number\", \"undefined\"`"
       ],
-      "answer": "#### [](#answer-a-17)Answer: A\n\n`let x = y = 10;` is actually shorthand for:\n\ny \\= 10;\nlet x \\= y;\n\nWhen we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.\n\nThen, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `\"undefined\"`. `console.log(typeof x)` returns `\"undefined\"`.\n\nHowever, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `\"number\"`. `console.log(typeof y)` returns `\"number\"`."
+      "answer": "#### [](#answer-a-17)Answer: A\n\n`let x = y = 10;` is actually shorthand for:\n\ny \\= 10;\nlet x \\= y;\n\nWhen we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.\n\nThen, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately invoked function expression (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `\"undefined\"`. `console.log(typeof x)` returns `\"undefined\"`.\n\nHowever, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `\"number\"`. `console.log(typeof y)` returns `\"number\"`."
     },
     {
       "id": 55,
@@ -1405,7 +1405,7 @@
         "C: `['🍝', '🍕', '🍫', '🥑', '🍔']`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-a-32)Answer: A\n\nWe set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference\n\nIn JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)\n\nThen, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`."
+      "answer": "#### [](#answer-a-32)Answer: A\n\nWe set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types don't interact by reference.\n\nIn JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)\n\nThen, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`."
     },
     {
       "id": 110,
@@ -1743,7 +1743,7 @@
         "C: `Added a new property!` `Accessed a property!`",
         "D: Nothing gets logged"
       ],
-      "answer": "#### [](#answer-c-41)Answer: C\n\nWith a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In tis case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.\n\nThe first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.\n\nFirst, we added a new property `name` to the proxy object (`person.name = \"Lydia\"`). `set` gets invoked, and logs `\"Added a new property!\"`.\n\nThen, we access a property value on the proxy object, the `get` property on the handler object got invoked. `\"Accessed a property!\"` gets logged."
+      "answer": "#### [](#answer-c-41)Answer: C\n\nWith a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In this case, we pass the `handler` object which contained to properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.\n\nThe first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.\n\nFirst, we added a new property `name` to the proxy object (`person.name = \"Lydia\"`). `set` gets invoked, and logs `\"Added a new property!\"`.\n\nThen, we access a property value on the proxy object, the `get` property on the handler object got invoked. `\"Accessed a property!\"` gets logged."
     },
     {
       "id": 136,
@@ -1847,7 +1847,7 @@
         "C: 3 and 4",
         "D: 3"
       ],
-      "answer": "#### [](#answer-d-23)Answer: D\n\nThe `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The propeties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0."
+      "answer": "#### [](#answer-d-23)Answer: D\n\nThe `const` keyword simply means we cannot _redeclare_ the value of that variable, it's _read-only_. However, the value itself isn't immutable. The properties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0."
     },
     {
       "id": 144,
@@ -1886,7 +1886,7 @@
         "C: `[]`, `[]`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
         "D: `undefined`, `undefined`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)"
       ],
-      "answer": "#### [](#answer-d-24)Answer: D\n\nThe `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`.\n\nFirst, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.\n\nThen, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist.\n\nLastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged."
+      "answer": "#### [](#answer-d-24)Answer: D\n\nThe `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`.\n\nFirst, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.\n\nThen, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist.\n\nLastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged."
     },
     {
       "id": 147,

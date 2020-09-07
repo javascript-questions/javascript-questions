@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-09-04T01:02:21.904Z",
+  "updatedAt": "2020-09-07T01:03:46.566Z",
   "data": [
     {
       "id": 1,
@@ -499,7 +499,7 @@
         "C: trick question! only objects",
         "D: number or object"
       ],
-      "answer": "#### [](#answer-a-13)Answer: A\n\nJavaScript only has primitive types and objects.\n\nPrimitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.\n\nWhat differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour."
+      "answer": "#### [](#answer-a-13)Answer: A\n\nJavaScript only has primitive types and objects.\n\nPrimitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.\n\nWhat differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the primitive type using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour."
     },
     {
       "id": 40,
@@ -668,7 +668,7 @@
         "C: `SyntaxError: can only throw Error objects`",
         "D: `Oh no an error: Hello world!`"
       ],
-      "answer": "#### [](#answer-d-5)Answer: D\n\nWith the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a **string**, a **number**, a **boolean** or an **object**. In this case, our exception is the string `'Hello world'`.\n\nWith the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`."
+      "answer": "#### [](#answer-d-5)Answer: D\n\nWith the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a **string**, a **number**, a **boolean** or an **object**. In this case, our exception is the string `'Hello world!'`.\n\nWith the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world!'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world!'`."
     },
     {
       "id": 53,
@@ -694,7 +694,7 @@
         "C: `\"object\", \"number\"`",
         "D: `\"number\", \"undefined\"`"
       ],
-      "answer": "#### [](#answer-a-17)Answer: A\n\n`let x = y = 10;` is actually shorthand for:\n\ny \\= 10;\nlet x \\= y;\n\nWhen we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.\n\nThen, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately invoked function expression (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `\"undefined\"`. `console.log(typeof x)` returns `\"undefined\"`.\n\nHowever, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `\"number\"`. `console.log(typeof y)` returns `\"number\"`."
+      "answer": "#### [](#answer-a-17)Answer: A\n\n`let x = (y = 10);` is actually shorthand for:\n\ny \\= 10;\nlet x \\= y;\n\nWhen we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.\n\nThen, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately invoked function expression (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it's declared in. This means that `x` is not defined. Values who haven't been assigned a value or declared are of type `\"undefined\"`. `console.log(typeof x)` returns `\"undefined\"`.\n\nHowever, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `\"number\"`. `console.log(typeof y)` returns `\"number\"`."
     },
     {
       "id": 55,
@@ -1864,7 +1864,7 @@
     },
     {
       "id": 145,
-      "title": "146. What's the output?",
+      "title": "145. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">let</span> count = <span class=\"hljs-number\">0</span>;\n<span class=\"hljs-keyword\">const</span> nums = [<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\n\nnums.forEach(<span class=\"hljs-function\"><span class=\"hljs-params\">num</span> =&gt;</span> {\n\t<span class=\"hljs-keyword\">if</span> (num) count += <span class=\"hljs-number\">1</span>\n})\n\n<span class=\"hljs-built_in\">console</span>.log(count)",
       "choices": [
@@ -1877,7 +1877,7 @@
     },
     {
       "id": 146,
-      "title": "147. What's the output?",
+      "title": "146. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getFruit</span>(<span class=\"hljs-params\">fruits</span>) </span>{\n\t<span class=\"hljs-built_in\">console</span>.log(fruits?.[<span class=\"hljs-number\">1</span>]?.[<span class=\"hljs-number\">1</span>])\n}\n\ngetFruit([[<span class=\"hljs-string\">'🍊'</span>, <span class=\"hljs-string\">'🍌'</span>], [<span class=\"hljs-string\">'🍍'</span>]])\ngetFruit()\ngetFruit([[<span class=\"hljs-string\">'🍍'</span>], [<span class=\"hljs-string\">'🍊'</span>, <span class=\"hljs-string\">'🍌'</span>]])",
       "choices": [
@@ -1890,7 +1890,7 @@
     },
     {
       "id": 147,
-      "title": "148. What's the output?",
+      "title": "147. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-class\"><span class=\"hljs-keyword\">class</span> <span class=\"hljs-title\">Calc</span> </span>{\n\t<span class=\"hljs-keyword\">constructor</span>() {\n\t\t<span class=\"hljs-keyword\">this</span>.count = <span class=\"hljs-number\">0</span> \n\t}\n\n\tincrease() {\n\t\t<span class=\"hljs-keyword\">this</span>.count ++\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> calc = <span class=\"hljs-keyword\">new</span> Calc()\n<span class=\"hljs-keyword\">new</span> Calc().increase()\n\n<span class=\"hljs-built_in\">console</span>.log(calc.count)",
       "choices": [
@@ -1903,7 +1903,7 @@
     },
     {
       "id": 148,
-      "title": "149. What's the output?",
+      "title": "148. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> user = {\n\t<span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"e@mail.com\"</span>,\n\t<span class=\"hljs-attr\">password</span>: <span class=\"hljs-string\">\"12345\"</span>\n}\n\n<span class=\"hljs-keyword\">const</span> updateUser = <span class=\"hljs-function\">(<span class=\"hljs-params\">{ email, password }</span>) =&gt;</span> {\n\t<span class=\"hljs-keyword\">if</span> (email) {\n\t\t<span class=\"hljs-built_in\">Object</span>.assign(user, { email })\n\t}\n\n\t<span class=\"hljs-keyword\">if</span> (password) {\n\t\tuser.password = password\n\t}\n\n\t<span class=\"hljs-keyword\">return</span> user\n}\n\n<span class=\"hljs-keyword\">const</span> updatedUser = updateUser({ <span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"new@email.com\"</span> })\n\n<span class=\"hljs-built_in\">console</span>.log(updatedUser === user)",
       "choices": [
@@ -1916,7 +1916,7 @@
     },
     {
       "id": 149,
-      "title": "150. What's the output?",
+      "title": "149. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> fruit = [<span class=\"hljs-string\">'🍌'</span>, <span class=\"hljs-string\">'🍊'</span>, <span class=\"hljs-string\">'🍎'</span>]\n\nfruit.slice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.splice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.unshift(<span class=\"hljs-string\">'🍇'</span>)",
       "choices": [
@@ -1929,7 +1929,7 @@
     },
     {
       "id": 150,
-      "title": "151. What's the output?",
+      "title": "150. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> animals = {};\n<span class=\"hljs-keyword\">let</span> dog = { <span class=\"hljs-attr\">emoji</span>: <span class=\"hljs-string\">'🐶'</span> }\n<span class=\"hljs-keyword\">let</span> cat = { <span class=\"hljs-attr\">emoji</span>: <span class=\"hljs-string\">'🐈'</span> }\n\nanimals[dog] = { ...dog, <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Mara\"</span> }\nanimals[cat] = { ...cat, <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Sara\"</span> }\n\n<span class=\"hljs-built_in\">console</span>.log(animals[dog])",
       "choices": [
@@ -1942,7 +1942,7 @@
     },
     {
       "id": 151,
-      "title": "152. What's the output?",
+      "title": "151. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> user = {\n\t<span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"my@email.com\"</span>,\n\t<span class=\"hljs-attr\">updateEmail</span>: <span class=\"hljs-function\"><span class=\"hljs-params\">email</span> =&gt;</span> {\n\t\t<span class=\"hljs-keyword\">this</span>.email = email\n\t}\n}\n\nuser.updateEmail(<span class=\"hljs-string\">\"new@email.com\"</span>)\n<span class=\"hljs-built_in\">console</span>.log(user.email)",
       "choices": [
@@ -1955,7 +1955,7 @@
     },
     {
       "id": 152,
-      "title": "153. What's the output?",
+      "title": "152. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> promise1 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'First'</span>)\n<span class=\"hljs-keyword\">const</span> promise2 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'Second'</span>)\n<span class=\"hljs-keyword\">const</span> promise3 = <span class=\"hljs-built_in\">Promise</span>.reject(<span class=\"hljs-string\">'Third'</span>)\n<span class=\"hljs-keyword\">const</span> promise4 = <span class=\"hljs-built_in\">Promise</span>.resolve(<span class=\"hljs-string\">'Fourth'</span>)\n\n<span class=\"hljs-keyword\">const</span> runPromises = <span class=\"hljs-keyword\">async</span> () =&gt; {\n\t<span class=\"hljs-keyword\">const</span> res1 = <span class=\"hljs-keyword\">await</span> <span class=\"hljs-built_in\">Promise</span>.all([promise1, promise2])\n\t<span class=\"hljs-keyword\">const</span> res2  = <span class=\"hljs-keyword\">await</span> <span class=\"hljs-built_in\">Promise</span>.all([promise3, promise4])\n\t<span class=\"hljs-keyword\">return</span> [res1, res2]\n}\n\nrunPromises()\n\t.then(<span class=\"hljs-function\"><span class=\"hljs-params\">res</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(res))\n\t.catch(<span class=\"hljs-function\"><span class=\"hljs-params\">err</span> =&gt;</span> <span class=\"hljs-built_in\">console</span>.log(err))",
       "choices": [
@@ -1968,7 +1968,7 @@
     },
     {
       "id": 153,
-      "title": "154. What should the value of method be to log { name: \"Lydia\", age: 22 }?",
+      "title": "153. What should the value of method be to log { name: \"Lydia\", age: 22 }?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> keys = [<span class=\"hljs-string\">\"name\"</span>, <span class=\"hljs-string\">\"age\"</span>]\n<span class=\"hljs-keyword\">const</span> values = [<span class=\"hljs-string\">\"Lydia\"</span>, <span class=\"hljs-number\">22</span>]\n\n<span class=\"hljs-keyword\">const</span> method = <span class=\"hljs-comment\">/* ?? */</span>\n<span class=\"hljs-built_in\">Object</span>[method](keys.map(<span class=\"hljs-function\">(<span class=\"hljs-params\">_, i</span>) =&gt;</span> {\n\t<span class=\"hljs-keyword\">return</span> [keys[i], values[i]]\n})) <span class=\"hljs-comment\">// { name: \"Lydia\", age: 22 }</span>",
       "choices": [
@@ -1981,7 +1981,7 @@
     },
     {
       "id": 154,
-      "title": "155. What's the output?",
+      "title": "154. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> createMember = <span class=\"hljs-function\">(<span class=\"hljs-params\">{ email, address = {}}</span>) =&gt;</span> {\n\t<span class=\"hljs-keyword\">const</span> validEmail = <span class=\"hljs-regexp\">/.+\\@.+\\..+/</span>.test(email)\n\t<span class=\"hljs-keyword\">if</span> (!validEmail) <span class=\"hljs-keyword\">throw</span> <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Error</span>(<span class=\"hljs-string\">\"Valid email pls\"</span>)\n\n\t<span class=\"hljs-keyword\">return</span> {\n\t\temail,\n\t\t<span class=\"hljs-attr\">address</span>: address ? address : <span class=\"hljs-literal\">null</span>\n\t}\n}\n\n<span class=\"hljs-keyword\">const</span> member = createMember({ <span class=\"hljs-attr\">email</span>: <span class=\"hljs-string\">\"my@email.com\"</span> })\n<span class=\"hljs-built_in\">console</span>.log(member)",
       "choices": [
@@ -1994,7 +1994,7 @@
     },
     {
       "id": 155,
-      "title": "156. What's the output?",
+      "title": "155. What's the output?",
       "text": null,
       "code": "<span class=\"hljs-keyword\">let</span> randomValue = { <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">\"Lydia\"</span> }\nrandomValue = <span class=\"hljs-number\">23</span>\n\n<span class=\"hljs-keyword\">if</span> (!<span class=\"hljs-keyword\">typeof</span> randomValue === <span class=\"hljs-string\">\"string\"</span>) {\n\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"It's not a string!\"</span>)\n} <span class=\"hljs-keyword\">else</span> {\n\t<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">\"Yay it's a string!\"</span>)\n}",
       "choices": [

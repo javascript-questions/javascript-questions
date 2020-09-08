@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-09-07T01:03:46.566Z",
+  "updatedAt": "2020-09-08T01:03:02.662Z",
   "data": [
     {
       "id": 1,
@@ -140,7 +140,7 @@
         "C: `Lydia Hallie`",
         "D: `undefined` `undefined`"
       ],
-      "answer": "#### [](#answer-a-5)Answer: A\n\nYou can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,\n\nPerson.prototype.getFullName \\= function() {\n  return \\`${this.firstName} ${this.lastName}\\`;\n};\n\nwould have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!"
+      "answer": "#### [](#answer-a-5)Answer: A\n\nIn JavaScript, functions are objects, and therefore, the method `getFullName` gets added to the constructor function object itself. For that reason, we can call `Person.getFullName()`, but `member.getFullName` throws a `TypeError`.\n\nIf you want a method to be available to all object instances, you have to add it to the prototype property:\n\nPerson.prototype.getFullName \\= function() {\n  return \\`${this.firstName} ${this.lastName}\\`;\n};"
     },
     {
       "id": 12,
@@ -1531,7 +1531,7 @@
       "code": "<span class=\"hljs-keyword\">const</span> person = {\n  <span class=\"hljs-attr\">firstName</span>: <span class=\"hljs-string\">'Lydia'</span>,\n  <span class=\"hljs-attr\">lastName</span>: <span class=\"hljs-string\">'Hallie'</span>,\n  <span class=\"hljs-attr\">pet</span>: {\n    <span class=\"hljs-attr\">name</span>: <span class=\"hljs-string\">'Mara'</span>,\n    <span class=\"hljs-attr\">breed</span>: <span class=\"hljs-string\">'Dutch Tulip Hound'</span>,\n  },\n  getFullName() {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`<span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.firstName}</span> <span class=\"hljs-subst\">${<span class=\"hljs-keyword\">this</span>.lastName}</span>`</span>;\n  },\n};\n\n<span class=\"hljs-built_in\">console</span>.log(person.pet?.name);\n<span class=\"hljs-built_in\">console</span>.log(person.pet?.family?.name);\n<span class=\"hljs-built_in\">console</span>.log(person.getFullName?.());\n<span class=\"hljs-built_in\">console</span>.log(member.getLastName?.());",
       "choices": [
         "A: `undefined` `undefined` `undefined` `undefined`",
-        "B: `Mara` `undefined` `Lydia Hallie` `undefined`",
+        "B: `Mara` `undefined` `Lydia Hallie` `ReferenceError`",
         "C: `Mara` `null` `Lydia Hallie` `null`",
         "D: `null` `ReferenceError` `null` `ReferenceError`"
       ],
@@ -1619,7 +1619,7 @@
       "id": 126,
       "title": "126. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getFine</span>(<span class=\"hljs-params\">speed, amount</span>) </span>{\n  <span class=\"hljs-keyword\">const</span> formattedSpeed = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Intl</span>.NumberFormat({\n    <span class=\"hljs-string\">'en-US'</span>,\n    { <span class=\"hljs-attr\">style</span>: <span class=\"hljs-string\">'unit'</span>, <span class=\"hljs-attr\">unit</span>: <span class=\"hljs-string\">'mile-per-hour'</span> }\n  }).format(speed)\n\n  <span class=\"hljs-keyword\">const</span> formattedAmount = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Intl</span>.NumberFormat({\n    <span class=\"hljs-string\">'en-US'</span>,\n    { <span class=\"hljs-attr\">style</span>: <span class=\"hljs-string\">'currency'</span>, <span class=\"hljs-attr\">currency</span>: <span class=\"hljs-string\">'USD'</span> }\n  }).format(amount)\n\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`The driver drove <span class=\"hljs-subst\">${formattedSpeed}</span> and has to pay <span class=\"hljs-subst\">${formattedAmount}</span>`</span>\n}\n\n<span class=\"hljs-built_in\">console</span>.log(getFine(<span class=\"hljs-number\">130</span>, <span class=\"hljs-number\">300</span>))",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getFine</span>(<span class=\"hljs-params\">speed, amount</span>) </span>{\n  <span class=\"hljs-keyword\">const</span> formattedSpeed = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Intl</span>.NumberFormat(<span class=\"hljs-string\">'en-US'</span>, {\n    <span class=\"hljs-attr\">style</span>: <span class=\"hljs-string\">'unit'</span>,\n    <span class=\"hljs-attr\">unit</span>: <span class=\"hljs-string\">'mile-per-hour'</span>\n  }).format(speed);\n\n  <span class=\"hljs-keyword\">const</span> formattedAmount = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Intl</span>.NumberFormat(<span class=\"hljs-string\">'en-US'</span>, {\n    <span class=\"hljs-attr\">style</span>: <span class=\"hljs-string\">'currency'</span>,\n    <span class=\"hljs-attr\">currency</span>: <span class=\"hljs-string\">'USD'</span>\n  }).format(amount);\n\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">`The driver drove <span class=\"hljs-subst\">${formattedSpeed}</span> and has to pay <span class=\"hljs-subst\">${formattedAmount}</span>`</span>;\n}\n\n<span class=\"hljs-built_in\">console</span>.log(getFine(<span class=\"hljs-number\">130</span>, <span class=\"hljs-number\">300</span>))",
       "choices": [
         "A: The driver drove 130 and has to pay 300",
         "B: The driver drove 130 mph and has to pay $300.00",

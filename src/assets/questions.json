@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-09-08T01:03:02.662Z",
+  "updatedAt": "2020-09-11T01:00:26.846Z",
   "data": [
     {
       "id": 1,
@@ -1834,7 +1834,7 @@
         "C: `I'm a bird. 🦢` `I'm pink. 🌸`",
         "D: Nothing, we didn't call any method"
       ],
-      "answer": "#### [](#answer-b-36)Answer: B\n\nWe create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `\"I'm pink. 🌸\"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. THe constructor in `Bird` gets called, and logs `\"I'm a bird. 🦢\"`."
+      "answer": "#### [](#answer-b-36)Answer: B\n\nWe create the variable `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `\"I'm pink. 🌸\"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. The constructor in `Bird` gets called, and logs `\"I'm a bird. 🦢\"`."
     },
     {
       "id": 143,
@@ -1918,7 +1918,7 @@
       "id": 149,
       "title": "149. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-keyword\">const</span> fruit = [<span class=\"hljs-string\">'🍌'</span>, <span class=\"hljs-string\">'🍊'</span>, <span class=\"hljs-string\">'🍎'</span>]\n\nfruit.slice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.splice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.unshift(<span class=\"hljs-string\">'🍇'</span>)",
+      "code": "<span class=\"hljs-keyword\">const</span> fruit = [<span class=\"hljs-string\">'🍌'</span>, <span class=\"hljs-string\">'🍊'</span>, <span class=\"hljs-string\">'🍎'</span>]\n\nfruit.slice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.splice(<span class=\"hljs-number\">0</span>, <span class=\"hljs-number\">1</span>)\nfruit.unshift(<span class=\"hljs-string\">'🍇'</span>)\n\n<span class=\"hljs-built_in\">console</span>.log(fruit)",
       "choices": [
         "A: `['🍌', '🍊', '🍎']`",
         "B: `['🍊', '🍎']`",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-09-11T01:00:26.846Z",
+  "updatedAt": "2020-09-19T01:04:48.601Z",
   "data": [
     {
       "id": 1,
@@ -37,7 +37,7 @@
         "C: `20` and `63`",
         "D: `NaN` and `63`"
       ],
-      "answer": "#### [](#answer-b)Answer: B\n\nNote that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.\n\nWith arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).\n\nThere is no value `radius` on that object, which returns `undefined`."
+      "answer": "#### [](#answer-b)Answer: B\n\nNote that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.\n\nWith arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).\n\nThere is no value `radius` on that object, which returns `NaN`."
     },
     {
       "id": 4,
@@ -1218,7 +1218,7 @@
       "id": 95,
       "title": "95. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">nums</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (a &gt; b) <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'a is bigger'</span>);\n  <span class=\"hljs-keyword\">else</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'b is bigger'</span>);\n  <span class=\"hljs-keyword\">return</span>;\n  a + b;\n}\n\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">2</span>));\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>));",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">nums</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">if</span> (a &gt; b) <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'a is bigger'</span>);\n  <span class=\"hljs-keyword\">else</span> <span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-string\">'b is bigger'</span>);\n  <span class=\"hljs-keyword\">return</span>\n  a + b;\n}\n\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">4</span>, <span class=\"hljs-number\">2</span>));\n<span class=\"hljs-built_in\">console</span>.log(nums(<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>));",
       "choices": [
         "A: `a is bigger`, `6` and `b is bigger`, `3`",
         "B: `a is bigger`, `undefined` and `b is bigger`, `undefined`",

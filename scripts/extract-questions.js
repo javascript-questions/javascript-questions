@@ -1,7 +1,7 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const TurndownService = require('turndown');
-const hljs = require('highlight.js/lib/highlight');
+const hljs = require('highlight.js/lib/core');
 const javascript = require('highlight.js/lib/languages/javascript');
 hljs.registerLanguage('javascript', javascript);
 

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-09-30T01:08:35.919Z",
+  "updatedAt": "2020-10-02T01:09:17.530Z",
   "data": [
     {
       "id": 1,
@@ -1339,10 +1339,10 @@
       "choices": [
         "A: `5`",
         "B: `Promise {<pending>: 5}`",
-        "C: `Promise {<resolved>: 5}`",
+        "C: `Promise {<fulfilled>: 5}`",
         "D: `Error`"
       ],
-      "answer": "#### [](#answer-c-31)Answer: C\n\nWe can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.\n\nIn this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`."
+      "answer": "#### [](#answer-c-31)Answer: C\n\nWe can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value (`<fulfilled>`). If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.\n\nIn this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`."
     },
     {
       "id": 105,

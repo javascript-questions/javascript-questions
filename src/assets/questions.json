@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-10-02T01:09:17.530Z",
+  "updatedAt": "2020-10-03T01:09:44.810Z",
   "data": [
     {
       "id": 1,
@@ -1964,7 +1964,7 @@
         "C: `[['First', 'Second']]`",
         "D: `'Third'`"
       ],
-      "answer": "#### [](#answer-d-25)Answer: D\n\nThe `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method \\_rejects) with the value of the rejected promise. In this case, `promise3` rejected with the value `\"Third\"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `\"Third\"` gets logged, since `promise3` rejected with this value."
+      "answer": "#### [](#answer-d-25)Answer: D\n\nThe `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method _rejects_ with the value of the rejected promise. In this case, `promise3` rejected with the value `\"Third\"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `\"Third\"` gets logged, since `promise3` rejected with this value."
     },
     {
       "id": 153,

@@ -22,7 +22,7 @@
     "dotenv-safe": "^8.2.0",
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^3.0.5",
-    "highlight.js": "^10.2.0",
+    "highlight.js": "^10.3.2",
     "if-env": "^1.0.0",
     "preact-cli": "^3.0.2",
     "puppeteer": "^5.3.1",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2020-11-13T00:57:37.541Z",
+  "updatedAt": "2020-11-15T01:02:26.093Z",
   "data": [
     {
       "id": 1,
@@ -209,7 +209,7 @@
       "id": 17,
       "title": "17. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getPersonInfo</span>(<span class=\"hljs-params\">one, two, three</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(one);\n  <span class=\"hljs-built_in\">console</span>.log(two);\n  <span class=\"hljs-built_in\">console</span>.log(three);\n}\n\n<span class=\"hljs-keyword\">const</span> person = <span class=\"hljs-string\">&#x27;Lydia&#x27;</span>;\n<span class=\"hljs-keyword\">const</span> age = <span class=\"hljs-number\">21</span>;\n\ngetPersonInfo(<span class=\"hljs-string\">`<span class=\"hljs-subst\">${person}</span> is <span class=\"hljs-subst\">${age}</span> years old`</span>);",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getPersonInfo</span>(<span class=\"hljs-params\">one, two, three</span>) </span>{\n  <span class=\"hljs-built_in\">console</span>.log(one);\n  <span class=\"hljs-built_in\">console</span>.log(two);\n  <span class=\"hljs-built_in\">console</span>.log(three);\n}\n\n<span class=\"hljs-keyword\">const</span> person = <span class=\"hljs-string\">&#x27;Lydia&#x27;</span>;\n<span class=\"hljs-keyword\">const</span> age = <span class=\"hljs-number\">21</span>;\n\ngetPersonInfo<span class=\"hljs-string\">`<span class=\"hljs-subst\">${person}</span> is <span class=\"hljs-subst\">${age}</span> years old`</span>;",
       "choices": [
         "A: `\"Lydia\"` `21` `[\"\", \" is \", \" years old\"]`",
         "B: `[\"\", \" is \", \" years old\"]` `\"Lydia\"` `21`",

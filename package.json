@@ -20,7 +20,7 @@
   ],
   "devDependencies": {
     "dotenv-safe": "^8.2.0",
-    "eslint": "^4.5.0",
+    "eslint": "^6.8.0",
     "eslint-config-synacor": "^3.0.5",
     "highlight.js": "^10.5.0",
     "if-env": "^1.0.0",

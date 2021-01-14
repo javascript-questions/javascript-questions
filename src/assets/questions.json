@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2021-01-07T02:02:55.412Z",
+  "updatedAt": "2021-01-14T02:24:40.857Z",
   "data": [
     {
       "id": 1,
@@ -1721,7 +1721,7 @@
     },
     {
       "id": 134,
-      "title": "134. How can we invoke sum in index.js from sum.js?",
+      "title": "134. How can we invoke sum in sum.js from index.js?",
       "text": null,
       "code": "<span class=\"hljs-comment\">// sum.js</span>\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">x</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> x + x;\n}\n\n<span class=\"hljs-comment\">// index.js</span>\n<span class=\"hljs-keyword\">import</span> * <span class=\"hljs-keyword\">as</span> sum <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;./sum&#x27;</span>;",
       "choices": [

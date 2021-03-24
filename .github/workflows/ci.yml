@@ -2,6 +2,7 @@ name: CI
 on: [push]
 env:
   CI: true
+  BASE_URL: "https://javascript-questions.netlify.app"
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "build"
 
+# Opt out of Google's FLoC network
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = "interest-cohort=()"
+
+# SPA redirect
 [[redirects]]
   from = "/*"
   to = "/index.html"

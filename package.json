@@ -31,7 +31,7 @@
   "dependencies": {
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",
-    "preact-render-to-string": "^5.1.12",
+    "preact-render-to-string": "^5.1.19",
     "snarkdown": "^2.0.0"
   }
 }

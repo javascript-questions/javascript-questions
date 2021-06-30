@@ -22,7 +22,7 @@
     "dotenv-safe": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-synacor": "^3.0.5",
-    "highlight.js": "^10.5.0",
+    "highlight.js": "^11.0.1",
     "if-env": "^1.0.0",
     "preact-cli": "^3.0.2",
     "puppeteer": "^5.5.0",
@@ -31,7 +31,7 @@
   "dependencies": {
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",
-    "preact-render-to-string": "^5.1.12",
+    "preact-render-to-string": "^5.1.19",
     "snarkdown": "^2.0.0"
   }
 }

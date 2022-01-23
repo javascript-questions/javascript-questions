@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2021-11-27T01:37:09.116Z",
+  "updatedAt": "2022-01-23T01:39:28.880Z",
   "data": [
     {
       "id": 1,
@@ -1938,7 +1938,7 @@
         "C: `undefined`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-38)Answer: B\n\nObject keys are converted to strings.\n\nSince the value of `dog` is an object, `animals[dog]` actually means that we’re creating a new property called `\"object Object\"` equal to the new object. `animals[\"object Object\"]` is now equal to `{ emoji: \"🐶\", name: \"Mara\"}`.\n\n`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of `animals[``\"``object Object``\"``]` with the new cat properties.\n\nLogging `animals[dog]`, or actually `animals[\"object Object\"]` since converting the `dog` object to a string results `\"object Object\"`, returns the `{ emoji: \"🐈\", name: \"Sara\" }`."
+      "answer": "#### [](#answer-b-38)Answer: B\n\nObject keys are converted to strings.\n\nSince the value of `dog` is an object, `animals[dog]` actually means that we’re creating a new property called `\"object Object\"` equal to the new object. `animals[\"object Object\"]` is now equal to `{ emoji: \"🐶\", name: \"Mara\"}`.\n\n`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of `animals[\"object Object\"]` with the new cat properties.\n\nLogging `animals[dog]`, or actually `animals[\"object Object\"]` since converting the `dog` object to a string results `\"object Object\"`, returns the `{ emoji: \"🐈\", name: \"Sara\" }`."
     },
     {
       "id": 151,

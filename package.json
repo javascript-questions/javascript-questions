@@ -24,7 +24,7 @@
     "eslint-config-synacor": "^3.0.5",
     "highlight.js": "^10.5.0",
     "if-env": "^1.0.0",
-    "preact-cli": "^3.0.2",
+    "preact-cli": "^3.4.1",
     "puppeteer": "^10.2.0",
     "turndown": "^6.0.0"
   },

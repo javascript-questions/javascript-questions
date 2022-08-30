@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2022-06-19T00:50:09.549Z",
+  "updatedAt": "2022-08-30T00:50:51.836Z",
   "data": [
     {
       "id": 1,
@@ -349,7 +349,7 @@
       "id": 28,
       "title": "28. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-built_in\">String</span>.prototype.giveLydiaPizza = <span class=\"hljs-function\">() =&gt;</span> {\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&#x27;Just give Lydia pizza already!&#x27;</span>;\n};\n\n<span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">&#x27;Lydia&#x27;</span>;\n\nname.giveLydiaPizza();",
+      "code": "<span class=\"hljs-built_in\">String</span>.prototype.giveLydiaPizza = <span class=\"hljs-function\">() =&gt;</span> {\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&#x27;Just give Lydia pizza already!&#x27;</span>;\n};\n\n<span class=\"hljs-keyword\">const</span> name = <span class=\"hljs-string\">&#x27;Lydia&#x27;</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(name.giveLydiaPizza())",
       "choices": [
         "A: `\"Just give Lydia pizza already!\"`",
         "B: `TypeError: not a function`",
@@ -468,12 +468,12 @@
       "text": null,
       "code": "<span class=\"hljs-keyword\">const</span> numbers = [<span class=\"hljs-number\">1</span>, <span class=\"hljs-number\">2</span>, <span class=\"hljs-number\">3</span>];\nnumbers[<span class=\"hljs-number\">10</span>] = <span class=\"hljs-number\">11</span>;\n<span class=\"hljs-built_in\">console</span>.log(numbers);",
       "choices": [
-        "A: `[1, 2, 3, 7 x null, 11]`",
+        "A: `[1, 2, 3, null x 7, 11]`",
         "B: `[1, 2, 3, 11]`",
-        "C: `[1, 2, 3, 7 x empty, 11]`",
+        "C: `[1, 2, 3, empty x 7, 11]`",
         "D: `SyntaxError`"
       ],
-      "answer": "#### [](#answer-c-11)Answer: C\n\nWhen you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called \"empty slots\". These actually have the value of `undefined`, but you will see something like:\n\n`[1, 2, 3, 7 x empty, 11]`\n\ndepending on where you run it (it's different for every browser, node, etc.)"
+      "answer": "#### [](#answer-c-11)Answer: C\n\nWhen you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called \"empty slots\". These actually have the value of `undefined`, but you will see something like:\n\n`[1, 2, 3, empty x 7, 11]`\n\ndepending on where you run it (it's different for every browser, node, etc.)"
     },
     {
       "id": 38,

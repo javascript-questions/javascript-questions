@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2022-08-30T00:50:51.836Z",
+  "updatedAt": "2022-12-01T00:50:43.988Z",
   "data": [
     {
       "id": 1,
@@ -434,7 +434,7 @@
         "C: `\"function\"`",
         "D: `\"undefined\"`"
       ],
-      "answer": "#### [](#answer-b-7)Answer: B\n\nThe `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `\"number\"`.\n\nFYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `\"function\"` is not a type, since functions are objects, it's of type `\"object\"`."
+      "answer": "#### [](#answer-b-7)Answer: B\n\nThe `sayHi` function returns the returned value of the immediately invoked function expression (IIFE). This function returned `0`, which is type `\"number\"`.\n\nFYI: `typeof` can return the following list of values: `undefined`, `boolean`, `number`, `bigint`, `string`, `symbol`, `function` and `object`. Note that `typeof null` returns `\"object\"`."
     },
     {
       "id": 35,
@@ -908,7 +908,7 @@
       "id": 71,
       "title": "71. How can we log the values that are commented out after the console.log statement?",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">startGame</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">const</span> answer = <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-string\">&#x27;Do you love JavaScript?&#x27;</span>;\n  <span class=\"hljs-keyword\">if</span> (answer !== <span class=\"hljs-string\">&#x27;Yes&#x27;</span>) {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;Oh wow... Guess we&#x27;re gone here&quot;</span>;\n  }\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&#x27;JavaScript loves you back ❤️&#x27;</span>;\n}\n\n<span class=\"hljs-keyword\">const</span> game = startGame();\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-comment\">/* 1 */</span>); <span class=\"hljs-comment\">// Do you love JavaScript?</span>\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-comment\">/* 2 */</span>); <span class=\"hljs-comment\">// JavaScript loves you back ❤️</span>",
+      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span>* <span class=\"hljs-title\">startGame</span>(<span class=\"hljs-params\"></span>) </span>{\n  <span class=\"hljs-keyword\">const</span> answer = <span class=\"hljs-keyword\">yield</span> <span class=\"hljs-string\">&#x27;Do you love JavaScript?&#x27;</span>;\n  <span class=\"hljs-keyword\">if</span> (answer !== <span class=\"hljs-string\">&#x27;Yes&#x27;</span>) {\n    <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&quot;Oh wow... Guess we&#x27;re done here&quot;</span>;\n  }\n  <span class=\"hljs-keyword\">return</span> <span class=\"hljs-string\">&#x27;JavaScript loves you back ❤️&#x27;</span>;\n}\n\n<span class=\"hljs-keyword\">const</span> game = startGame();\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-comment\">/* 1 */</span>); <span class=\"hljs-comment\">// Do you love JavaScript?</span>\n<span class=\"hljs-built_in\">console</span>.log(<span class=\"hljs-comment\">/* 2 */</span>); <span class=\"hljs-comment\">// JavaScript loves you back ❤️</span>",
       "choices": [
         "A: `game.next(\"Yes\").value` and `game.next().value`",
         "B: `game.next.value(\"Yes\")` and `game.next.value()`",
@@ -967,7 +967,7 @@
         "C: `{ x: 100 }`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-19)Answer: B\n\n`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).\n\nWhen we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.\n\nSince `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged."
+      "answer": "#### [](#answer-b-19)Answer: B\n\n`Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).\n\nWhen we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` would return true, since the variable `shape` has a reference to a frozen object.\n\nSince `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged."
     },
     {
       "id": 76,
@@ -1160,7 +1160,7 @@
         "C: `\"object\"`",
         "D: `\"string\"`"
       ],
-      "answer": "#### [](#answer-c-28)Answer: C\n\nClasses are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:\n\nfunction Person() {\n  this.name \\= name;\n}\n\nCalling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `\"object\"` for an instance. `typeof member` returns `\"object\"`."
+      "answer": "#### [](#answer-c-28)Answer: C\n\nClasses are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:\n\nfunction Person(name) {\n  this.name \\= name;\n}\n\nCalling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `\"object\"` for an instance. `typeof member` returns `\"object\"`."
     },
     {
       "id": 91,

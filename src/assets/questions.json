@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-04-06T19:50:22.540Z",
+  "updatedAt": "2023-04-06T20:29:22.776Z",
   "data": [
     {
       "id": 1,
@@ -722,7 +722,7 @@
       "id": 57,
       "title": "57. What's the output?",
       "text": null,
-      "code": "<span class=\"hljs-comment\">// counter.js</span>\n<span class=\"hljs-keyword\">let</span> counter = <span class=\"hljs-number\">10</span>;\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> counter;\n<span class=\"hljs-comment\">//  index.js</span>\n<span class=\"hljs-keyword\">import</span> myCounter <span class=\"hljs-keyword\">from</span>'./counter';\nmyCounter += 1;\nconsole.log(myCounter); ",
+      "code": "<span class=\"hljs-comment\">// counter.js</span>\n<span class=\"hljs-keyword\">let</span> counter = <span class=\"hljs-number\">10</span>;\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">default</span> counter;\n\n\n<span class=\"hljs-comment\">// index.js</span>\n<span class=\"hljs-keyword\">import</span> myCounter <span class=\"hljs-keyword\">from</span> <span class=\"hljs-string\">&#x27;./counter&#x27;</span>;\n\nmyCounter += <span class=\"hljs-number\">1</span>;\n\n<span class=\"hljs-built_in\">console</span>.log(myCounter);",
       "choices": [
         "A: `10`",
         "B: `11`",

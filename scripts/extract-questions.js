@@ -62,6 +62,10 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
     	// If not, jump to the next sibling and continue the loop
     	while (sibling) {
     		if (sibling.matches(selector)) return sibling;
+
+        // Exit when we reach the next question selector
+        if (sibling.matches('h6')) break;
+
     		sibling = sibling.nextElementSibling
     	}
     }
@@ -77,7 +81,7 @@ function saveQuestions(data) {
   const questions = {
     updatedAt: new Date(),
     data: data.map(data => {
-      data.code = hljs.highlight('javascript', data.code).value;
+      data.code = data.code && hljs.highlight('javascript', data.code).value;
       data.answer = turndownService.turndown(data.answer).replace('**Answer**\n\n', '');
       data.choices = data.choices.map(choice => turndownService.turndown(choice));
       return data;

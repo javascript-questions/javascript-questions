@@ -34,9 +34,17 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
         return questions;
     }
     function getCode(node) {
+      let code = null;
       const rootNode = getNextQuestionSibling(node, '.highlight');
       const codeNode = rootNode && rootNode.querySelector('pre');
-      const code = codeNode && codeNode.innerText;
+      code = codeNode && codeNode.innerText;
+
+      // Consider 2 code blocks hack relevant for question #57
+      if (rootNode && rootNode.nextElementSibling.matches('.highlight')) {
+        const codeNode2 = rootNode.nextElementSibling.querySelector('pre');
+        code = `${code}${codeNode2 && `\n\n\n${codeNode2.innerText}`}`;
+      }
+
       return code;
     }
     function getChoices(node) {

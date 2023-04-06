@@ -83,7 +83,7 @@ export default class App extends Component {
         <main>
           <QuestionHeader question={question} />
           <div class="Box">
-            <pre class="Box-header" dangerouslySetInnerHTML={{__html: question.code}} />
+            {question.code ? <pre class="Box-header" dangerouslySetInnerHTML={{__html: question.code}} /> : null}
             <ul>
               {question.choices.map((choice, choiceId) => (
                 <li

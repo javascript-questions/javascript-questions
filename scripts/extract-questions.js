@@ -34,7 +34,7 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
         return questions;
     }
     function getCode(node) {
-      const rootNode = getNextSibling(node, '.highlight.highlight-source-js');
+      const rootNode = getNextQuestionSibling(node, '.highlight');
       const codeNode = rootNode && rootNode.querySelector('pre');
       const code = codeNode && codeNode.innerText;
       return code;

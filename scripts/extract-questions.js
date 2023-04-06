@@ -40,19 +40,19 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
       return code;
     }
     function getChoices(node) {
-      const rootNode = getNextSibling(node, 'ul');
+      const rootNode = getNextQuestionSibling(node, 'ul');
       const choiceNodes = Array.from(rootNode.querySelectorAll('li'));
       const choices = choiceNodes.map(node => node.innerHTML);
       return choices;
     }
     function getAnswer(node) {
-      const rootNode = getNextSibling(node, 'details');
+      const rootNode = getNextQuestionSibling(node, 'details');
       const answerNodes = Array.from(rootNode.querySelectorAll(':not(summary)'));
       const answer = answerNodes.map(node => node.innerHTML).join('');
       return rootNode.innerHTML;
       return answer;
     }
-    function getNextSibling(element, selector) {
+    function getNextQuestionSibling(element, selector) {
     	let sibling = element.nextElementSibling;
 
     	// If there's no selector, return the first sibling

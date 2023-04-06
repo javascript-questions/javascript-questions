@@ -172,7 +172,7 @@
       "id": 14,
       "title": "14. All object have prototypes.",
       "text": null,
-      "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">sum</span>(<span class=\"hljs-params\">a, b</span>) </span>{\n  <span class=\"hljs-keyword\">return</span> a + b;\n}\n\nsum(<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">&#x27;2&#x27;</span>);",
+      "code": null,
       "choices": [
         "A: true",
         "B: false"

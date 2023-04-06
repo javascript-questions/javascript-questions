@@ -53,21 +53,21 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
       return answer;
     }
     function getNextQuestionSibling(element, selector) {
-    	let sibling = element.nextElementSibling;
+      let sibling = element.nextElementSibling;
 
     	// If there's no selector, return the first sibling
-    	if (!selector) return sibling;
+      if (!selector) return sibling;
 
     	// If the sibling matches our selector, use it
     	// If not, jump to the next sibling and continue the loop
-    	while (sibling) {
-    		if (sibling.matches(selector)) return sibling;
+      while (sibling) {
+        if (sibling.matches(selector)) return sibling;
 
         // Exit when we reach the next question selector
         if (sibling.matches('h6')) break;
 
-    		sibling = sibling.nextElementSibling
-    	}
+        sibling = sibling.nextElementSibling
+      }
     }
   });
 

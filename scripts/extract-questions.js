@@ -34,36 +34,48 @@ const CACHED_QUESTIONS = JSON.parse(CACHED_QUESTIONS_RAW);
         return questions;
     }
     function getCode(node) {
-      const rootNode = getNextSibling(node, '.highlight.highlight-source-js');
+      let code = null;
+      const rootNode = getNextQuestionSibling(node, '.highlight');
       const codeNode = rootNode && rootNode.querySelector('pre');
-      const code = codeNode && codeNode.innerText;
+      code = codeNode && codeNode.innerText;
+
+      // Consider 2 code blocks hack relevant for question #57
+      if (rootNode && rootNode.nextElementSibling.matches('.highlight')) {
+        const codeNode2 = rootNode.nextElementSibling.querySelector('pre');
+        code = `${code}${codeNode2 && `\n\n\n${codeNode2.innerText}`}`;
+      }
+
       return code;
     }
     function getChoices(node) {
-      const rootNode = getNextSibling(node, 'ul');
+      const rootNode = getNextQuestionSibling(node, 'ul');
       const choiceNodes = Array.from(rootNode.querySelectorAll('li'));
       const choices = choiceNodes.map(node => node.innerHTML);
       return choices;
     }
     function getAnswer(node) {
-      const rootNode = getNextSibling(node, 'details');
+      const rootNode = getNextQuestionSibling(node, 'details');
       const answerNodes = Array.from(rootNode.querySelectorAll(':not(summary)'));
       const answer = answerNodes.map(node => node.innerHTML).join('');
       return rootNode.innerHTML;
       return answer;
     }
-    function getNextSibling(element, selector) {
-    	let sibling = element.nextElementSibling;
+    function getNextQuestionSibling(element, selector) {
+      let sibling = element.nextElementSibling;
 
     	// If there's no selector, return the first sibling
-    	if (!selector) return sibling;
+      if (!selector) return sibling;
 
     	// If the sibling matches our selector, use it
     	// If not, jump to the next sibling and continue the loop
-    	while (sibling) {
-    		if (sibling.matches(selector)) return sibling;
-    		sibling = sibling.nextElementSibling
-    	}
+      while (sibling) {
+        if (sibling.matches(selector)) return sibling;
+
+        // Exit when we reach the next question selector
+        if (sibling.matches('h6')) break;
+
+        sibling = sibling.nextElementSibling
+      }
     }
   });
 
@@ -77,7 +89,7 @@ function saveQuestions(data) {
   const questions = {
     updatedAt: new Date(),
     data: data.map(data => {
-      data.code = hljs.highlight('javascript', data.code).value;
+      data.code = data.code && hljs.highlight('javascript', data.code).value;
       data.answer = turndownService.turndown(data.answer).replace('**Answer**\n\n', '');
       data.choices = data.choices.map(choice => turndownService.turndown(choice));
       return data;

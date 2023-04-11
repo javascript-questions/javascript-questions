@@ -219,6 +219,10 @@ footer {
 
 .Drawer > summary {
   border-radius: 50%;
+  list-style: none;
+}
+.Drawer > summary::-webkit-details-marker {
+  display: none;
 }
 
 /* Using a nested div to fix a flexbox issue on iOS */

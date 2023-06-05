@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-04-06T20:29:22.776Z",
+  "updatedAt": "2023-06-05T00:51:38.557Z",
   "data": [
     {
       "id": 1,
@@ -114,7 +114,7 @@
         "B: `ReferenceError: greetign is not defined`",
         "C: `undefined`"
       ],
-      "answer": "#### [](#answer-a-3)Answer: A\n\nIt logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:\n\n1.  `global.greetign = {}` in Node.js\n2.  `window.greetign = {}`, `frames.geetign = {}` and `self.greetign` in browsers.\n3.  `self.greetign` in web workers.\n4.  `globalThis.greetign` in all environments.\n\nIn order to avoid this, we can use `\"use strict\"`. This makes sure that you have declared a variable before setting it equal to anything."
+      "answer": "#### [](#answer-a-3)Answer: A\n\nIt logs the object, because we just created an empty object on the global object! When we mistyped `greeting` as `greetign`, the JS interpreter actually saw this as:\n\n1.  `global.greetign = {}` in Node.js\n2.  `window.greetign = {}`, `frames.greetign = {}` and `self.greetign` in browsers.\n3.  `self.greetign` in web workers.\n4.  `globalThis.greetign` in all environments.\n\nIn order to avoid this, we can use `\"use strict\"`. This makes sure that you have declared a variable before setting it equal to anything."
     },
     {
       "id": 10,

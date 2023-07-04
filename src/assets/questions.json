@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-07-01T00:50:29.260Z",
+  "updatedAt": "2023-07-04T00:51:47.262Z",
   "data": [
     {
       "id": 1,
@@ -1518,7 +1518,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png), `console.log(list[2])` prints ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png)."
+      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png)."
     },
     {
       "id": 119,
@@ -1877,8 +1877,8 @@
       "text": null,
       "code": "<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> <span class=\"hljs-title\">getFruit</span>(<span class=\"hljs-params\">fruits</span>) </span>{\n\t<span class=\"hljs-built_in\">console</span>.log(fruits?.[<span class=\"hljs-number\">1</span>]?.[<span class=\"hljs-number\">1</span>])\n}\n\ngetFruit([[<span class=\"hljs-string\">&#x27;🍊&#x27;</span>, <span class=\"hljs-string\">&#x27;🍌&#x27;</span>], [<span class=\"hljs-string\">&#x27;🍍&#x27;</span>]])\ngetFruit()\ngetFruit([[<span class=\"hljs-string\">&#x27;🍍&#x27;</span>], [<span class=\"hljs-string\">&#x27;🍊&#x27;</span>, <span class=\"hljs-string\">&#x27;🍌&#x27;</span>]])",
       "choices": [
-        "A: `null`, `undefined`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
-        "B: `[]`, `null`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
+        "A: `null`, `undefined`, 🍌",
+        "B: `[]`, `null`, 🍌",
         "C: `[]`, `[]`, 🍌",
         "D: `undefined`, `undefined`, 🍌"
       ],
@@ -1921,7 +1921,7 @@
         "C: `['🍇', '🍊', '🍎']`",
         "D: `['🍇', '🍌', '🍊', '🍎']`"
       ],
-      "answer": "#### [](#answer-c-47)Answer: C\n\nFirst, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji. Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`. At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘![grapes](https://github.githubassets.com/images/icons/emoji/unicode/1f347.png)’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`."
+      "answer": "#### [](#answer-c-47)Answer: C\n\nFirst, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji. Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`. At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘🍇’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`."
     },
     {
       "id": 150,

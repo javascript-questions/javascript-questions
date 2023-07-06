@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-07-04T00:51:47.262Z",
+  "updatedAt": "2023-07-06T00:51:07.853Z",
   "data": [
     {
       "id": 1,
@@ -1388,7 +1388,7 @@
         "C: `map` `slice` `splice`",
         "D: `splice`"
       ],
-      "answer": "#### [](#answer-d-15)Answer: D\n\nWith `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.\n\n`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value."
+      "answer": "#### [](#answer-d-15)Answer: D\n\nWith `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ![sparkles](https://github.githubassets.com/images/icons/emoji/unicode/2728.png) emoji instead.\n\n`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value."
     },
     {
       "id": 109,
@@ -1518,7 +1518,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png)."
+      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰."
     },
     {
       "id": 119,
@@ -1635,7 +1635,7 @@
         "C: `[\"👻\", \"🎃\", \"🕸\", { item: \"💀\" }]`",
         "D: `[\"👻\", \"🎃\", \"🕸\", \"[object Object]\"]`"
       ],
-      "answer": "#### [](#answer-b-33)Answer: B\n\nBy destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value \"💀\" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the \"![skull](https://github.githubassets.com/images/icons/emoji/unicode/1f480.png)\" to it. When logging `spookyItems`, `[\"👻\", \"🎃\", \"🕸\", \"💀\"]` gets logged."
+      "answer": "#### [](#answer-b-33)Answer: B\n\nBy destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value \"![skull](https://github.githubassets.com/images/icons/emoji/unicode/1f480.png)\" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the \"![skull](https://github.githubassets.com/images/icons/emoji/unicode/1f480.png)\" to it. When logging `spookyItems`, `[\"👻\", \"🎃\", \"🕸\", \"💀\"]` gets logged."
     },
     {
       "id": 128,

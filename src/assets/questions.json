@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-07-26T00:50:20.625Z",
+  "updatedAt": "2023-07-29T00:49:39.314Z",
   "data": [
     {
       "id": 1,
@@ -1518,7 +1518,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png), `console.log(list[2])` prints 🥰."
+      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png), `console.log(list[2])` prints ![smiling_face_with_three_hearts](https://github.githubassets.com/images/icons/emoji/unicode/1f970.png)."
     },
     {
       "id": 119,
@@ -1879,8 +1879,8 @@
       "choices": [
         "A: `null`, `undefined`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
         "B: `[]`, `null`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
-        "C: `[]`, `[]`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)",
-        "D: `undefined`, `undefined`, 🍌"
+        "C: `[]`, `[]`, 🍌",
+        "D: `undefined`, `undefined`, ![banana](https://github.githubassets.com/images/icons/emoji/unicode/1f34c.png)"
       ],
       "answer": "#### [](#answer-d-23)Answer: D\n\nThe `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`.\n\nFirst, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.\n\nThen, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist.\n\nLastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged."
     },
@@ -1921,7 +1921,7 @@
         "C: `['🍇', '🍊', '🍎']`",
         "D: `['🍇', '🍌', '🍊', '🍎']`"
       ],
-      "answer": "#### [](#answer-c-47)Answer: C\n\nFirst, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji. Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`. At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘![grapes](https://github.githubassets.com/images/icons/emoji/unicode/1f347.png)’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`."
+      "answer": "#### [](#answer-c-47)Answer: C\n\nFirst, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji. Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`. At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘🍇’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`."
     },
     {
       "id": 150,

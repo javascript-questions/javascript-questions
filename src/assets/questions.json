@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-09-21T00:49:03.691Z",
+  "updatedAt": "2023-09-25T00:49:34.719Z",
   "data": [
     {
       "id": 1,
@@ -290,7 +290,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [Answer: B](#answer-b-4)\n\nWith the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.\n\nYou cannot do this with `let` or `const` since they're block-scoped."
+      "answer": "#### [Answer: B](#answer-b-4)\n\nWith the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.\n\nYou cannot do this with `let` or `const` since they're block-scoped and therefore can't be redeclared."
     },
     {
       "id": 24,

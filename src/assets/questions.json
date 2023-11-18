@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2023-11-16T00:49:20.504Z",
+  "updatedAt": "2023-11-18T00:49:10.356Z",
   "data": [
     {
       "id": 1,
@@ -1518,7 +1518,7 @@
         "C: `SyntaxError`",
         "D: `ReferenceError`"
       ],
-      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰."
+      "answer": "#### [](#answer-b-29)Answer: B\n\nWith the `+=` operator, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰."
     },
     {
       "id": 119,

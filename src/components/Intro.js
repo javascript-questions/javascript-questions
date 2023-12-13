@@ -9,9 +9,9 @@ const Intro = () => (
     <a href="/#1" class="Button width-full">Start</a>
     <p>
       <a href="https://github.com/andreruffert/javascript-questions">PWA</a> build by{' '}
-      <a href="https://github.com/andreruffert">André Ruffert</a>,{' '}
+      <a href="https://andreruffert.com">André Ruffert</a>,{' '}
       <a href="https://github.com/lydiahallie/javascript-questions">questions</a> by{' '}
-      <a href="https://github.com/lydiahallie">Lydia Hallie</a>.
+      <a href="https://www.lydiahallie.com">Lydia Hallie</a>.
     </p>
 	</div>
 );

@@ -14,7 +14,7 @@ jobs:
     - name: Get npm cache directory
       id: npm-cache
       run: echo "::set-output name=dir::$(npm config get cache)"
-    - uses: actions/cache@v2.1.3
+    - uses: actions/cache@v3.3.2
       with:
         path: ${{ steps.npm-cache.outputs.dir }}
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

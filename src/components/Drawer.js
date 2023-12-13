@@ -17,9 +17,9 @@ const Drawer = ({ updatedAt }) => (
         </svg>
         <br/>
         <br/>
-        <p>This PWA is build by <a href="https://github.com/andreruffert">André Ruffert</a>. You can find the{' '}
+        <p>This PWA is build by <a href="https://andreruffert.com">André Ruffert</a>. You can find the{' '}
         <a href="https://github.com/andreruffert/javascript-questions" target="_blank" rel="noopener" aria-label="JavaScript Questions PWA GitHub repository">source code</a> on GitHub.</p>
-        <p>Huge thanks to <a href="https://github.com/lydiahallie">Lydia Hallie</a> for creating & maintaining all the "JavaScript Questions" also available on <a href="https://github.com/lydiahallie/javascript-questions">GitHub</a>.</p>
+        <p>Huge thanks to <a href="https://www.lydiahallie.com">Lydia Hallie</a> for creating & maintaining all the "JavaScript Questions" also available on <a href="https://github.com/lydiahallie/javascript-questions">GitHub</a>.</p>
       </div>
       <small>Questions updated at: <code>{updatedAt}</code></small>
     </div>

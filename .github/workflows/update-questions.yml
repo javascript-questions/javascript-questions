@@ -16,7 +16,7 @@ jobs:
       - run: npm install
       - run: npm run update-questions
 
-      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+      - uses: stefanzweifel/git-auto-commit-action@v5.0.0
         with:
           commit_message: "feat: fetch latest questions"
           branch: master
